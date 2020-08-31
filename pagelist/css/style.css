@@ -94,7 +94,7 @@ caption.visually_hidden {
   left: 3px;
   font-size: 10px;
   text-align: center;
-  color: rgba(255,255,255,1);
+  color: #ffff;
   display: block;
   background: #e3dede; }
 
@@ -181,8 +181,7 @@ abbr[data-original-title] {
   text-decoration: underline dotted;
   cursor: help;
   border-bottom: 0;
-  -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none; }
+  text-decoration-skip-ink: none; }
 
 address {
   margin-bottom: 1rem;
@@ -398,6 +397,8 @@ template {
 
 [hidden] {
   display: none !important; }
+
+/*# sourceMappingURL=bootstrap-reboot.css.map */
 /**
 layout
  */
@@ -431,8 +432,6 @@ layout
   -webkit-font-smoothing: antialiased;
   display: inline-block;
   font-style: normal;
-  -webkit-font-feature-settings: normal;
-          font-feature-settings: normal;
   font-variant: normal;
   text-rendering: auto;
   line-height: 1; }
@@ -4661,119 +4660,6 @@ layout
   padding-top: 50px; }
 
 a {
-  -webkit-animation: none 0s ease 0s 1 normal none running;
-          animation: none 0s ease 0s 1 normal none running;
-  -webkit-backface-visibility: visible;
-          backface-visibility: visible;
-  background: transparent none repeat 0 0 / auto auto padding-box border-box scroll;
-  border: medium none currentColor;
-  border-collapse: separate;
-  -o-border-image: none;
-     border-image: none;
-  border-radius: 0;
-  border-spacing: 0;
-  bottom: auto;
-  box-shadow: none;
-  box-sizing: content-box;
-  caption-side: top;
-  clear: none;
-  clip: auto;
-  color: #000;
-  -webkit-columns: auto;
-     -moz-columns: auto;
-          columns: auto;
-  -webkit-column-count: auto;
-     -moz-column-count: auto;
-          column-count: auto;
-  -webkit-column-fill: balance;
-     -moz-column-fill: balance;
-          column-fill: balance;
-  grid-column-gap: normal;
-  -webkit-column-gap: normal;
-     -moz-column-gap: normal;
-          column-gap: normal;
-  -webkit-column-rule: medium none currentColor;
-     -moz-column-rule: medium none currentColor;
-          column-rule: medium none currentColor;
-  -webkit-column-span: 1;
-     -moz-column-span: 1;
-          column-span: 1;
-  -webkit-column-width: auto;
-     -moz-column-width: auto;
-          column-width: auto;
-  content: normal;
-  counter-increment: none;
-  counter-reset: none;
-  cursor: auto;
-  direction: ltr;
-  display: inline;
-  empty-cells: show;
-  float: none;
-  font-family: serif;
-  font-size: medium;
-  font-style: normal;
-  -webkit-font-feature-settings: normal;
-          font-feature-settings: normal;
-  font-variant: normal;
-  font-weight: normal;
-  font-stretch: normal;
-  line-height: normal;
-  height: auto;
-  -webkit-hyphens: none;
-     -moz-hyphens: none;
-      -ms-hyphens: none;
-          hyphens: none;
-  left: auto;
-  letter-spacing: normal;
-  list-style: disc outside none;
-  margin: 0;
-  max-height: none;
-  max-width: none;
-  min-height: 0;
-  min-width: 0;
-  opacity: 1;
-  orphans: 2;
-  outline: medium none invert;
-  overflow: visible;
-  overflow-x: visible;
-  overflow-y: visible;
-  padding: 0;
-  page-break-after: auto;
-  page-break-before: auto;
-  page-break-inside: auto;
-  -webkit-perspective: none;
-          perspective: none;
-  -webkit-perspective-origin: 50% 50%;
-          perspective-origin: 50% 50%;
-  position: static;
-  right: auto;
-  -moz-tab-size: 8;
-    -o-tab-size: 8;
-       tab-size: 8;
-  table-layout: auto;
-  text-align: left;
-  -moz-text-align-last: auto;
-       text-align-last: auto;
-  text-decoration: none;
-  text-indent: 0;
-  text-shadow: none;
-  text-transform: none;
-  top: auto;
-  -webkit-transform: none;
-          transform: none;
-  -webkit-transform-origin: 50% 50% 0;
-          transform-origin: 50% 50% 0;
-  -webkit-transform-style: flat;
-          transform-style: flat;
-  transition: none 0s ease 0s;
-  unicode-bidi: normal;
-  vertical-align: baseline;
-  visibility: visible;
-  white-space: normal;
-  widows: 2;
-  width: auto;
-  word-spacing: normal;
-  z-index: auto;
   all: initial; }
 
 .nav {
@@ -4962,6 +4848,8 @@ a {
           background-color: #f00;
           font-size: 10px;
           color: #ffffff;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
           border-radius: 50%;
           width: 16px;
           height: 16px;
@@ -5092,6 +4980,8 @@ h2.title {
   background-color: #f00;
   font-size: 10px;
   color: #ffffff;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
   border-radius: 50%;
   width: 16px;
   height: 16px;
@@ -5293,8 +5183,7 @@ h2.title {
   left: 11px; }
 
 .content_guide .guide_box.close h2 a i {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg); }
+  transform: rotate(90deg); }
 
 .content_guide .box_content {
   padding: 20px;
