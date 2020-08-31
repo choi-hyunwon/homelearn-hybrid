@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+@font-face {
+	font-family: 'BMJUA';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../fonts/BMJUA_otf.otf);
+  }
+  
+.nanumsquare {
+	font-family: 'NanumSquare', sans-serif !important;
+}
+
+html { min-height: 100%; }
+body { font-family: NanumSquare; height: 100%; background-image: linear-gradient(to right, #f8f2e7, #f8f2e7 1190px, #3ac8f5 1190px); }
+
+.wrap { display: flex;  padding: 25px 25px 25px 35px; }
+
+main { width: 935px; }
+.mainSection { display: flex; margin: 0 20px 0 0; }
+.mainSection .box { flex: 1; box-shadow: 3px 3px 8px rgba(0, 0, 0, .15); height: 500px; margin: 0 20px 0 0; display: block;  border-width: 2px; border-style: solid; border-radius: 20px; }
+.mainSection .box.blueBox { border-color: #42c0da; background-color: #63d5ed; }
+.mainSection .box.yellowBox { border-color: #e3a556; background-color: #f6b35d; }
+nav { margin: 0 150px 24px; border: 2px solid #42c0da; border-radius: 23px; background-color: white; height: 46px;  }
+
+aside { margin-top: 24px; width: 265px; }
+aside section { margin-top: 9px; background-color: white; border: 2px solid #d7d7d7; border-radius: 23px; box-shadow: 3px 3px 8px rgba(0, 0, 0, .15); min-height: 100px; }
+aside section:first-child { margin-top: 0; }
+
