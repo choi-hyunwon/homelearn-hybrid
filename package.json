@@ -135,7 +135,7 @@
   },
   "sass": "scss/bootstrap.scss",
   "scripts": {
-	"---------------------------- css task": "",
+    "---------------------------- css task": "",
     "css": "npm-run-all css-main",
     "css-compile": "npm-run-all --parallel css-compile-*",
     "css-compile-main": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/ -o src/css/dist/",

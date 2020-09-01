@@ -4,7 +4,7 @@
 <body id="todayStudy">
 	<div class="wrap">
 		<main>
-			<nav>
+			<nav class="dateNav">
 				<a class="goPrev"></a>
 				<a>월</a>
 				<a>화</a>
@@ -16,10 +16,11 @@
 				<a class="goNext"></a>
 				<a class="calendar"></a>
 			</nav>
+
 			<section class="main">
 
 				<div class="box blueBox flex column withTitle">
-					<div class="boxTitle todayStudy"></div>
+					<div class="boxTitle todayStudy"><span>4</span></div>
 					<div class="flex row margin-top-0">
 						<div class="element grow navyLabel nowrap label"><label class="white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
 						<div class="element grow nowrap newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
@@ -34,7 +35,7 @@
 								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>이야기 읽고 다른 사람에게 들려주기</li>
 							</ul>
-							<div class="kidIcon kid01 complete badge">
+							<div class="kidIcon complete badge">
 								<div></div>
 							</div>
 						</div>
@@ -48,7 +49,7 @@
 								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>변의 길이와 각의 크기가 같은 다각형을 알아볼까요</li>
 							</ul>
-							<div class="kidIcon kid02 complete badge">
+							<div class="kidIcon complete badge">
 								<div></div>
 							</div>
 						</div>
@@ -62,7 +63,7 @@
 								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>이야기 읽고 다른 사람에게 들려주기</li>
 							</ul>
-							<div class="kidIcon kid03 complete badge">
+							<div class="kidIcon complete badge">
 								<div></div>
 							</div>
 						</div>
@@ -76,7 +77,7 @@
 								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>지구는 과연 둥근가?</li>
 							</ul>
-							<div class="kidIcon kid04 complete badge">
+							<div class="kidIcon complete badge">
 								<div></div>
 							</div>
 						</div>
@@ -90,7 +91,7 @@
 								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>Hello, World !!</li>
 							</ul>
-							<div class="kidIcon kid05 complete badge">
+							<div class="kidIcon complete badge">
 								<div></div>
 							</div>
 						</div>
@@ -104,7 +105,7 @@
 								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>Hello, World !!</li>
 							</ul>
-							<div class="kidIcon complete badge">
+							<div class="kidIcon">
 								<div></div>
 							</div>
 						</div>
@@ -112,28 +113,208 @@
 					</div>
 				</div>
 				<div class="box yellowBox flex column withTitle">
-					<div class="boxTitle todaySpecial"></div>
-					<div class="element">
-						<div class="scrollBox" style="height: 80px">
-
-						</div>
+					<div class="boxTitle todaySpecial"><span>10</span></div>
+					<div class="element margin-top-0 horizonScrollBox">
+						<ul class="scrollMandatory">
+							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon englishLibrary">영어도서관</li>
+							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon englishLibrary">영어도서관</li>
+							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon englishLibrary">영어도서관</li>
+							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon englishLibrary">영어도서관</li>
+						</ul>
+						<div class="arrow left"></div>
+						<div class="arrow right"></div>
 					</div>
 					<div class="scrollBox grow">
-						<ul class="element" style="height: 700px"></ul>
+						<ul class="element specialStudyList">
+							<li>
+								<figure>
+									<img src="../img/samples/specialList01.png" />
+								</figure>
+								<ul>
+									<li>영어완성 &gt; 영역별 학습</li>
+									<li>What's your point ?</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList02.jpg" />
+								</figure>
+								<ul>
+									<li>특별학습 &gt; 열려라 코딩</li>
+									<li>책장 정리하기 편</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList03.jpg" />
+								</figure>
+								<ul>
+									<li>특별학습 &gt; 읽기마당</li>
+									<li>논두렁 길을 걸을 때면</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList01.png" />
+								</figure>
+								<ul>
+									<li>영어완성 &gt; 영역별 학습</li>
+									<li>What's your point ?</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList02.jpg" />
+								</figure>
+								<ul>
+									<li>특별학습 &gt; 열려라 코딩</li>
+									<li>책장 정리하기 편</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList03.jpg" />
+								</figure>
+								<ul>
+									<li>특별학습 &gt; 읽기마당</li>
+									<li>논두렁 길을 걸을 때면</li>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>
+
+			<nav class="bottomNav">
+				<div>
+					<div class="icon homelearnLibrary"></div>
+					<div>홈런도서관</div>
+				</div>
+				<div>
+					<div class="icon homelearnCalc"></div>
+					<div>홈런연산</div>
+				</div>
+				<div>
+					<div class="icon homelearnPanix"></div>
+					<div>홈런파닉스</div>
+				</div>
+				<div>
+					<div class="icon threeDExperience"></div>
+					<div>3D체험관</div>
+				</div>
+			</nav>
 
 		</main>
 		<aside>
-			<section class="profile" style="height: 400px">
+			<section class="profileSection">
 				<div class="profileIcon">
+					<figure>
+						<img src="../img/samples/sampleProfileImage.png" />
+					</figure>
 					<div class="editGrear"></div>
 				</div>
+				<ul class="personalInfoList">
+					<li>김홈런</li>
+					<li>4학년 <span class="bull"></span>박민지 선생님</li>
+					<li><span class="iceCream"></span>11,500콘</li>
+				</ul>
+
+				<ul class="buttonList">
+					<li class="skyBg">
+						<div><div class="icon wrongAnswerNote"></div>내<br/>오답노트</div>
+						<div><div class="icon naigongBox"></div>내공<br />상자</div>
+						<div><div class="icon aILifeNote"></div>AI<br />생활기록부</div>
+					</li>
+					<li>
+						<div><div class="icon attendCheck"></div>출석체크</div>
+						<div><div class="icon eventBox"><span class="alert">10</span></div>이벤트</div>
+						<div><div class="icon coneyWorld"></div>코니월드</div>
+					</li>
+					<li>
+						<div><div class="icon homeLearnTalk"><span class="alert">5</span></div>홈런톡</div>
+						<div><div class="icon homeLearnMagazine"></div>홈런<br />매거진</div>
+						<div><div class="icon askMyQuestion"></div>내<br />문제질문</div>
+					</li>
+
+				</ul>
+
 			</section>
-			<section></section>
-			<section></section>
+			<section>
+				<div class="horizonIcons">
+					<div class="icon myAppDrawer"></div>
+					<div class="verticalLine">내앱<br />서랍</div>
+					<div class="icon homelearnMarket"></div>
+					<div>홈런<br />마켓</div>
+				</div>
+			</section>
+			<section class="bannerSection">
+				<div>
+					<img src="../img/samples/sampleBanner01.jpg" /> <!-- 488 * 196 -->
+					<img src="../img/samples/sampleBanner01.jpg" /> 
+					<img src="../img/samples/sampleBanner01.jpg" />
+				</div>
+				<ul class="bannerIndicator">
+					<li class="on"></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</section>
 		</aside>
 	</div>
+
+	<script type="text/javascript">
+	$(".arrow.left, .arrow.right").on("click", function(e) {
+		var $scrollBox = $(".horizonScrollBox > ul");
+		if ($scrollBox.data("scrolling")) return;
+		// $scrollBox.data("scrolling", true);
+		$scrollBox.removeClass("scrollMandatory");
+		var scrollLeft = $scrollBox.scrollLeft();
+		var w = $scrollBox.children("li").eq(1).outerWidth(true);
+		if ($(this).hasClass("left")) {
+			scrollLeft += w;
+		} else {
+			scrollLeft -= w;
+		}
+
+		$scrollBox.animate({
+			scrollLeft: scrollLeft
+		});
+	});
+
+	$.fn.scrollEnd = function(callback, timeout) {     
+		timeout = timeout || 200;     
+		$(this).scroll(function(){
+			var $this = $(this);
+			if ($this.data('scrollTimeout')) {
+				clearTimeout($this.data('scrollTimeout'));
+			}
+			$this.data('scrollTimeout', setTimeout(function(){
+				callback($this);
+			}, timeout));
+		});
+	};
+
+	$(".horizonScrollBox > ul").scrollEnd(function($this){
+		$this.addClass("scrollMandatory");
+		$this.data("scrolling", false);
+	}, 200);
+
+	$(".bannerSection > div").scrollEnd(function($this){
+		var $dots = $this.siblings(".bannerIndicator");
+		var scrollLeft = $this[0].scrollLeft;
+		var itemWidth = $this.children().eq(0).width();
+		var index = Math.round(scrollLeft / itemWidth);
+		$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+	});
+
+	</script>
 </body>
 </html>
