@@ -1,19 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-@@include("include/head.html")
-<body>
+@@include("include/head.html", { title : "Home Learn Hybrid" })
+<body id="todayStudy">
 	<div class="wrap">
 		<main>
-			<nav></nav>
-			<section class="mainSection">
+			<nav>
+				<a class="goPrev"></a>
+				<a>월</a>
+				<a>화</a>
+				<a class="on">수<span>07월 08일</span></a>
+				<a>목</a>
+				<a>금</a>
+				<a>토</a>
+				<a>일</a>
+				<a class="goNext"></a>
+				<a class="calendar"></a>
+			</nav>
+			<section class="main">
 
-				<div class="box blueBox"></div>
-				<div class="box yellowBox"></div>
+				<div class="box blueBox flex column withTitle">
+					<div class="boxTitle todayStudy"></div>
+					<div class="flex row margin-top-0">
+						<div class="element grow navyLabel nowrap label"><label class="white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
+						<div class="element grow nowrap newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
+					</div>
+					<div class="scrollBox grow">
+						<div class="element subject wLabel koreanLabel">
+							<ul>
+								<li>국어</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>이야기 읽고 다른 사람에게 들려주기</li>
+							</ul>
+							<div class="kidIcon kid01 complete badge">
+								<div></div>
+							</div>
+						</div>
+
+						<div class="element subject wLabel mathLabel">
+							<ul>
+								<li>수학</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>변의 길이와 각의 크기가 같은 다각형을 알아볼까요</li>
+							</ul>
+							<div class="kidIcon kid02 complete badge">
+								<div></div>
+							</div>
+						</div>
+
+						<div class="element subject wLabel societyLabel">
+							<ul>
+								<li>사회</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>이야기 읽고 다른 사람에게 들려주기</li>
+							</ul>
+							<div class="kidIcon kid03 complete badge">
+								<div></div>
+							</div>
+						</div>
+						
+						<div class="element subject wLabel scienceLabel">
+							<ul>
+								<li>과학</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>지구는 과연 둥근가?</li>
+							</ul>
+							<div class="kidIcon kid04 complete badge">
+								<div></div>
+							</div>
+						</div>
+						
+						<div class="element subject wLabel englishLabel">
+							<ul>
+								<li>영어</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>Hello, World !!</li>
+							</ul>
+							<div class="kidIcon kid05 complete badge">
+								<div></div>
+							</div>
+						</div>
+						
+						<div class="element subject wLabel totalLabel">
+							<ul>
+								<li>통합</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>Hello, World !!</li>
+							</ul>
+							<div class="kidIcon complete badge">
+								<div></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="box yellowBox flex column withTitle">
+					<div class="boxTitle todaySpecial"></div>
+					<div class="element">
+						<div class="scrollBox" style="height: 80px">
+
+						</div>
+					</div>
+					<div class="scrollBox grow">
+						<ul class="element" style="height: 700px"></ul>
+					</div>
+				</div>
 			</section>
 
 		</main>
 		<aside>
-			<section></section>
+			<section class="profile" style="height: 400px">
+				<div class="profileIcon">
+					<div class="editGrear"></div>
+				</div>
+			</section>
 			<section></section>
 			<section></section>
 		</aside>

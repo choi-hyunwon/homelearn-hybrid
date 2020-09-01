@@ -5,25 +5,166 @@
 	font-style: normal;
 	font-weight: 400;
 	src: url(../fonts/BMJUA_otf.otf);
-  }
-  
+}
+
+:root {
+	--koreanColor: #f6c43d; --koreanLabelColor: #ffe154; --koreanTextColor: #bc6601;
+	--mathColor: #ff8786; --mathLabelColor: #fec4c4; --mathTextColor: #d75735;
+	--societyColor: #9bdd55; --societyLabelColor: #b8ea82; --societyTextColor: #43780a;
+	--scienceColor: #48bee2; --scienceLabelColor: #77d3ef; --scienceTextColor: #046887;
+	--englishColor: #8d9ae8; --englishLabelColor: #a5b6ff; --englishTextColor: #2c3fae;
+	--totalColor: #ef99dd; --totalLabelColor: #febdf0; --totalTextColor: #ab2890;
+	--specialColor: #f3975a;
+} 
+
+
 .nanumsquare {
 	font-family: 'NanumSquare', sans-serif !important;
 }
 
 html { min-height: 100%; }
-body { font-family: NanumSquare; height: 100%; background-image: linear-gradient(to right, #f8f2e7, #f8f2e7 1190px, #3ac8f5 1190px); }
+body { background-color: white; font-family: NanumSquare; height: 100%; background-image: linear-gradient(to right, #f8f2e7, #f8f2e7 1190px, #3ac8f5 1190px); }
 
-.wrap { display: flex;  padding: 25px 25px 25px 35px; }
+ul { list-style-type: none; margin:0; padding: 0; }
+label { margin: 0; }
 
-main { width: 935px; }
-.mainSection { display: flex; margin: 0 20px 0 0; }
-.mainSection .box { flex: 1; box-shadow: 3px 3px 8px rgba(0, 0, 0, .15); height: 500px; margin: 0 20px 0 0; display: block;  border-width: 2px; border-style: solid; border-radius: 20px; }
-.mainSection .box.blueBox { border-color: #42c0da; background-color: #63d5ed; }
-.mainSection .box.yellowBox { border-color: #e3a556; background-color: #f6b35d; }
-nav { margin: 0 150px 24px; border: 2px solid #42c0da; border-radius: 23px; background-color: white; height: 46px;  }
+.wrap { width: 1280px; display: flex;  padding: 25px 25px 25px 35px; }
 
-aside { margin-top: 24px; width: 265px; }
-aside section { margin-top: 9px; background-color: white; border: 2px solid #d7d7d7; border-radius: 23px; box-shadow: 3px 3px 8px rgba(0, 0, 0, .15); min-height: 100px; }
+.flex { display: flex; }
+.column { flex-direction: column; }
+.row { flex-direction: row; }
+.flex1 { flex: 1; }
+.grow { flex-grow: 1; }
+.shrink { flex-shrink: 1; }
+.flexAuto { flex-basis: auto; }
+
+.margin-top-0 { margin-top: 0; }
+
+.nowrap { white-space: nowrap; }
+
+.white { color: white; }
+
+main { flex-basis: 935px; flex-grow: 1; }
+.main { display: flex; }
+.box { padding: 14px 13px; flex: 1; box-shadow: 3px 3px 8px rgba(0, 0, 0, .15); height: 500px; margin-left:20px;  border-width: 2px; border-style: solid; border-radius: 20px; position: relative; }
+.box:first-child { margin-left: 0; }
+.box.blueBox { border-color: #42c0da; background-color: #63d5ed; }
+.box.yellowBox { border-color: #e3a556; background-color: #f6b35d; }
+.element { justify-content: space-between; display: flex; align-items: center; position: relative; padding: 8px 10px; border-radius: 15px; border: 2px solid white; box-shadow: 2px 2px 5px rgba(0, 0, 0, .3); background-color: white; }
+.element > label:first-child { margin-right: 10px; font-family: BMJUA; width: 90px; text-align: center; margin-bottom: 0; } 
+.element > label.blue { background-color: #1f70a4; } 
+.element.label { padding-left: 0; }
+.element.navyLabel { background-image: linear-gradient(to right, #1f70a4 90px, white 90px); }
+.element.navyLabel { font-size: 17.5px; font-weight: bold; }
+
+.element.subject { height: 110px; }
+
+.element.wLabel > ul:first-child { font-family: BMJUA; font-size: 20px; height: 110px; position: absolute; top: 0; left: 0; display: flex; align-items: center; flex-direction: column; justify-content: center; width: 90px; }
+.element.wLabel { padding-left: 100px; }
+
+.subjectIcon { width: 50px; height: 50px; background-size: 60px 60px; background-position: center; background-repeat: no-repeat;}
+.subjectIcon.korean { background-image: url("../img/common/subjectIcon_korean.png"); }
+.subjectIcon.math { background-image: url("../img/common/subjectIcon_math.png"); }
+.subjectIcon.english { background-image: url("../img/common/subjectIcon_english.png"); }
+.subjectIcon.science { background-image: url("../img/common/subjectIcon_science.png"); }
+.subjectIcon.society { background-image: url("../img/common/subjectIcon_society.png"); }
+.subjectIcon.total { background-image: url("../img/common/subjectIcon_total.png"); }
+
+.koreanLabel .subjectIcon { background-image: url("../img/common/subjectIcon_korean.png"); }
+.mathLabel .subjectIcon { background-image: url("../img/common/subjectIcon_math.png"); }
+.englishLabel .subjectIcon { background-image: url("../img/common/subjectIcon_english.png"); }
+.scienceLabel .subjectIcon { background-image: url("../img/common/subjectIcon_science.png"); }
+.societyLabel .subjectIcon { background-image: url("../img/common/subjectIcon_society.png"); }
+.totalLabel .subjectIcon { background-image: url("../img/common/subjectIcon_total.png"); }
+
+.element.koreanLabel { background-image: linear-gradient(to right, var(--koreanColor) 90px, white 90px); }
+.element.mathLabel { background-image: linear-gradient(to right, var(--mathColor) 90px, white 90px); }
+.element.societyLabel { background-image: linear-gradient(to right, var(--societyColor) 90px, white 90px); }
+.element.scienceLabel { background-image: linear-gradient(to right, var(--scienceColor) 90px, white 90px); }
+.element.englishLabel { background-image: linear-gradient(to right, var(--englishColor) 90px, white 90px); }
+.element.totalLabel { background-image: linear-gradient(to right, var(--totalColor) 90px, white 90px); }
+
+.column .element + .element { margin-top: 10px; }
+.row .element + .element { margin: 0 0 0 10px; }
+.box.column > * { margin: 10px 0 0; }
+.box.column > .margin-top-0 { margin-top: 0; }
+.box.withTitle { margin-top: 24px; padding-top: 26px; }
+.boxTitle.todayStudy { background: url("../img/common/boxTitle_todayStudy.png") no-repeat; width: 159px; height: 33px; background-size: 159px 33px; }
+.boxTitle.todaySpecial { background: url("../img/common/boxTitle_todaySpecial.png") no-repeat; width: 161px; height: 33px; background-size: 161px 33px; }
+.box .boxTitle { position: absolute; top: -17px; left: 20px; margin: 0; }
+.wrongCount { color: #00aae0; border-bottom: 2px solid #1ea4d9; vertical-align: middle; margin: 0 3px; }
+.memoIcon { display: inline-block; width: 11.5px; height: 15px; background: url("../img/common/icon_memo.png") no-repeat; background-size: 11.5px 15px; }
+.teacherUnderline { font-size: 15px; font-weight: bold; border-bottom: 1px solid #b2b2b2 ; }
+.memoIcon + .teacherUnderline { margin-left: 8px; }
+.typeLabel { border-radius: 20px; padding: 5px 10px; font-size: 12px; }
+
+.koreanLabel .typeLabel { background-color: var(--koreanLabelColor); color: var(--koreanTextColor); }
+.mathLabel .typeLabel { background-color: var(--mathLabelColor); color: var(--mathTextColor); }
+.societyLabel .typeLabel { background-color: var(--societyLabelColor); color: var(--societyTextColor); }
+.scienceLabel .typeLabel { background-color: var(--scienceLabelColor); color: var(--scienceTextColor); }
+.englishLabel .typeLabel { background-color: var(--englishLabelColor); color: var(--englishTextColor); }
+.totalLabel .typeLabel { background-color: var(--totalLabelColor); color: var(--totalTextColor); }
+
+.element > ul:nth-child(2) .typeLabel { margin-right: 10px; }
+.element > ul:nth-child(2) { flex: 1; margin-right: 20px; align-self: flex-start; }
+.element > ul:nth-child(2) li:nth-child(1) { font-size: 12px; }
+.element > ul:nth-child(2) li:nth-child(2) { max-height: 55px; overflow: hidden; margin-top: 8px; font-size: 24px; }
+
+.kidIcon { width: 70px; height: 70px; position: relative; }
+.kidIcon.badge { padding: 0; }
+.kidIcon.badge:after { display: flex; font-size: 15px; justify-content: center; align-items: center; font-family: BMJUA; content: ""; position: absolute; width: 34px; height: 34px; top: -7px; right: -7px; border: 3px solid white; background-color: white; border-radius: 50%; }
+.kidIcon.badge.complete:after { content: "완료"; border-color: gray;  }
+.kidIcon > div { width: 100%; height: 100%; border-radius: 50%; background-color: gray;  background-position: center; background-repeat: no-repeat; }
+
+.kidIcon.kid01 > div { background-image: url("../img/kidIcons/kidIcon01.png"); background-size: 78.5px 50px; }
+.kidIcon.kid02 > div { background-image: url("../img/kidIcons/kidIcon02.png"); background-size: 51px 44.5px;}
+.kidIcon.kid03 > div { background-image: url("../img/kidIcons/kidIcon03.png"); background-size: 79px 71.5px; background-position: center -12px; }
+.kidIcon.kid04 > div { background-image: url("../img/kidIcons/kidIcon04.png"); background-size: 66px 64.5px; background-position: center -5px; }
+.kidIcon.kid05 > div { background-image: url("../img/kidIcons/kidIcon05.png"); background-size: 50.5px 48.5px;}
+
+.koreanLabel .kidIcon > div { background-color: var(--koreanColor); }
+.mathLabel .kidIcon > div { background-color: var(--mathColor); }
+.societyLabel .kidIcon > div { background-color: var(--societyColor); }
+.scienceLabel .kidIcon > div { background-color: var(--scienceColor); }
+.englishLabel .kidIcon > div { background-color: var(--englishColor); }
+.totalLabel .kidIcon > div { background-color: var(--totalColor); }
+
+.koreanLabel .kidIcon.badge:after { border-color: var(--koreanColor);  }
+.mathLabel .kidIcon.badge:after { border-color: var(--mathColor);  }
+.societyLabel .kidIcon.badge:after { border-color: var(--societyColor);  }
+.scienceLabel .kidIcon.badge:after { border-color: var(--scienceColor);  }
+.englishLabel .kidIcon.badge:after { border-color: var(--englishColor);  }
+.totalLabel .kidIcon.badge:after { border-color: var(--totalColor);  }
+
+.element .kidIcon { flex-shrink: 0; flex-basis: auto; }
+
+.newBadge:after { border-radius: 50%; content: ""; display: flex; align-items: center; justify-content: center; background: url("../img/common/icon_New.png") no-repeat center #fe393b; width: 30px; height: 30px; background-size: 11px 13px;  }
+.element.newBadge:after { position: absolute; top: -15px; right: -15px; }
+
+nav { padding: 7px 28px 7px 35px; font-weight: 600; font-size: 20px; display: flex; align-items: stretch; margin: 0 150px 24px; border: 2px solid #39b9d4; border-radius: 25px; background-color: white; height: 50px; }
+nav a { flex-grow: 1; flex-shrink: 0; flex-basis: auto; width: 50px; height: 30px; display: flex; align-items: center; justify-content: center; }
+nav a.on { width: auto; padding: 0 20px; flex-basis: auto; background-color: #00b3d8; border-radius: 20px; color: white; box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15); }
+nav a span { margin-left: 10px; font-size: 17px; vertical-align: middle; }
+nav a.calendar { margin-left: 23px; flex-basis: auto; flex-grow: 0; width: 36px; height: 32px; background: url("../img/common/navCalendar.png") no-repeat center; background-size: 36px 32px; }
+nav a.goPrev,
+nav a.goNext { background-size: contain; width: 18px; height: 30px; background-repeat: no-repeat; background-position: center; flex-grow: 0; flex-basis: auto; }
+nav a.goPrev { background-image: url("../img/common/nav_leftArrow.png"); }
+nav a.goNext { background-image: url("../img/common/nav_rightArrow.png"); }
+
+aside { width: 265px; margin-left: 20px; }
+aside section { position: relative; margin-top: 9px; background-color: white; border: 2px solid #d7d7d7; border-radius: 23px; box-shadow: 3px 3px 8px rgba(0, 0, 0, .15); min-height: 100px; }
 aside section:first-child { margin-top: 0; }
+aside section.profile { margin-top: 24px; }
 
+.profileIcon { box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); border-radius: 50%; border: 10px solid white; position: absolute; top: -20px; left: -20px; width: 100px; height: 100px; background-color: #36c0f0; }
+.profileIcon .editGrear { border-radius: 50%; background-color: white; border: 1px solid gray; position: absolute; bottom: -10px; right: -10px; width: 30px; height: 30px; }
+
+.scrollBox { overflow-y: auto; overflow-x: hidden; }
+
+/* mCustomScrollBar */
+.mCSB_scrollTools .mCSB_draggerContainer { width: 10px; left: auto; }
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar { width: 10px; background-color: rgba(0, 0, 0, 0.5) }
+.mCSB_scrollTools .mCSB_draggerRail { width: 10px; }
+.mCSB_container .element { margin-right: 8px; }
+.mCSB_container .element:last-child { margin-bottom: 8px; }
+.mCSB_inside > .mCSB_container { margin-right: 15px; }

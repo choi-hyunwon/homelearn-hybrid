@@ -43,9 +43,9 @@
 // Rows contain your columns.
 
 @if $enable-grid-classes {
-  .row {
+  /* .row {
     @include make-row();
-  }
+  } */
 
   // Remove the negative margin from default .row, then the horizontal padding
   // from all immediate children columns (to prevent runaway style inheritance).
