@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include("include/head.html", { title : "Home Learn Hybrid" })
+<body id="myClassroom_noStudy">
+	<div class="wrap">
+		<main>
+			<section class="main">
+
+				<div class="box blueBox flex column noItem">
+					<div class="boxTitle inside myClassroom"><span>8</span></div>
+					수강중인 과목이 없습니다.
+				</div>
+				
+			</section>
+
+			<!-- footNav -->
+			@@include("include/footNav.html", {
+				type : "big"
+			})
+			<!-- end of footNav -->
+
+		</main>
+		
+		<!-- aside -->
+		@@include("include/aside2.html")
+		<!-- end of aside -->
+		
+		<div id="overlay"></div>
+	</div>
+
+
+	<script type="text/javascript">
+	$(".arrow.left, .arrow.right").on("click", function(e) {
+		var $scrollBox = $(".horizonScrollBox > ul");
+		if ($scrollBox.data("scrolling")) return;
+		// $scrollBox.data("scrolling", true);
+		$scrollBox.removeClass("scrollMandatory");
+		var scrollLeft = $scrollBox.scrollLeft();
+		var w = $scrollBox.children("li").eq(1).outerWidth(true);
+		if ($(this).hasClass("left")) {
+			scrollLeft += w;
+		} else {
+			scrollLeft -= w;
+		}
+
+		$scrollBox.animate({
+			scrollLeft: scrollLeft
+		});
+	});
+
+	$.fn.scrollEnd = function(callback, timeout) {     
+		timeout = timeout || 200;     
+		$(this).scroll(function(){
+			var $this = $(this);
+			if ($this.data('scrollTimeout')) {
+				clearTimeout($this.data('scrollTimeout'));
+			}
+			$this.data('scrollTimeout', setTimeout(function(){
+				callback($this);
+			}, timeout));
+		});
+	};
+
+	$(".horizonScrollBox > ul").scrollEnd(function($this){
+		$this.addClass("scrollMandatory");
+		$this.data("scrolling", false);
+	}, 200);
+
+	$(".bannerSection > div").scrollEnd(function($this){
+		var $dots = $this.siblings(".bannerIndicator");
+		var scrollLeft = $this[0].scrollLeft;
+		var itemWidth = $this.children().eq(0).width();
+		var index = Math.round(scrollLeft / itemWidth);
+		$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+	});
+	</script>
+</body>
+</html>

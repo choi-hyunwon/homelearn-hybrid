@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include("include/head.html", { title : "Home Learn Hybrid" })
+<body id="noStudyToday">
+	<div class="wrap">
+		<main>
+			
+			<!-- dateNav-->
+			@@include("include/dateNav.html")
+			<!-- end of dateNav -->
+
+			<section class="main">
+
+				<div class="box blueBox flex column withTitle">
+					<div class="boxTitle todayStudy"><span>4</span></div>
+					<div class="flex row margin-top-0">
+						<div class="element grow navyLabel nowrap"><label class="white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
+						<div class="element grow nowrap newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
+					</div>
+					<div class="element grow example">
+						<img src="../img/examples/0001.png" />
+					</div>
+				</div>
+				<div class="box yellowBox flex column withTitle">
+					<div class="boxTitle todaySpecial"><span>10</span></div>
+					<div class="element margin-top-0 darkOrangeLabel nowrap">
+						<label class="white">홈런연산</label>연산테마파크로 모험을 떠나 보아요.!
+					</div>
+					<div class="element darkOrangeLabel nowrap">
+						<label class="white">홈런연산</label>연산테마파크로 모험을 떠나 보아요.!
+					</div>
+					<div class="element navyLabel nowrap">
+						<label class="white">홈런연산</label>연산테마파크로 모험을 떠나 보아요.!
+					</div>
+
+					<div class="element grow example">
+						<img src="../img/examples/0002.png" />
+					</div>
+					
+				</div>
+			</section>
+
+			<!-- footNav -->
+			@@include("include/footNav.html", {
+				type : 1
+			})
+			<!-- end of footNav -->
+
+		</main>
+		
+		<!-- aside -->
+		@@include("include/aside.html")
+		<!-- end of aside -->
+		
+		<div id="overlay"></div>
+	</div>
+
+
+	<script type="text/javascript">
+	$(".arrow.left, .arrow.right").on("click", function(e) {
+		var $scrollBox = $(".horizonScrollBox > ul");
+		if ($scrollBox.data("scrolling")) return;
+		// $scrollBox.data("scrolling", true);
+		$scrollBox.removeClass("scrollMandatory");
+		var scrollLeft = $scrollBox.scrollLeft();
+		var w = $scrollBox.children("li").eq(1).outerWidth(true);
+		if ($(this).hasClass("left")) {
+			scrollLeft += w;
+		} else {
+			scrollLeft -= w;
+		}
+
+		$scrollBox.animate({
+			scrollLeft: scrollLeft
+		});
+	});
+
+	$.fn.scrollEnd = function(callback, timeout) {     
+		timeout = timeout || 200;     
+		$(this).scroll(function(){
+			var $this = $(this);
+			if ($this.data('scrollTimeout')) {
+				clearTimeout($this.data('scrollTimeout'));
+			}
+			$this.data('scrollTimeout', setTimeout(function(){
+				callback($this);
+			}, timeout));
+		});
+	};
+
+	$(".horizonScrollBox > ul").scrollEnd(function($this){
+		$this.addClass("scrollMandatory");
+		$this.data("scrolling", false);
+	}, 200);
+
+	$(".bannerSection > div").scrollEnd(function($this){
+		var $dots = $this.siblings(".bannerIndicator");
+		var scrollLeft = $this[0].scrollLeft;
+		var itemWidth = $this.children().eq(0).width();
+		var index = Math.round(scrollLeft / itemWidth);
+		$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+	});
+
+	</script>
+</body>
+</html>

@@ -4,25 +4,17 @@
 <body id="todayStudy">
 	<div class="wrap">
 		<main>
-			<nav class="dateNav">
-				<a class="goPrev"></a>
-				<a>월</a>
-				<a>화</a>
-				<a class="on">수<span>07월 08일</span></a>
-				<a>목</a>
-				<a>금</a>
-				<a>토</a>
-				<a>일</a>
-				<a class="goNext"></a>
-				<a class="calendar"></a>
-			</nav>
+			
+			<!-- dateNav-->
+			@@include("include/dateNav.html")
+			<!-- end of dateNav -->
 
 			<section class="main">
 
 				<div class="box blueBox flex column withTitle">
-					<div class="boxTitle todayStudy"><span>4</span></div>
+					<div class="boxTitle todaySchoolStudy"><span>4</span></div>
 					<div class="flex row margin-top-0">
-						<div class="element grow navyLabel nowrap label"><label class="white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
+						<div class="element grow navyLabel nowrap"><label class="white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
 						<div class="element grow nowrap newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
 					</div>
 					<div class="scrollBox grow">
@@ -193,82 +185,19 @@
 				</div>
 			</section>
 
-			<nav class="bottomNav">
-				<div>
-					<div class="icon homelearnLibrary"></div>
-					<div>홈런도서관</div>
-				</div>
-				<div>
-					<div class="icon homelearnCalc"></div>
-					<div>홈런연산</div>
-				</div>
-				<div>
-					<div class="icon homelearnPanix"></div>
-					<div>홈런파닉스</div>
-				</div>
-				<div>
-					<div class="icon threeDExperience"></div>
-					<div>3D체험관</div>
-				</div>
-			</nav>
-
-		</main>
-		<aside>
-			<section class="profileSection">
-				<div class="profileIcon">
-					<figure>
-						<img src="../img/samples/sampleProfileImage.png" />
-					</figure>
-					<div class="editGrear"></div>
-				</div>
-				<ul class="personalInfoList">
-					<li>김홈런</li>
-					<li>4학년 <span class="bull"></span>박민지 선생님</li>
-					<li><span class="iceCream"></span>11,500콘</li>
-				</ul>
-
-				<ul class="buttonList">
-					<li class="skyBg">
-						<div><div class="icon wrongAnswerNote"></div>내<br/>오답노트</div>
-						<div><div class="icon naigongBox"></div>내공<br />상자</div>
-						<div><div class="icon aILifeNote"></div>AI<br />생활기록부</div>
-					</li>
-					<li>
-						<div><div class="icon attendCheck"></div>출석체크</div>
-						<div><div class="icon eventBox"><span class="alert">10</span></div>이벤트</div>
-						<div><div class="icon coneyWorld"></div>코니월드</div>
-					</li>
-					<li>
-						<div><div class="icon homeLearnTalk"><span class="alert">5</span></div>홈런톡</div>
-						<div><div class="icon homeLearnMagazine"></div>홈런<br />매거진</div>
-						<div><div class="icon askMyQuestion"></div>내<br />문제질문</div>
-					</li>
-
-				</ul>
-
-			</section>
-			<section>
-				<div class="horizonIcons">
-					<div class="icon myAppDrawer"></div>
-					<div class="verticalLine">내앱<br />서랍</div>
-					<div class="icon homelearnMarket"></div>
-					<div>홈런<br />마켓</div>
-				</div>
-			</section>
-			<section class="bannerSection">
-				<div>
-					<img src="../img/samples/sampleBanner01.jpg" /> <!-- 488 * 196 -->
-					<img src="../img/samples/sampleBanner01.jpg" /> 
-					<img src="../img/samples/sampleBanner01.jpg" />
-				</div>
-				<ul class="bannerIndicator">
-					<li class="on"></li>
-					<li></li>
-					<li></li>
-				</ul>
-			</section>
-		</aside>
+			<!-- footNav -->
+			@@include("include/footNav.html")
+			<!-- end of footNav -->
+	
+			</main>
+			
+			<!-- aside -->
+			@@include("include/aside.html")
+			<!-- end of aside -->
+		
+		<div id="overlay"></div>
 	</div>
+
 
 	<script type="text/javascript">
 	$(".arrow.left, .arrow.right").on("click", function(e) {
