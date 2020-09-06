@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 @@include("include/head.html", { title : "Home Learn Hybrid" })
-<body id="myClassroom_noStudy">
+<style type="text/css">
+.blueBox { height: 494px; }
+</style>
+<body class="bg">
 	<div class="wrap">
 		<main>
-			<section class="main">
+			<section class="main justify-content_stretch">
 
-				<div class="box blueBox flex column noItem">
-					<div class="boxTitle inside myClassroom"><span>8</span></div>
+				<div class="box blueBox flex column noItem grow">
+					<div class="boxTitle inside myClassroom"><span class="pool">8</span></div>
 					수강중인 과목이 없습니다.
 				</div>
 				
@@ -22,12 +25,12 @@
 		</main>
 		
 		<!-- aside -->
-		@@include("include/aside2.html")
+		@@include("include/aside02.html")
 		<!-- end of aside -->
 		
-		<div id="overlay"></div>
+		
 	</div>
-
+	
 
 	<script type="text/javascript">
 	$(".arrow.left, .arrow.right").on("click", function(e) {

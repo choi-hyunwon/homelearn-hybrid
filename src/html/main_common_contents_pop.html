@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include("include/head.html", { title : "Home Learn Hybrid" })
+<style type="text/css">
+.blueBox { height: 494px; }
+</style>
+<body class="bg">
+	<div class="wrap">
+		<main>
+			<section class="main justify-content_stretch">
+
+				<div class="box blueBox flex column noItem grow">
+					<div class="boxTitle inside myClassroom"><span class="pool">8</span></div>
+					수강중인 과목이 없습니다.
+				</div>
+				
+			</section>
+
+			<!-- footNav -->
+			@@include("include/footNav.html", {
+				type : "big"
+			})
+			<!-- end of footNav -->
+
+		</main>
+		
+		<!-- aside -->
+		@@include("include/aside02.html")
+		<!-- end of aside -->
+		
+		
+	</div>
+	
+	<div id="layers">
+		
+		<div class="layer">
+			<div class="title">이용기간 만료 안내</div>
+			<div class="content">
+				<div class="contentGray">
+					<div class="subTitle">홈런 콘텐츠 이용 기간이 만료되었습니다.</div>
+					이용 기간이 만료되어 더 이상 이용할 수 없습니다.<br />홈런 마켓에서 콘텐츠를 구매할 수 있습니다.
+				</div>
+			</div>
+			<div class="buttonBox"><button type="button" class="b2b_btn goMarket">홈런마켓 이동</button></div>
+			<div class="closeBox"></div>
+		</div>
+		
+	</div>
+
+	<script type="text/javascript">
+	$(".arrow.left, .arrow.right").on("click", function(e) {
+		var $scrollBox = $(".horizonScrollBox > ul");
+		if ($scrollBox.data("scrolling")) return;
+		// $scrollBox.data("scrolling", true);
+		$scrollBox.removeClass("scrollMandatory");
+		var scrollLeft = $scrollBox.scrollLeft();
+		var w = $scrollBox.children("li").eq(1).outerWidth(true);
+		if ($(this).hasClass("left")) {
+			scrollLeft += w;
+		} else {
+			scrollLeft -= w;
+		}
+
+		$scrollBox.animate({
+			scrollLeft: scrollLeft
+		});
+	});
+
+	$.fn.scrollEnd = function(callback, timeout) {     
+		timeout = timeout || 200;     
+		$(this).scroll(function(){
+			var $this = $(this);
+			if ($this.data('scrollTimeout')) {
+				clearTimeout($this.data('scrollTimeout'));
+			}
+			$this.data('scrollTimeout', setTimeout(function(){
+				callback($this);
+			}, timeout));
+		});
+	};
+
+	$(".horizonScrollBox > ul").scrollEnd(function($this){
+		$this.addClass("scrollMandatory");
+		$this.data("scrolling", false);
+	}, 200);
+
+	$(".bannerSection > div").scrollEnd(function($this){
+		var $dots = $this.siblings(".bannerIndicator");
+		var scrollLeft = $this[0].scrollLeft;
+		var itemWidth = $this.children().eq(0).width();
+		var index = Math.round(scrollLeft / itemWidth);
+		$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+	});
+	</script>
+</body>
+</html>

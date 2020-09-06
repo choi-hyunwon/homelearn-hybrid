@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 @@include("include/head.html", { title : "Home Learn Hybrid" })
-<body id="noStudyToday">
+<style type="text/css">
+.box { padding: 26px 33px 18px 13px; height: 487px; }
+aside { margin-left: 20px; }
+</style>
+<body class="bg">
 	<div class="wrap">
 		<main>
 			
@@ -9,31 +13,34 @@
 			@@include("include/dateNav.html")
 			<!-- end of dateNav -->
 
-			<section class="main">
+			<section class="main margin-top_30">
 
-				<div class="box blueBox flex column withTitle">
-					<div class="boxTitle todayStudy"><span>4</span></div>
-					<div class="flex row margin-top-0">
-						<div class="element grow navyLabel nowrap"><label class="white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
-						<div class="element grow nowrap newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
+				<div class="box blueBox flex column withOffsetTitle">
+					<div class="boxTitle offset todaySchoolStudy"><span class="pool">4</span></div>
+					<div class="titleBox">
+						<div class="oneLineBox">
+							<div class="element grow headLabel oneLine"><label class="color_white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
+							<div class="element grow oneLine margin-left_5 newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
+						</div>
 					</div>
-					<div class="element grow example">
+
+					<div class="element grow example noStudyBanner01">
 						<img src="../img/examples/0001.png" />
 					</div>
 				</div>
-				<div class="box yellowBox flex column withTitle">
-					<div class="boxTitle todaySpecial"><span>10</span></div>
-					<div class="element margin-top-0 darkOrangeLabel nowrap">
+				<div class="box yellowBox flex column withOffsetTitle">
+					<div class="boxTitle offset todaySpecialStudy"><span class="pool">10</span></div>
+					<div class="element margin-top-0 headLabel darkOrange oneLine">
 						<label class="white">홈런연산</label>연산테마파크로 모험을 떠나 보아요.!
 					</div>
-					<div class="element darkOrangeLabel nowrap">
+					<div class="element headLabel darkOrange oneLine">
 						<label class="white">홈런연산</label>연산테마파크로 모험을 떠나 보아요.!
 					</div>
-					<div class="element navyLabel nowrap">
+					<div class="element headLabel darkOrange oneLine">
 						<label class="white">홈런연산</label>연산테마파크로 모험을 떠나 보아요.!
 					</div>
 
-					<div class="element grow example">
+					<div class="element grow example noStudyBanner02">
 						<img src="../img/examples/0002.png" />
 					</div>
 					
@@ -52,7 +59,6 @@
 		@@include("include/aside.html")
 		<!-- end of aside -->
 		
-		<div id="overlay"></div>
 	</div>
 
 
@@ -102,5 +108,5 @@
 	});
 
 	</script>
-</body>
+</bodynoStudyTodaycl>
 </html>

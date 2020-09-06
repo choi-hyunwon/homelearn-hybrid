@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include("include/head.html", { title : "Home Learn Hybrid" })
+<style type="text/css">
+.blueBox { width: 926px; height: 421px; }
+.titleBox + div { margin-top: 13px; }
+.contentDesc { width: 268px; }
+.contentElement { width: 562px; height: 306px; }
+</style>
+<body class="bg">
+	<div class="wrap">
+		<main>
+
+			<!-- dateNav-->
+			@@include("include/dateNav.html")
+			<!-- end of dateNav -->
+
+			<section class="main">
+
+				<div class="box blueBox column bg01">
+
+					<div class="titleBox">
+						<div>
+							<div class="boxTitle inline todayStudy"><span class="pool">0</span></div>
+						</div>
+
+						<div class="oneLineBox">
+							<div class="element recentWrong">최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
+							<div class="element oneLine"><span class="memoIcon"></span><span
+									class="teacherUnderline">선생님 채점 결과</span></div>
+						</div>
+					</div>
+
+					<div class="flex_row justify-content_between">
+						<div class="contentDesc">
+							<ul>
+								<li>오늘은<br />학습이 없는 날!</li>
+								<li><span>미완료된 학습을 찾아보기</span></li>
+								<li>과목 에습/ 복습을 통해<br />스스로 공부해보세요!</li>
+							</ul>
+						</div>
+						<div class="element contentElement">
+							<img src="../img/examples/0003.jpg" />
+						</div>
+					</div>
+
+				</div>
+
+			</section>
+
+			<!-- footNav -->
+			@@include("include/footNav02.html", {
+				type : "big"
+			})
+			<!-- end of footNav -->
+
+		</main>
+
+		<!-- aside -->
+		@@include("include/aside.html")
+		<!-- end of aside -->
+
+	</div>
+
+
+	<script type="text/javascript">
+		
+		$.fn.scrollEnd = function (callback, timeout) {
+			timeout = timeout || 200;
+			$(this).scroll(function () {
+				var $this = $(this);
+				if ($this.data('scrollTimeout')) {
+					clearTimeout($this.data('scrollTimeout'));
+				}
+				$this.data('scrollTimeout', setTimeout(function () {
+					callback($this);
+				}, timeout));
+			});
+		};
+
+		$(".bannerSection > div").scrollEnd(function ($this) {
+			var $dots = $this.siblings(".bannerIndicator");
+			var scrollLeft = $this[0].scrollLeft;
+			var itemWidth = $this.children().eq(0).width();
+			var index = Math.round(scrollLeft / itemWidth);
+			$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+		});
+	</script>
+</body>
+
+</html>

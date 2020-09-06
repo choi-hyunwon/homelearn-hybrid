@@ -25,3 +25,11 @@ function countState() {
 
     }
 }
+
+$(() => {
+	$(".state").on("click", function(e){
+		e.stopPropagation();
+		var value = $(this).siblings(".tooltip").text();
+		navigator.clipboard.writeText(value);
+	});
+});

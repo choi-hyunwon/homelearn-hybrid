@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include("include/head.html", { title : "Home Learn Hybrid" })
+<style type="text/css">
+.titleBox { margin-bottom: 7.5px; }
+.box { padding: 26px 11px 14px 13px; width: 425px; height: 488px; }
+.box.blueBox { flex: 0 0 auto; width: 490px; }
+.box.blueBox .scrollBox { height: 394px; }
+.box.yellowBox { flex: 0 0 auto; width: 425px; }
+.box.yellowBox .scrollBox { height: 313px; }
+.yellowBox .horizonScrollBox { width: 395px; }
+.element + .scrollBox { margin-top: 8px; }
+aside { margin-left: 20px; }
+</style>
+<body class="bg">
+	<div class="wrap">
+		<main>
+			
+			<!-- dateNav-->
+			@@include("include/dateNav.html")
+			<!-- end of dateNav -->
+
+			<section class="main margin-top_30">
+
+				<div class="box blueBox flex column withOffsetTitle">
+					<div class="boxTitle offset todaySchoolStudy"><span class="pool">4</span></div>
+					<div class="titleBox">
+						<div class="oneLineBox">
+							<div class="element grow headLabel oneLine"><label class="color_white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
+							<div class="element grow oneLine newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
+						</div>
+					</div>
+					<div class="scrollBox grow">
+						<div class="element subject korean subjectLabel">
+							<ul class="subjectInfo">
+								<li>국어</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>이야기 읽고 다른 사람에게 들려주기</li>
+							</ul>
+							<div class="kidIcon complete badge">
+								<div></div>
+							</div>
+						</div>
+
+						<div class="element subject math subjectLabel">
+							<ul class="subjectInfo">
+								<li>수학</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>변의 길이와 각의 크기가 같은 다각형을 알아볼까요</li>
+							</ul>
+							<div class="kidIcon complete badge">
+								<div></div>
+							</div>
+						</div>
+
+						<div class="element subject society subjectLabel">
+							<ul class="subjectInfo">
+								<li>사회</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>이야기 읽고 다른 사람에게 들려주기</li>
+							</ul>
+							<div class="kidIcon complete badge">
+								<div></div>
+							</div>
+						</div>
+						
+						<div class="element subject science subjectLabel">
+							<ul class="subjectInfo">
+								<li>과학</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>지구는 과연 둥근가?</li>
+							</ul>
+							<div class="kidIcon complete badge">
+								<div></div>
+							</div>
+						</div>
+						
+						<div class="element subject english subjectLabel">
+							<ul class="subjectInfo">
+								<li>영어</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>Hello, World !!</li>
+							</ul>
+							<div class="kidIcon complete badge">
+								<div></div>
+							</div>
+						</div>
+						
+						<div class="element subject total subjectLabel">
+							<ul class="subjectInfo">
+								<li>통합</li>
+								<li class="subjectIcon"></li>
+							</ul>
+							<ul>
+								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li>Hello, World !!</li>
+							</ul>
+							<div class="kidIcon">
+								<div></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<div class="box yellowBox flex column withOffsetTitle">
+					<div class="boxTitle offset todaySpecialStudy"><span class="pool">10</span></div>
+					<div class="element margin-top-0 horizonScrollBox">
+						<ul class="scrollXMandatory">
+							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon englishLibrary">영어도서관</li>
+							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon englishLibrary">영어도서관</li>
+							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon englishLibrary">영어도서관</li>
+							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon englishLibrary">영어도서관</li>
+						</ul>
+						<div class="arrow left"></div>
+						<div class="arrow right"></div>
+					</div>
+					<div class="scrollBox grow">
+						<ul class="element specialStudyList">
+							<li>
+								<figure>
+									<img src="../img/samples/specialList01.png" />
+								</figure>
+								<ul>
+									<li>영어완성 &gt; 영역별 학습</li>
+									<li>What's your point ?</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList02.jpg" />
+								</figure>
+								<ul>
+									<li>특별학습 &gt; 열려라 코딩</li>
+									<li>책장 정리하기 편</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList03.jpg" />
+								</figure>
+								<ul>
+									<li>특별학습 &gt; 읽기마당</li>
+									<li>논두렁 길을 걸을 때면</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList01.png" />
+								</figure>
+								<ul>
+									<li>영어완성 &gt; 영역별 학습</li>
+									<li>What's your point ?</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList02.jpg" />
+								</figure>
+								<ul>
+									<li>특별학습 &gt; 열려라 코딩</li>
+									<li>책장 정리하기 편</li>
+								</ul>
+							</li>
+							<li>
+								<figure>
+									<img src="../img/samples/specialList03.jpg" />
+								</figure>
+								<ul>
+									<li>특별학습 &gt; 읽기마당</li>
+									<li>논두렁 길을 걸을 때면</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- footNav -->
+			@@include("include/footNav.html")
+			<!-- end of footNav -->
+	
+			</main>
+			
+			<!-- aside -->
+			@@include("include/aside.html")
+			<!-- end of aside -->
+		
+	</div>
+
+	<div id="layers">
+		<div class="calendarBox">
+			<div class="header">
+				<span class="prev"></span>
+				2018년 9월
+				<span class="next"></span>
+			</div>
+			<div class="grayBox">
+				<table>
+					<thead>
+						<tr>
+							<th>일</th>
+							<th>월</th>
+							<th>화</th>
+							<th>수</th>
+							<th>목</th>
+							<th>금</th>
+							<th>토</th>
+						</tr>
+					</thead>
+				</table>
+				<table>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td>7</td>
+						</tr>
+						<tr>
+							<td>8</td>
+							<td>9</td>
+							<td>10</td>
+							<td class="on">11</td>
+							<td>12</td>
+							<td>13</td>
+							<td>14</td>
+						</tr>
+						<tr>
+							<td>15</td>
+							<td>16</td>
+							<td>17</td>
+							<td>18</td>
+							<td>19</td>
+							<td>20</td>
+							<td>21</td>
+						</tr>
+
+						<tr>
+							<td>22</td>
+							<td>23</td>
+							<td>24</td>
+							<td>25</td>
+							<td>26</td>
+							<td>27</td>
+							<td>28</td>
+						</tr>
+
+						<tr>
+							<td>29</td>
+							<td>30</td>
+							<td>31</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="buttonBox">
+				<button type="button" class="b2b_btn">확인</button>
+				<button type="button" class="b2b_btn">월간학습현황 보기</button>
+			</div>
+			<div class="closeBox"></div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+	$("td.on").attr("data-day", "11");
+	$(".calendarBox tbody td").on("click", (e) => {
+		var td = e.currentTarget || e.target;
+		$(".calendarBox td").removeClass("on");
+		var day = td.innerHTML;
+		$(td).addClass("on").attr("data-day", day);
+	});
+
+	$(".arrow.left, .arrow.right").on("click", function(e) {
+		var $scrollBox = $(".horizonScrollBox > ul");
+		if ($scrollBox.data("scrolling")) return;
+		// $scrollBox.data("scrolling", true);
+		$scrollBox.removeClass("scrollXMandatory");
+		var scrollLeft = $scrollBox.scrollLeft();
+		var w = $scrollBox.children("li").eq(1).outerWidth(true);
+		if ($(this).hasClass("left")) {
+			scrollLeft += w;
+		} else {
+			scrollLeft -= w;
+		}
+
+		$scrollBox.animate({
+			scrollLeft: scrollLeft
+		});
+	});
+
+	$.fn.scrollEnd = function(callback, timeout) {     
+		timeout = timeout || 200;     
+		$(this).scroll(function(){
+			var $this = $(this);
+			if ($this.data('scrollTimeout')) {
+				clearTimeout($this.data('scrollTimeout'));
+			}
+			$this.data('scrollTimeout', setTimeout(function(){
+				callback($this);
+			}, timeout));
+		});
+	};
+
+	$(".horizonScrollBox > ul").scrollEnd(function($this){
+		$this.addClass("scrollXMandatory");
+		$this.data("scrolling", false);
+	}, 200);
+
+	$(".bannerSection > div").scrollEnd(function($this){
+		var $dots = $this.siblings(".bannerIndicator");
+		var scrollLeft = $this[0].scrollLeft;
+		var itemWidth = $this.children().eq(0).width();
+		var index = Math.round(scrollLeft / itemWidth);
+		$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+	});
+
+	</script>
+</body>
+</html>

@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 @@include("include/head.html", { title : "Home Learn Hybrid" })
-<body id="todayStudy">
+<style type="text/css">
+.titleBox { margin-bottom: 7.5px; }
+.box { padding: 26px 11px 14px 13px; width: 425px; height: 488px; }
+.box.blueBox { flex: 0 0 auto; width: 490px; }
+.box.blueBox .scrollBox { height: 394px; }
+.box.yellowBox { flex: 0 0 auto; width: 425px; }
+.box.yellowBox .scrollBox { height: 313px; }
+.yellowBox .horizonScrollBox { width: 395px; }
+.element + .scrollBox { margin-top: 8px; }
+aside { margin-left: 20px; }
+</style>
+<body class="bg">
 	<div class="wrap">
 		<main>
 			
@@ -9,17 +20,19 @@
 			@@include("include/dateNav.html")
 			<!-- end of dateNav -->
 
-			<section class="main">
+			<section class="main margin-top_30">
 
-				<div class="box blueBox flex column withTitle">
-					<div class="boxTitle todaySchoolStudy"><span>4</span></div>
-					<div class="flex row margin-top-0">
-						<div class="element grow navyLabel nowrap"><label class="white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
-						<div class="element grow nowrap newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
+				<div class="box blueBox flex column withOffsetTitle">
+					<div class="boxTitle offset todaySchoolStudy"><span class="pool">4</span></div>
+					<div class="titleBox">
+						<div class="oneLineBox">
+							<div class="element grow headLabel oneLine"><label class="color_white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
+							<div class="element grow oneLine newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
+						</div>
 					</div>
 					<div class="scrollBox grow">
-						<div class="element subject wLabel koreanLabel">
-							<ul>
+						<div class="element subject korean subjectLabel">
+							<ul class="subjectInfo">
 								<li>국어</li>
 								<li class="subjectIcon"></li>
 							</ul>
@@ -32,8 +45,8 @@
 							</div>
 						</div>
 
-						<div class="element subject wLabel mathLabel">
-							<ul>
+						<div class="element subject math subjectLabel">
+							<ul class="subjectInfo">
 								<li>수학</li>
 								<li class="subjectIcon"></li>
 							</ul>
@@ -46,8 +59,8 @@
 							</div>
 						</div>
 
-						<div class="element subject wLabel societyLabel">
-							<ul>
+						<div class="element subject society subjectLabel">
+							<ul class="subjectInfo">
 								<li>사회</li>
 								<li class="subjectIcon"></li>
 							</ul>
@@ -60,8 +73,8 @@
 							</div>
 						</div>
 						
-						<div class="element subject wLabel scienceLabel">
-							<ul>
+						<div class="element subject science subjectLabel">
+							<ul class="subjectInfo">
 								<li>과학</li>
 								<li class="subjectIcon"></li>
 							</ul>
@@ -74,8 +87,8 @@
 							</div>
 						</div>
 						
-						<div class="element subject wLabel englishLabel">
-							<ul>
+						<div class="element subject english subjectLabel">
+							<ul class="subjectInfo">
 								<li>영어</li>
 								<li class="subjectIcon"></li>
 							</ul>
@@ -88,8 +101,8 @@
 							</div>
 						</div>
 						
-						<div class="element subject wLabel totalLabel">
-							<ul>
+						<div class="element subject total subjectLabel">
+							<ul class="subjectInfo">
 								<li>통합</li>
 								<li class="subjectIcon"></li>
 							</ul>
@@ -104,21 +117,21 @@
 
 					</div>
 				</div>
-				<div class="box yellowBox flex column withTitle">
-					<div class="boxTitle todaySpecial"><span>10</span></div>
+				<div class="box yellowBox flex column withOffsetTitle">
+					<div class="boxTitle offset todaySpecialStudy"><span class="pool">10</span></div>
 					<div class="element margin-top-0 horizonScrollBox">
-						<ul class="scrollMandatory">
+						<ul class="scrollXMandatory">
 							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
-							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
 							<li class="studyMenuIcon englishLibrary">영어도서관</li>
 							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
-							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
 							<li class="studyMenuIcon englishLibrary">영어도서관</li>
 							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
-							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
 							<li class="studyMenuIcon englishLibrary">영어도서관</li>
 							<li class="studyMenuIcon homeLearnBookCafe">홈런북카페</li>
-							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
+							<li class="studyMenuIcon homeLearnCalc">홈런연산</li>
 							<li class="studyMenuIcon englishLibrary">영어도서관</li>
 						</ul>
 						<div class="arrow left"></div>
@@ -137,7 +150,7 @@
 							</li>
 							<li>
 								<figure>
-									<img src="../img/samples/specialList02.jpg" />
+									<img src="../img/samples/specialList02.png" />
 								</figure>
 								<ul>
 									<li>특별학습 &gt; 열려라 코딩</li>
@@ -146,7 +159,7 @@
 							</li>
 							<li>
 								<figure>
-									<img src="../img/samples/specialList03.jpg" />
+									<img src="../img/samples/specialList03.png" />
 								</figure>
 								<ul>
 									<li>특별학습 &gt; 읽기마당</li>
@@ -164,7 +177,7 @@
 							</li>
 							<li>
 								<figure>
-									<img src="../img/samples/specialList02.jpg" />
+									<img src="../img/samples/specialList02.png" />
 								</figure>
 								<ul>
 									<li>특별학습 &gt; 열려라 코딩</li>
@@ -173,7 +186,7 @@
 							</li>
 							<li>
 								<figure>
-									<img src="../img/samples/specialList03.jpg" />
+									<img src="../img/samples/specialList03.png" />
 								</figure>
 								<ul>
 									<li>특별학습 &gt; 읽기마당</li>
@@ -195,7 +208,6 @@
 			@@include("include/aside.html")
 			<!-- end of aside -->
 		
-		<div id="overlay"></div>
 	</div>
 
 
@@ -204,7 +216,7 @@
 		var $scrollBox = $(".horizonScrollBox > ul");
 		if ($scrollBox.data("scrolling")) return;
 		// $scrollBox.data("scrolling", true);
-		$scrollBox.removeClass("scrollMandatory");
+		$scrollBox.removeClass("scrollXMandatory");
 		var scrollLeft = $scrollBox.scrollLeft();
 		var w = $scrollBox.children("li").eq(1).outerWidth(true);
 		if ($(this).hasClass("left")) {
@@ -232,7 +244,7 @@
 	};
 
 	$(".horizonScrollBox > ul").scrollEnd(function($this){
-		$this.addClass("scrollMandatory");
+		$this.addClass("scrollXMandatory");
 		$this.data("scrolling", false);
 	}, 200);
 
