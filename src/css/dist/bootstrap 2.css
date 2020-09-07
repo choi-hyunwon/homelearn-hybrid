@@ -607,13 +607,9 @@ pre code {
   }
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
+/* .row {
+    @include make-row();
+  } */
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
@@ -11811,48 +11807,6 @@ td.today:hover {
   content: none;
 }
 
-@font-face {
-  font-family: 'NotoSansCJKkr-Bold';
-  font-style: normal;
-  font-weight: 600;
-  src: url(../fonts/NotoSansCJK/NotoSansCJKkr-Bold.otf);
-}
-
-@font-face {
-  font-family: 'NotoSansCJKkr-Light';
-  font-style: normal;
-  font-weight: 300;
-  src: url(../fonts/NotoSansCJK/NotoSansCJKkr-Light.otf);
-}
-
-@font-face {
-  font-family: 'NotoSansCJKkr-Medium';
-  font-style: normal;
-  font-weight: 500;
-  src: url(../fonts/NotoSansCJK/NotoSansCJKkr-Medium.otf);
-}
-
-@font-face {
-  font-family: 'NotoSansCJKkr-Regular';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/NotoSansCJK/NotoSansCJKkr-Regular.otf);
-}
-
-@font-face {
-  font-family: 'NotoSansMonoCJKkr-Bold';
-  font-style: normal;
-  font-weight: 500;
-  src: url(../fonts/NotoSansCJK/NotoSansMonoCJKkr-Bold.otf);
-}
-
-@font-face {
-  font-family: 'NotoSansMonoCJKkr-Regular.otf';
-  font-style: normal;
-  font-weight: 400;
-  src: url(../fonts/NotoSansCJK/NotoSansMonoCJKkr-Regular.otf);
-}
-
 .far {
   font-size: 24px;
 }
@@ -12339,4 +12293,5010 @@ section.component .list .item .detail li {
   margin-bottom: 20px;
 }
 
-/*# sourceMappingURL=bootstrap.css.map */
+body {
+  background-color: orange;
+}
+
+/*
+== malihu jquery custom scrollbar plugin ==
+Plugin URI: http://manos.malihu.gr/jquery-custom-content-scroller
+*/
+/*
+CONTENTS: 
+	1. BASIC STYLE - Plugin's basic/essential CSS properties (normally, should not be edited). 
+	2. VERTICAL SCROLLBAR - Positioning and dimensions of vertical scrollbar. 
+	3. HORIZONTAL SCROLLBAR - Positioning and dimensions of horizontal scrollbar.
+	4. VERTICAL AND HORIZONTAL SCROLLBARS - Positioning and dimensions of 2-axis scrollbars. 
+	5. TRANSITIONS - CSS3 transitions for hover events, auto-expanded and auto-hidden scrollbars. 
+	6. SCROLLBAR COLORS, OPACITY AND BACKGROUNDS 
+		6.1 THEMES - Scrollbar colors, opacity, dimensions, backgrounds etc. via ready-to-use themes.
+*/
+/* 
+------------------------------------------------------------------------------------------------------------------------
+1. BASIC STYLE  
+------------------------------------------------------------------------------------------------------------------------
+*/
+.mCustomScrollbar {
+  -ms-touch-action: pinch-zoom;
+  touch-action: pinch-zoom;
+  /* direct pointer events to js */
+}
+
+.mCustomScrollbar.mCS_no_scrollbar, .mCustomScrollbar.mCS_touch_action {
+  -ms-touch-action: auto;
+  touch-action: auto;
+}
+
+.mCustomScrollBox {
+  /* contains plugin's markup */
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  max-width: 100%;
+  outline: none;
+  direction: ltr;
+}
+
+.mCSB_container {
+  /* contains the original content */
+  overflow: hidden;
+  width: auto;
+  height: auto;
+}
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+2. VERTICAL SCROLLBAR 
+y-axis
+------------------------------------------------------------------------------------------------------------------------
+*/
+.mCSB_inside > .mCSB_container {
+  margin-right: 30px;
+}
+
+.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden {
+  margin-right: 0;
+}
+
+/* non-visible scrollbar */
+.mCS-dir-rtl > .mCSB_inside > .mCSB_container {
+  /* RTL direction/left-side scrollbar */
+  margin-right: 0;
+  margin-left: 30px;
+}
+
+.mCS-dir-rtl > .mCSB_inside > .mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden {
+  margin-left: 0;
+}
+
+/* RTL direction/left-side scrollbar */
+.mCSB_scrollTools {
+  /* contains scrollbar markup (draggable element, dragger rail, buttons etc.) */
+  position: absolute;
+  width: 16px;
+  height: auto;
+  left: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.mCSB_outside + .mCSB_scrollTools {
+  right: -26px;
+}
+
+/* scrollbar position: outside */
+.mCS-dir-rtl > .mCSB_inside > .mCSB_scrollTools,
+.mCS-dir-rtl > .mCSB_outside + .mCSB_scrollTools {
+  /* RTL direction/left-side scrollbar */
+  right: auto;
+  left: 0;
+}
+
+.mCS-dir-rtl > .mCSB_outside + .mCSB_scrollTools {
+  left: -26px;
+}
+
+/* RTL direction/left-side scrollbar (scrollbar position: outside) */
+.mCSB_scrollTools .mCSB_draggerContainer {
+  /* contains the draggable element and dragger rail markup */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: auto;
+}
+
+.mCSB_scrollTools a + .mCSB_draggerContainer {
+  margin: 20px 0;
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+  width: 2px;
+  height: 100%;
+  margin: 0 auto;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+}
+
+.mCSB_scrollTools .mCSB_dragger {
+  /* the draggable element */
+  cursor: pointer;
+  width: 100%;
+  height: 30px;
+  /* minimum dragger height */
+  z-index: 1;
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  /* the dragger element */
+  position: relative;
+  width: 4px;
+  height: 100%;
+  margin: 0 auto;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+  text-align: center;
+}
+
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar {
+  width: 12px;
+  /* auto-expanded scrollbar */
+}
+
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+  width: 8px;
+  /* auto-expanded scrollbar */
+}
+
+.mCSB_scrollTools .mCSB_buttonUp,
+.mCSB_scrollTools .mCSB_buttonDown {
+  display: block;
+  position: absolute;
+  height: 20px;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.mCSB_scrollTools .mCSB_buttonDown {
+  bottom: 0;
+}
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+3. HORIZONTAL SCROLLBAR 
+x-axis
+------------------------------------------------------------------------------------------------------------------------
+*/
+.mCSB_horizontal.mCSB_inside > .mCSB_container {
+  margin-right: 0;
+  margin-bottom: 30px;
+}
+
+.mCSB_horizontal.mCSB_outside > .mCSB_container {
+  min-height: 100%;
+}
+
+.mCSB_horizontal > .mCSB_container.mCS_no_scrollbar_x.mCS_x_hidden {
+  margin-bottom: 0;
+}
+
+/* non-visible scrollbar */
+.mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  width: auto;
+  height: 16px;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCustomScrollBox + .mCSB_scrollTools + .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  bottom: -26px;
+}
+
+/* scrollbar position: outside */
+.mCSB_scrollTools.mCSB_scrollTools_horizontal a + .mCSB_draggerContainer {
+  margin: 0 20px;
+}
+
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  width: 100%;
+  height: 2px;
+  margin: 7px 0;
+}
+
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_dragger {
+  width: 30px;
+  /* minimum dragger width */
+  height: 100%;
+  left: 0;
+}
+
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  width: 100%;
+  height: 4px;
+  margin: 6px auto;
+}
+
+.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar {
+  height: 12px;
+  /* auto-expanded scrollbar */
+  margin: 2px auto;
+}
+
+.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+  height: 8px;
+  /* auto-expanded scrollbar */
+  margin: 4px 0;
+}
+
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_buttonLeft,
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_buttonRight {
+  display: block;
+  position: absolute;
+  width: 20px;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_buttonLeft {
+  left: 0;
+}
+
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_buttonRight {
+  right: 0;
+}
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+4. VERTICAL AND HORIZONTAL SCROLLBARS 
+yx-axis 
+------------------------------------------------------------------------------------------------------------------------
+*/
+.mCSB_container_wrapper {
+  position: absolute;
+  height: auto;
+  width: auto;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.mCSB_container_wrapper > .mCSB_container {
+  padding-right: 30px;
+  padding-bottom: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.mCSB_vertical_horizontal > .mCSB_scrollTools.mCSB_scrollTools_vertical {
+  bottom: 20px;
+}
+
+.mCSB_vertical_horizontal > .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  right: 20px;
+}
+
+/* non-visible horizontal scrollbar */
+.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden + .mCSB_scrollTools.mCSB_scrollTools_vertical {
+  bottom: 0;
+}
+
+/* non-visible vertical scrollbar/RTL direction/left-side scrollbar */
+.mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden + .mCSB_scrollTools ~ .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  right: 0;
+}
+
+/* RTL direction/left-side scrollbar */
+.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  left: 20px;
+}
+
+/* non-visible scrollbar/RTL direction/left-side scrollbar */
+.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden + .mCSB_scrollTools ~ .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  left: 0;
+}
+
+.mCS-dir-rtl > .mCSB_inside > .mCSB_container_wrapper {
+  /* RTL direction/left-side scrollbar */
+  margin-right: 0;
+  margin-left: 30px;
+}
+
+.mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden > .mCSB_container {
+  padding-right: 0;
+}
+
+.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden > .mCSB_container {
+  padding-bottom: 0;
+}
+
+.mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden {
+  margin-right: 0;
+  /* non-visible scrollbar */
+  margin-left: 0;
+}
+
+/* non-visible horizontal scrollbar */
+.mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden {
+  margin-bottom: 0;
+}
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+5. TRANSITIONS  
+------------------------------------------------------------------------------------------------------------------------
+*/
+.mCSB_scrollTools,
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_buttonUp,
+.mCSB_scrollTools .mCSB_buttonDown,
+.mCSB_scrollTools .mCSB_buttonLeft,
+.mCSB_scrollTools .mCSB_buttonRight {
+  -webkit-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+  -moz-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+  -o-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+  transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+}
+
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar,
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail,
+.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar,
+.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail {
+  -webkit-transition: width .2s ease-out .2s, height .2s ease-out .2s,  margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s, opacity .2s ease-in-out, background-color .2s ease-in-out;
+  -moz-transition: width .2s ease-out .2s, height .2s ease-out .2s,  margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s, opacity .2s ease-in-out, background-color .2s ease-in-out;
+  -o-transition: width .2s ease-out .2s, height .2s ease-out .2s,  margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s, opacity .2s ease-in-out, background-color .2s ease-in-out;
+  transition: width .2s ease-out .2s, height .2s ease-out .2s,  margin-left .2s ease-out .2s, margin-right .2s ease-out .2s,  margin-top .2s ease-out .2s, margin-bottom .2s ease-out .2s, opacity .2s ease-in-out, background-color .2s ease-in-out;
+}
+
+/* 
+------------------------------------------------------------------------------------------------------------------------
+6. SCROLLBAR COLORS, OPACITY AND BACKGROUNDS  
+------------------------------------------------------------------------------------------------------------------------
+*/
+/* 
+	----------------------------------------
+	6.1 THEMES 
+	----------------------------------------
+	*/
+/* default theme ("light") */
+.mCSB_scrollTools {
+  opacity: 0.75;
+  filter: "alpha(opacity=75)";
+  -ms-filter: "alpha(opacity=75)";
+}
+
+.mCS-autoHide > .mCustomScrollBox > .mCSB_scrollTools,
+.mCS-autoHide > .mCustomScrollBox ~ .mCSB_scrollTools {
+  opacity: 0;
+  filter: "alpha(opacity=0)";
+  -ms-filter: "alpha(opacity=0)";
+}
+
+.mCustomScrollbar > .mCustomScrollBox > .mCSB_scrollTools.mCSB_scrollTools_onDrag,
+.mCustomScrollbar > .mCustomScrollBox ~ .mCSB_scrollTools.mCSB_scrollTools_onDrag,
+.mCustomScrollBox:hover > .mCSB_scrollTools,
+.mCustomScrollBox:hover ~ .mCSB_scrollTools,
+.mCS-autoHide:hover > .mCustomScrollBox > .mCSB_scrollTools,
+.mCS-autoHide:hover > .mCustomScrollBox ~ .mCSB_scrollTools {
+  opacity: 1;
+  filter: "alpha(opacity=100)";
+  -ms-filter: "alpha(opacity=100)";
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.4);
+  filter: "alpha(opacity=40)";
+  -ms-filter: "alpha(opacity=40)";
+}
+
+.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.75);
+  filter: "alpha(opacity=75)";
+  -ms-filter: "alpha(opacity=75)";
+}
+
+.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.85);
+  filter: "alpha(opacity=85)";
+  -ms-filter: "alpha(opacity=85)";
+}
+
+.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
+  filter: "alpha(opacity=90)";
+  -ms-filter: "alpha(opacity=90)";
+}
+
+.mCSB_scrollTools .mCSB_buttonUp,
+.mCSB_scrollTools .mCSB_buttonDown,
+.mCSB_scrollTools .mCSB_buttonLeft,
+.mCSB_scrollTools .mCSB_buttonRight {
+  background-image: url(mCSB_buttons.png);
+  /* css sprites */
+  background-repeat: no-repeat;
+  opacity: 0.4;
+  filter: "alpha(opacity=40)";
+  -ms-filter: "alpha(opacity=40)";
+}
+
+.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: 0 0;
+  /* 
+		sprites locations 
+		light: 0 0, -16px 0, -32px 0, -48px 0, 0 -72px, -16px -72px, -32px -72px
+		dark: -80px 0, -96px 0, -112px 0, -128px 0, -80px -72px, -96px -72px, -112px -72px
+		*/
+}
+
+.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: 0 -20px;
+  /* 
+		sprites locations
+		light: 0 -20px, -16px -20px, -32px -20px, -48px -20px, 0 -92px, -16px -92px, -32px -92px
+		dark: -80px -20px, -96px -20px, -112px -20px, -128px -20px, -80px -92px, -96px -92px, -112 -92px
+		*/
+}
+
+.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: 0 -40px;
+  /* 
+		sprites locations 
+		light: 0 -40px, -20px -40px, -40px -40px, -60px -40px, 0 -112px, -20px -112px, -40px -112px
+		dark: -80px -40px, -100px -40px, -120px -40px, -140px -40px, -80px -112px, -100px -112px, -120px -112px
+		*/
+}
+
+.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: 0 -56px;
+  /* 
+		sprites locations 
+		light: 0 -56px, -20px -56px, -40px -56px, -60px -56px, 0 -128px, -20px -128px, -40px -128px
+		dark: -80px -56px, -100px -56px, -120px -56px, -140px -56px, -80px -128px, -100px -128px, -120px -128px
+		*/
+}
+
+.mCSB_scrollTools .mCSB_buttonUp:hover,
+.mCSB_scrollTools .mCSB_buttonDown:hover,
+.mCSB_scrollTools .mCSB_buttonLeft:hover,
+.mCSB_scrollTools .mCSB_buttonRight:hover {
+  opacity: 0.75;
+  filter: "alpha(opacity=75)";
+  -ms-filter: "alpha(opacity=75)";
+}
+
+.mCSB_scrollTools .mCSB_buttonUp:active,
+.mCSB_scrollTools .mCSB_buttonDown:active,
+.mCSB_scrollTools .mCSB_buttonLeft:active,
+.mCSB_scrollTools .mCSB_buttonRight:active {
+  opacity: 0.9;
+  filter: "alpha(opacity=90)";
+  -ms-filter: "alpha(opacity=90)";
+}
+
+/* theme: "dark" */
+.mCS-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -80px 0;
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -80px -20px;
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -80px -40px;
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -80px -56px;
+}
+
+/* ---------------------------------------- */
+/* theme: "light-2", "dark-2" */
+.mCS-light-2.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-dark-2.mCSB_scrollTools .mCSB_draggerRail {
+  width: 4px;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+
+.mCS-light-2.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-2.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 4px;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.75);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+
+.mCS-light-2.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-dark-2.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-light-2.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-2.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  width: 100%;
+  height: 4px;
+  margin: 6px auto;
+}
+
+.mCS-light-2.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.mCS-light-2.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-light-2.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.mCS-light-2.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -32px 0;
+}
+
+.mCS-light-2.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -32px -20px;
+}
+
+.mCS-light-2.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -40px -40px;
+}
+
+.mCS-light-2.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -40px -56px;
+}
+
+/* theme: "dark-2" */
+.mCS-dark-2.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+
+.mCS-dark-2.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+}
+
+.mCS-dark-2.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.mCS-dark-2.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-dark-2.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mCS-dark-2.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -112px 0;
+}
+
+.mCS-dark-2.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -112px -20px;
+}
+
+.mCS-dark-2.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -120px -40px;
+}
+
+.mCS-dark-2.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -120px -56px;
+}
+
+/* ---------------------------------------- */
+/* theme: "light-thick", "dark-thick" */
+.mCS-light-thick.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-dark-thick.mCSB_scrollTools .mCSB_draggerRail {
+  width: 4px;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 6px;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.75);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.mCS-light-thick.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-dark-thick.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  width: 100%;
+  height: 4px;
+  margin: 6px 0;
+}
+
+.mCS-light-thick.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-thick.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  width: 100%;
+  height: 6px;
+  margin: 5px auto;
+}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-light-thick.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -16px 0;
+}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -16px -20px;
+}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -20px -40px;
+}
+
+.mCS-light-thick.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -20px -56px;
+}
+
+/* theme: "dark-thick" */
+.mCS-dark-thick.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.mCS-dark-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.75);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.mCS-dark-thick.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.mCS-dark-thick.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-dark-thick.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mCS-dark-thick.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -96px 0;
+}
+
+.mCS-dark-thick.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -96px -20px;
+}
+
+.mCS-dark-thick.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -100px -40px;
+}
+
+.mCS-dark-thick.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -100px -56px;
+}
+
+/* ---------------------------------------- */
+/* theme: "light-thin", "dark-thin" */
+.mCS-light-thin.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mCS-light-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 2px;
+}
+
+.mCS-light-thin.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-dark-thin.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  width: 100%;
+}
+
+.mCS-light-thin.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-thin.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  width: 100%;
+  height: 2px;
+  margin: 7px auto;
+}
+
+/* theme "dark-thin" */
+.mCS-dark-thin.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-dark-thin.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -80px 0;
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -80px -20px;
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -80px -40px;
+}
+
+.mCS-dark-thin.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -80px -56px;
+}
+
+/* ---------------------------------------- */
+/* theme "rounded", "rounded-dark", "rounded-dots", "rounded-dots-dark" */
+.mCS-rounded.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.mCS-rounded.mCSB_scrollTools .mCSB_dragger,
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_dragger,
+.mCS-rounded-dots.mCSB_scrollTools .mCSB_dragger,
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_dragger {
+  height: 14px;
+}
+
+.mCS-rounded.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dots.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 14px;
+  margin: 0 1px;
+}
+
+.mCS-rounded.mCSB_scrollTools_horizontal .mCSB_dragger,
+.mCS-rounded-dark.mCSB_scrollTools_horizontal .mCSB_dragger,
+.mCS-rounded-dots.mCSB_scrollTools_horizontal .mCSB_dragger,
+.mCS-rounded-dots-dark.mCSB_scrollTools_horizontal .mCSB_dragger {
+  width: 14px;
+}
+
+.mCS-rounded.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dots.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dots-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  height: 14px;
+  margin: 1px 0;
+}
+
+.mCS-rounded.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCS-rounded.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar {
+  width: 16px;
+  /* auto-expanded scrollbar */
+  height: 16px;
+  margin: -1px 0;
+}
+
+.mCS-rounded.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-rounded.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail,
+.mCS-rounded-dark.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-rounded-dark.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+  width: 4px;
+  /* auto-expanded scrollbar */
+}
+
+.mCS-rounded.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCS-rounded.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar {
+  height: 16px;
+  /* auto-expanded scrollbar */
+  width: 16px;
+  margin: 0 -1px;
+}
+
+.mCS-rounded.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-rounded.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail,
+.mCS-rounded-dark.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-rounded-dark.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+  height: 4px;
+  /* auto-expanded scrollbar */
+  margin: 6px 0;
+}
+
+.mCS-rounded.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: 0 -72px;
+}
+
+.mCS-rounded.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: 0 -92px;
+}
+
+.mCS-rounded.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: 0 -112px;
+}
+
+.mCS-rounded.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: 0 -128px;
+}
+
+/* theme "rounded-dark", "rounded-dots-dark" */
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -80px -72px;
+}
+
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -80px -92px;
+}
+
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -80px -112px;
+}
+
+.mCS-rounded-dark.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -80px -128px;
+}
+
+/* theme "rounded-dots", "rounded-dots-dark" */
+.mCS-rounded-dots.mCSB_scrollTools_vertical .mCSB_draggerRail,
+.mCS-rounded-dots-dark.mCSB_scrollTools_vertical .mCSB_draggerRail {
+  width: 4px;
+}
+
+.mCS-rounded-dots.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-rounded-dots.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-rounded-dots-dark.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  background-color: transparent;
+  background-position: center;
+}
+
+.mCS-rounded-dots.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAANElEQVQYV2NkIAAYiVbw//9/Y6DiM1ANJoyMjGdBbLgJQAX/kU0DKgDLkaQAvxW4HEvQFwCRcxIJK1XznAAAAABJRU5ErkJggg==");
+  background-repeat: repeat-y;
+  opacity: 0.3;
+  filter: "alpha(opacity=30)";
+  -ms-filter: "alpha(opacity=30)";
+}
+
+.mCS-rounded-dots.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-rounded-dots-dark.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  height: 4px;
+  margin: 6px 0;
+  background-repeat: repeat-x;
+}
+
+.mCS-rounded-dots.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -16px -72px;
+}
+
+.mCS-rounded-dots.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -16px -92px;
+}
+
+.mCS-rounded-dots.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -20px -112px;
+}
+
+.mCS-rounded-dots.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -20px -128px;
+}
+
+/* theme "rounded-dots-dark" */
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAALElEQVQYV2NkIAAYSVFgDFR8BqrBBEifBbGRTfiPZhpYjiQFBK3A6l6CvgAAE9kGCd1mvgEAAAAASUVORK5CYII=");
+}
+
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -96px -72px;
+}
+
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -96px -92px;
+}
+
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -100px -112px;
+}
+
+.mCS-rounded-dots-dark.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -100px -128px;
+}
+
+/* ---------------------------------------- */
+/* theme "3d", "3d-dark", "3d-thick", "3d-thick-dark" */
+.mCS-3d.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-repeat: repeat-y;
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.mCS-3d.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  background-repeat: repeat-x;
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+/* theme "3d", "3d-dark" */
+.mCS-3d.mCSB_scrollTools_vertical .mCSB_dragger,
+.mCS-3d-dark.mCSB_scrollTools_vertical .mCSB_dragger {
+  height: 70px;
+}
+
+.mCS-3d.mCSB_scrollTools_horizontal .mCSB_dragger,
+.mCS-3d-dark.mCSB_scrollTools_horizontal .mCSB_dragger {
+  width: 70px;
+}
+
+.mCS-3d.mCSB_scrollTools,
+.mCS-3d-dark.mCSB_scrollTools {
+  opacity: 1;
+  filter: "alpha(opacity=30)";
+  -ms-filter: "alpha(opacity=30)";
+}
+
+.mCS-3d.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-3d.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
+}
+
+.mCS-3d.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_draggerRail {
+  width: 8px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 0 1px rgba(0, 0, 0, 0.5), inset -1px 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.mCS-3d.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCS-3d.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-3d.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #555;
+}
+
+.mCS-3d.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 8px;
+}
+
+.mCS-3d.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-3d-dark.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  width: 100%;
+  height: 8px;
+  margin: 4px 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.5), inset 0 -1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.mCS-3d.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  width: 100%;
+  height: 8px;
+  margin: 4px auto;
+}
+
+.mCS-3d.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -32px -72px;
+}
+
+.mCS-3d.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -32px -92px;
+}
+
+.mCS-3d.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -40px -112px;
+}
+
+.mCS-3d.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -40px -128px;
+}
+
+/* theme "3d-dark" */
+.mCS-3d-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 1px 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.mCS-3d-dark.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.mCS-3d-dark.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -112px -72px;
+}
+
+.mCS-3d-dark.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -112px -92px;
+}
+
+.mCS-3d-dark.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -120px -112px;
+}
+
+.mCS-3d-dark.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -120px -128px;
+}
+
+/* ---------------------------------------- */
+/* theme: "3d-thick", "3d-thick-dark" */
+.mCS-3d-thick.mCSB_scrollTools,
+.mCS-3d-thick-dark.mCSB_scrollTools {
+  opacity: 1;
+  filter: "alpha(opacity=30)";
+  -ms-filter: "alpha(opacity=30)";
+}
+
+.mCS-3d-thick.mCSB_scrollTools,
+.mCS-3d-thick-dark.mCSB_scrollTools,
+.mCS-3d-thick.mCSB_scrollTools .mCSB_draggerContainer,
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_draggerContainer {
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  border-radius: 7px;
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.mCSB_inside + .mCS-3d-thick.mCSB_scrollTools_vertical,
+.mCSB_inside + .mCS-3d-thick-dark.mCSB_scrollTools_vertical {
+  right: 1px;
+}
+
+.mCS-3d-thick.mCSB_scrollTools_vertical,
+.mCS-3d-thick-dark.mCSB_scrollTools_vertical {
+  box-shadow: inset 1px 0 1px rgba(0, 0, 0, 0.1), inset 0 0 14px rgba(0, 0, 0, 0.5);
+}
+
+.mCS-3d-thick.mCSB_scrollTools_horizontal,
+.mCS-3d-thick-dark.mCSB_scrollTools_horizontal {
+  bottom: 1px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 14px rgba(0, 0, 0, 0.5);
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.4);
+  width: 12px;
+  margin: 2px;
+  position: absolute;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mCS-3d-thick.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-3d-thick.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #555;
+}
+
+.mCS-3d-thick.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  height: 12px;
+  width: auto;
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_draggerContainer {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: inset 1px 1px 16px rgba(0, 0, 0, 0.1);
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: transparent;
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -32px -72px;
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -32px -92px;
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -40px -112px;
+}
+
+.mCS-3d-thick.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -40px -128px;
+}
+
+/* theme: "3d-thick-dark" */
+.mCS-3d-thick-dark.mCSB_scrollTools {
+  box-shadow: inset 0 0 14px rgba(0, 0, 0, 0.2);
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools_horizontal {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), inset 0 0 14px rgba(0, 0, 0, 0.2);
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.4), inset -1px 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #777;
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_draggerContainer {
+  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.05);
+  box-shadow: inset 1px 1px 16px rgba(0, 0, 0, 0.1);
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: transparent;
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -112px -72px;
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -112px -92px;
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -120px -112px;
+}
+
+.mCS-3d-thick-dark.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -120px -128px;
+}
+
+/* ---------------------------------------- */
+/* theme: "minimal", "minimal-dark" */
+.mCSB_outside + .mCS-minimal.mCSB_scrollTools_vertical,
+.mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {
+  right: 0;
+  margin: 12px 0;
+}
+
+.mCustomScrollBox.mCS-minimal + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCustomScrollBox.mCS-minimal + .mCSB_scrollTools + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCustomScrollBox.mCS-minimal-dark + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
+.mCustomScrollBox.mCS-minimal-dark + .mCSB_scrollTools + .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  bottom: 0;
+  margin: 0 12px;
+}
+
+/* RTL direction/left-side scrollbar */
+.mCS-dir-rtl > .mCSB_outside + .mCS-minimal.mCSB_scrollTools_vertical,
+.mCS-dir-rtl > .mCSB_outside + .mCS-minimal-dark.mCSB_scrollTools_vertical {
+  left: 0;
+  right: auto;
+}
+
+.mCS-minimal.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-minimal-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: transparent;
+}
+
+.mCS-minimal.mCSB_scrollTools_vertical .mCSB_dragger,
+.mCS-minimal-dark.mCSB_scrollTools_vertical .mCSB_dragger {
+  height: 50px;
+}
+
+.mCS-minimal.mCSB_scrollTools_horizontal .mCSB_dragger,
+.mCS-minimal-dark.mCSB_scrollTools_horizontal .mCSB_dragger {
+  width: 50px;
+}
+
+.mCS-minimal.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  filter: "alpha(opacity=20)";
+  -ms-filter: "alpha(opacity=20)";
+}
+
+.mCS-minimal.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-minimal.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.5);
+  filter: "alpha(opacity=50)";
+  -ms-filter: "alpha(opacity=50)";
+}
+
+/* theme: "minimal-dark" */
+.mCS-minimal-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+  filter: "alpha(opacity=20)";
+  -ms-filter: "alpha(opacity=20)";
+}
+
+.mCS-minimal-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-minimal-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.5);
+  filter: "alpha(opacity=50)";
+  -ms-filter: "alpha(opacity=50)";
+}
+
+/* ---------------------------------------- */
+/* theme "light-3", "dark-3" */
+.mCS-light-3.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-dark-3.mCSB_scrollTools .mCSB_draggerRail {
+  width: 6px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.mCS-light-3.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-3.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 6px;
+}
+
+.mCS-light-3.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-dark-3.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-light-3.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-dark-3.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  width: 100%;
+  height: 6px;
+  margin: 5px 0;
+}
+
+.mCS-light-3.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-light-3.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail,
+.mCS-dark-3.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-dark-3.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+  width: 12px;
+}
+
+.mCS-light-3.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-light-3.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail,
+.mCS-dark-3.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
+.mCS-dark-3.mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+  height: 12px;
+  margin: 2px 0;
+}
+
+.mCS-light-3.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -32px -72px;
+}
+
+.mCS-light-3.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -32px -92px;
+}
+
+.mCS-light-3.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -40px -112px;
+}
+
+.mCS-light-3.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -40px -128px;
+}
+
+/* theme "dark-3" */
+.mCS-dark-3.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.mCS-dark-3.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.mCS-dark-3.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-dark-3.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mCS-dark-3.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mCS-dark-3.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -112px -72px;
+}
+
+.mCS-dark-3.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -112px -92px;
+}
+
+.mCS-dark-3.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -120px -112px;
+}
+
+.mCS-dark-3.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -120px -128px;
+}
+
+/* ---------------------------------------- */
+/* theme "inset", "inset-dark", "inset-2", "inset-2-dark", "inset-3", "inset-3-dark" */
+.mCS-inset.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-inset-dark.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-inset-2.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-inset-3.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_draggerRail {
+  width: 12px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.mCS-inset.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-2.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-3.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 6px;
+  margin: 3px 5px;
+  position: absolute;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mCS-inset.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-2.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-2-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-3.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-3-dark.mCSB_scrollTools_horizontal .mCSB_dragger .mCSB_dragger_bar {
+  height: 6px;
+  margin: 5px 3px;
+  position: absolute;
+  width: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mCS-inset.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-inset-dark.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-inset-2.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-inset-2-dark.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-inset-3.mCSB_scrollTools_horizontal .mCSB_draggerRail,
+.mCS-inset-3-dark.mCSB_scrollTools_horizontal .mCSB_draggerRail {
+  width: 100%;
+  height: 12px;
+  margin: 2px 0;
+}
+
+.mCS-inset.mCSB_scrollTools .mCSB_buttonUp,
+.mCS-inset-2.mCSB_scrollTools .mCSB_buttonUp,
+.mCS-inset-3.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -32px -72px;
+}
+
+.mCS-inset.mCSB_scrollTools .mCSB_buttonDown,
+.mCS-inset-2.mCSB_scrollTools .mCSB_buttonDown,
+.mCS-inset-3.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -32px -92px;
+}
+
+.mCS-inset.mCSB_scrollTools .mCSB_buttonLeft,
+.mCS-inset-2.mCSB_scrollTools .mCSB_buttonLeft,
+.mCS-inset-3.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -40px -112px;
+}
+
+.mCS-inset.mCSB_scrollTools .mCSB_buttonRight,
+.mCS-inset-2.mCSB_scrollTools .mCSB_buttonRight,
+.mCS-inset-3.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -40px -128px;
+}
+
+/* theme "inset-dark", "inset-2-dark", "inset-3-dark" */
+.mCS-inset-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.mCS-inset-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.mCS-inset-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-inset-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mCS-inset-dark.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.mCS-inset-dark.mCSB_scrollTools .mCSB_buttonUp,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_buttonUp,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_buttonUp {
+  background-position: -112px -72px;
+}
+
+.mCS-inset-dark.mCSB_scrollTools .mCSB_buttonDown,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_buttonDown,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_buttonDown {
+  background-position: -112px -92px;
+}
+
+.mCS-inset-dark.mCSB_scrollTools .mCSB_buttonLeft,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_buttonLeft,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_buttonLeft {
+  background-position: -120px -112px;
+}
+
+.mCS-inset-dark.mCSB_scrollTools .mCSB_buttonRight,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_buttonRight,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_buttonRight {
+  background-position: -120px -128px;
+}
+
+/* theme "inset-2", "inset-2-dark" */
+.mCS-inset-2.mCSB_scrollTools .mCSB_draggerRail,
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: transparent;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.mCS-inset-2-dark.mCSB_scrollTools .mCSB_draggerRail {
+  border-color: #000;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+/* theme "inset-3", "inset-3-dark" */
+.mCS-inset-3.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_draggerRail {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.mCS-inset-3.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.mCS-inset-3.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.mCS-inset-3.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-inset-3.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger:hover .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,
+.mCS-inset-3-dark.mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* ---------------------------------------- */
+:root {
+  --viewHeight: 702px;
+  --koreanColor: #f6c43d;
+  --koreanLabelColor: #ffe154;
+  --koreanTextColor: #bc6601;
+  --koreanLightColor: #fff0aa;
+  --mathColor: #ff8786;
+  --mathLabelColor: #fec4c4;
+  --mathTextColor: #d75735;
+  --mathLightColor: #fddbdb;
+  --societyColor: #9bdd55;
+  --societyLabelColor: #b8ea82;
+  --societyTextColor: #43780a;
+  --societyLightColor: #cdeeaa;
+  --scienceColor: #48bee2;
+  --scienceLabelColor: #77d3ef;
+  --scienceTextColor: #046887;
+  --scienceLightColor: #a4dff1;
+  --englishColor: #8d9ae8;
+  --englishLabelColor: #a5b6ff;
+  --englishTextColor: #2c3fae;
+  --englishLightColor: #c6cdf4;
+  --totalColor: #ef99dd;
+  --totalLabelColor: #febdf0;
+  --totalTextColor: #ab2890;
+  --totalLightColor: #f7ccee;
+  --specialColor: #f3975a;
+}
+
+.nanumsquare {
+  font-family: 'NanumSquare', sans-serif !important;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  color: black;
+  background-color: white;
+  font-family: NanumSquare;
+}
+
+body.bg {
+  background-image: linear-gradient(to right, #f8f2e7, #f8f2e7 1190px, #3ac8f5 1190px);
+}
+
+section {
+  z-index: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+figure, label {
+  margin: 0;
+}
+
+a {
+  font-size: inherit;
+  color: inherit;
+}
+
+.wrap {
+  width: 1280px;
+  display: flex;
+  padding: 25px 25px 35px 35px;
+  position: relative;
+}
+
+button:focus, input:focus {
+  outline: none;
+}
+
+input::placeholder {
+  color: #999999;
+}
+
+.flex {
+  display: flex;
+}
+
+.block {
+  display: block !important;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.flex1 {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.flex-dir_column {
+  flex-direction: row;
+}
+
+.flex-dir_row {
+  flex-direction: row;
+}
+
+.flex-basis_auto {
+  flex-basis: auto;
+}
+
+.flex-basis_0 {
+  flex-basis: 0;
+}
+
+.flex-basis_40 {
+  flex-basis: 40% !important;
+}
+
+.flex-basis_50 {
+  flex-basis: 50% !important;
+}
+
+.flex-basis_60 {
+  flex-basis: 60% !important;
+}
+
+.flex-grow_0 {
+  flex-grow: 0;
+}
+
+.flex-wrap_wrap {
+  flex-wrap: wrap;
+}
+
+.grow, .flex-grow_1 {
+  flex-grow: 1;
+}
+
+.flex-shrink_0 {
+  flex-shrink: 0;
+}
+
+.shrink, .flex-shrink_1 {
+  flex-shrink: 1;
+}
+
+.justify-content_center {
+  justify-content: center;
+}
+
+.justify-content_between {
+  justify-content: space-between;
+}
+
+.justify-content_stretch {
+  justify-content: stretch;
+}
+
+.align-items_center {
+  align-items: center;
+}
+
+.align-items_start {
+  align-items: flex-start;
+}
+
+.flex_row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.font-weight_bold, .bold {
+  font-weight: 700;
+}
+
+.font-weight_extra_bold, .bolder {
+  font-weight: 800;
+}
+
+.position_relative, .relative {
+  position: relative;
+}
+
+.bull {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background-color: #949494;
+  border-radius: 50%;
+  margin: 0 5px;
+  vertical-align: middle;
+}
+
+.iceCream {
+  width: 15px;
+  height: 25px;
+  background: url("../img/common/icon_icecream.png") no-repeat center;
+  background-size: cover;
+}
+
+span.iceCream {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.margin-top_0 {
+  margin-top: 0;
+}
+
+.margin-top_10 {
+  margin-top: 10px;
+}
+
+.margin-top_20 {
+  margin-top: 20px;
+}
+
+.margin-top_30 {
+  margin-top: 30px;
+}
+
+.margin-left_5 {
+  margin-left: 5px;
+}
+
+.margin-left_10 {
+  margin-left: 10px;
+}
+
+.margin-right_5 {
+  margin-right: 5px;
+}
+
+.margin-right_10 {
+  margin-right: 10px;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.noBorder {
+  border: none;
+}
+
+.white, .color_white {
+  color: white;
+}
+
+main {
+  flex-basis: 925px;
+  flex-grow: 1;
+}
+
+.main {
+  display: flex;
+}
+
+.box {
+  padding: 23px 45px 30px 46px;
+  box-shadow: 2.2px 2.2px 15px rgba(0, 0, 0, 0.15);
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 25px;
+  position: relative;
+  height: 420px;
+}
+
+.box + .box {
+  margin-left: 20px;
+}
+
+.box.blueBox {
+  border-color: #42c0da;
+  background-color: #63d5ed;
+}
+
+.box.yellowBox {
+  border-color: #e3a556;
+  background-color: #f6b35d;
+}
+
+.element {
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px 10px 8px 17px;
+  border-radius: 15px;
+  border: 2px solid white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  background-color: white;
+}
+
+.element.oneLine {
+  height: 44px;
+  line-height: 44px;
+  white-space: nowrap;
+  padding: 5px 13px 5px 11px;
+  font-size: 15px;
+  letter-spacing: -0.75px;
+  font-weight: 700;
+}
+
+.element.recentWrong {
+  font-size: 17.5px;
+  letter-spacing: -1.31px;
+  height: 44px;
+  line-height: 44px;
+  white-space: nowrap;
+  padding: 5px 13px 5px;
+  font-weight: 700;
+}
+
+.wrongCount {
+  line-height: 1;
+  color: #00aae0;
+  border-bottom: 2px solid #1ea4d9;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+.recentWrong + .oneLine {
+  margin-left: 5px;
+}
+
+.teacherUnderline {
+  border-bottom: 1px solid #b2b2b2;
+  line-height: 1.7;
+}
+
+.memoIcon {
+  display: inline-block;
+  width: 11.5px;
+  height: 15px;
+  background: url("../img/common/icon_memo.png") no-repeat;
+  background-size: 11.5px 15px;
+}
+
+.memoIcon + .teacherUnderline {
+  margin-left: 7.5px;
+}
+
+.element > label:first-child {
+  margin-right: 11.5px;
+  font-family: JUA;
+  width: 85px;
+  text-align: center;
+  margin-bottom: 0;
+  font-weight: normal;
+}
+
+.element > label.blue {
+  background-color: #1f70a4;
+}
+
+.element.headLabel {
+  padding-left: 0;
+  justify-content: flex-start;
+  font-size: 17.5px;
+  font-weight: bold;
+  background-image: linear-gradient(to right, #1f70a4 85px, white 85px);
+}
+
+.element.headLabel.darkOrange {
+  background-image: linear-gradient(to right, #ce6143 85px, white 85px);
+}
+
+.element.subject {
+  height: 115px;
+}
+
+.subjectInfo {
+  font-family: JUA;
+  font-size: 20px;
+}
+
+.subjectInfo .typeLabel {
+  margin-top: 9px;
+}
+
+.element.subjectLabel .subjectInfo {
+  height: 110px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 85px;
+}
+
+.element.subjectLabel {
+  padding-left: 100px;
+}
+
+.element.example {
+  overflow: hidden;
+}
+
+.element.example img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  object-fit: contain;
+  object-position: center;
+}
+
+.element.example.noStudyBanner01 img {
+  width: 410px;
+  height: 368px;
+}
+
+.element.example.noStudyBanner02 img {
+  width: 343px;
+  height: 265px;
+}
+
+.subjectIcon {
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+}
+
+.subjectIcon.korean, .korean .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_korean.png");
+}
+
+.subjectIcon.math, .math .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_math.png");
+}
+
+.subjectIcon.english, .english .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_english.png");
+}
+
+.subjectIcon.science, .science .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_science.png");
+}
+
+.subjectIcon.society, .society .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_society.png");
+}
+
+.subjectIcon.total, .total .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_total.png");
+}
+
+.korean .subjectIcon {
+  background-color: #f6c43d;
+}
+
+.math .subjectIcon {
+  background-color: #ff8786;
+}
+
+.english .subjectIcon {
+  background-color: #8d9ae8;
+}
+
+.science .subjectIcon {
+  background-color: #48bee2;
+}
+
+.society .subjectIcon {
+  background-color: #9bdd55;
+}
+
+.total .subjectIcon {
+  background-color: #ef99dd;
+}
+
+.korean.subjectLabel .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_korean.png");
+}
+
+.math.subjectLabel .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_math.png");
+}
+
+.english.subjectLabel .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_english.png");
+}
+
+.science.subjectLabel .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_science.png");
+}
+
+.society.subjectLabel .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_society.png");
+}
+
+.total.subjectLabel .subjectIcon {
+  background-image: url("../img/subjectIcons/subjectIcon_total.png");
+}
+
+.subjectLabel.korean {
+  background-image: linear-gradient(to right, #f6c43d 85px, white 85px);
+}
+
+.subjectLabel.math {
+  background-image: linear-gradient(to right, #ff8786 85px, white 85px);
+}
+
+.subjectLabel.society {
+  background-image: linear-gradient(to right, #9bdd55 85px, white 85px);
+}
+
+.subjectLabel.science {
+  background-image: linear-gradient(to right, #48bee2 85px, white 85px);
+}
+
+.subjectLabel.english {
+  background-image: linear-gradient(to right, #8d9ae8 85px, white 85px);
+}
+
+.subjectLabel.total {
+  background-image: linear-gradient(to right, #ef99dd 85px, white 85px);
+}
+
+.subjectLabel {
+  min-width: 85px;
+}
+
+.subjectLabel.korean.vertical {
+  background-image: linear-gradient(to bottom, #f6c43d 112px, white 112px);
+}
+
+.subjectLabel.math.vertical {
+  background-image: linear-gradient(to bottom, #ff8786 112px, white 112px);
+}
+
+.subjectLabel.society.vertical {
+  background-image: linear-gradient(to bottom, #9bdd55 112px, white 112px);
+}
+
+.subjectLabel.science.vertical {
+  background-image: linear-gradient(to bottom, #48bee2 112px, white 112px);
+}
+
+.subjectLabel.english.vertical {
+  background-image: linear-gradient(to bottom, #8d9ae8 112px, white 112px);
+}
+
+.subjectLabel.total.vertical {
+  background-image: linear-gradient(to bottom, #ef99dd 112px, white 112px);
+}
+
+.subjectLabel.korean.postStyle {
+  background-image: none;
+  background-color: #fff0aa;
+}
+
+.subjectLabel.math.postStyle {
+  background-image: none;
+  background-color: #fddbdb;
+}
+
+.subjectLabel.society.postStyle {
+  background-image: none;
+}
+
+.subjectLabel.science.postStyle {
+  background-image: none;
+}
+
+.subjectLabel.english.postStyle {
+  background-image: none;
+}
+
+.subjectLabel.total.postStyle {
+  background-image: none;
+}
+
+.subjectLabel.postStyle button {
+  border: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  font-family: JUA;
+  font-size: 30px;
+}
+
+.subjectLabel.korean.postStyle button {
+  background-color: #f6c43d;
+}
+
+.subjectLabel.math.postStyle button {
+  background-color: #ff8786;
+}
+
+.element.subjectLabel.postStyle .subjectInfo {
+  margin: 38px 0 0 27px;
+  width: auto;
+  position: static;
+  display: block;
+}
+
+.subjectLabel.postStyle .subjectInfo li:first-child {
+  font-size: 57px;
+  font-family: JUA;
+}
+
+.subjectLabel.postStyle .subjectInfo li:nth-child(2) {
+  margin-top: 62.5px;
+}
+
+.subjectLabel.postStyle .subjectInfo li:last-child {
+  font-family: NanumSquare;
+  margin-top: 12.5px;
+  letter-spacing: -1.2px;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.subjectLabel.postStyle .subjectIcon {
+  background-size: 70px;
+  border-radius: 50%;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 90px;
+  height: 90px;
+}
+
+.element.postStyle {
+  align-items: flex-start;
+  padding-left: 10px;
+  border-width: 4px;
+  width: 405px;
+  height: 360px;
+  overflow: hidden;
+}
+
+.flex_row .element.postStyle + .element.postStyle {
+  margin-left: 20px;
+}
+
+.element.subjectLabel.vertical {
+  justify-content: normal;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 263px;
+  padding-left: 18px;
+  padding-top: 27px;
+}
+
+.subjectLabel.vertical > div:first-child {
+  height: 85px;
+}
+
+.subjectLabel.vertical > div.relative {
+  width: 100%;
+  padding-top: 65px;
+  padding-bottom: 17px;
+}
+
+.subjectLabel.vertical > div.relative ul li:first-child {
+  font-size: 17.5px;
+  font-weight: 700;
+  letter-spacing: -0.88px;
+}
+
+.subjectLabel.vertical > div.relative ul li:nth-child(2) {
+  line-height: 28px;
+  margin-top: 15px;
+  font-size: 23px;
+  letter-spacing: -1.72px;
+  font-weight: 700;
+}
+
+.subjectLabel.vertical .subjectInfo {
+  height: auto;
+  width: auto;
+  display: block;
+  position: static;
+  font-size: 31px;
+  align-items: flex-start;
+}
+
+.subjectLabel.vertical .subjectIcon {
+  position: absolute;
+  top: 21px;
+  right: 15px;
+  width: 71px;
+  height: 71px;
+}
+
+.subjectLabel.vertical .kidIcon {
+  position: absolute;
+  top: 21px;
+  right: 15px;
+  width: 68px;
+  height: 68px;
+  top: 20px;
+  right: 1px;
+}
+
+.flex_column > .element + .element,
+.column > .element + .element {
+  margin-top: 7.5px;
+}
+
+.flex_row > .element + .element,
+.row > .element + .element {
+  margin-left: 5px;
+}
+
+/* .box.column > * { margin: 7px 0 0; } */
+.box.column > .margin-top_0 {
+  margin-top: 0;
+}
+
+.box.noItem {
+  padding-top: 331px;
+  font-family: JUA;
+  font-size: 45px;
+  text-align: center;
+  background-image: url("../img/common/smileBook.png");
+  background-repeat: no-repeat;
+  background-position: center 218px;
+  background-size: 107px 81px;
+  color: rgba(53, 129, 145, 0.75);
+}
+
+nav.dateNav + .main .box.noItem {
+  padding-top: 264px;
+  background-position-y: 151px;
+}
+
+.boxTitle {
+  font-size: 21px;
+  letter-spacing: -0.52px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+}
+
+.boxTitle.inside {
+  top: 23px;
+  left: 47px;
+  position: absolute;
+}
+
+.boxTitle.offset {
+  position: absolute;
+  top: -20px;
+  left: 15px;
+  margin: 0;
+}
+
+.boxTitle .pool {
+  margin: 0 10px 0 1px;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #000000;
+  color: white;
+  font-family: JUA;
+  letter-spacing: -0.8px;
+  font-size: 18px;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxTitle .pool:last-child {
+  margin-right: 10px;
+}
+
+.boxTitle.inside span {
+  right: -36px;
+  width: 32px;
+  height: 32px;
+  font-size: 20.2px;
+  letter-spacing: 1.01px;
+}
+
+.boxTitle.todaySchoolStudy {
+  background: url("../img/boxTitles/boxTitle_todaySchoolStudy.png") no-repeat;
+  padding-left: 160.5px;
+  height: 34.5px;
+  background-size: 160.5px 34.5px;
+}
+
+.boxTitle.todayStudy {
+  background: url("../img/boxTitles/boxTitle_todayStudy.png") no-repeat;
+  padding-left: 150px;
+  height: 45px;
+  background-size: 150px 45px;
+}
+
+.boxTitle.todaySpecialStudy {
+  background: url("../img/boxTitles/boxTitle_todaySpecialStudy.png") no-repeat;
+  padding-left: 162.5px;
+  height: 35px;
+  background-size: 162.5px 35px;
+}
+
+.boxTitle.myClassroom {
+  background: url("../img/boxTitles/boxTitle_myClassroom.png") no-repeat;
+  padding-left: 183px;
+  height: 50px;
+  background-size: 183px 50px;
+}
+
+.boxTitle.schoolstudyPreview {
+  background: url("../img/boxTitles/boxTitle_shcoolstudyPreview.png") no-repeat;
+  padding-left: 174px;
+  height: 38px;
+  background-size: 174px 38px;
+}
+
+.boxTitle.testStudy {
+  background: url("../img/boxTitles/boxTitle_testStudy.png") no-repeat;
+  padding-left: 94px;
+  height: 32px;
+  background-size: 94px 32px;
+}
+
+.boxTitle.testRealStudy {
+  background: url("../img/boxTitles/boxTitle_testRealStudy.png") no-repeat;
+  padding-left: 137px;
+  height: 31px;
+  background-size: 137px 31px;
+}
+
+.boxTitle.studyData {
+  background: url("../img/boxTitles/boxTitle_studyData.png") no-repeat;
+  padding-left: 96px;
+  height: 30px;
+  background-size: 96px 30px;
+}
+
+.boxTitle.englishTextbook {
+  background: url("../img/boxTitles/boxTitle_englishTextbook.png") no-repeat;
+  padding-left: 205px;
+  height: 32px;
+  background-size: 205px 32px;
+}
+
+.boxTitle.boxtitle_middleEntry {
+  background: url("../img/boxTitles/boxtitle_middleEntry.png") no-repeat;
+  padding-left: 145px;
+  height: 47px;
+  background-size: 145px 47px;
+}
+
+.typeLabel {
+  white-space: nowrap;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.korean.subjectLabel .typeLabel {
+  background-color: #ffe154;
+  color: #bc6601;
+}
+
+.math.subjectLabel .typeLabel {
+  background-color: #fec4c4;
+  color: #d75735;
+}
+
+.society.subjectLabel .typeLabel {
+  background-color: #b8ea82;
+  color: #43780a;
+}
+
+.science.subjectLabel .typeLabel {
+  background-color: #77d3ef;
+  color: #046887;
+}
+
+.english.subjectLabel .typeLabel {
+  background-color: #a5b6ff;
+  color: #2c3fae;
+}
+
+.total.subjectLabel .typeLabel {
+  background-color: #febdf0;
+  color: #ab2890;
+}
+
+.element > ul:nth-child(2) .typeLabel {
+  margin-right: 10px;
+}
+
+.element > ul:nth-child(2) {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  margin-right: 10px;
+  align-self: flex-start;
+}
+
+.element > ul:nth-child(2) li:nth-child(1) {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.element > ul:nth-child(2) li:nth-child(2) {
+  max-height: 55px;
+  overflow: hidden;
+  margin-top: 11px;
+  font-size: 23px;
+  font-weight: bold;
+  letter-spacing: -1.2px;
+}
+
+.kidIcon {
+  width: 68px;
+  height: 68px;
+  position: relative;
+}
+
+.kidIcon.badge {
+  padding: 0;
+}
+
+.kidIcon.badge:after {
+  font-weight: 800;
+  letter-spacing: -1.2px;
+  display: flex;
+  font-size: 15px;
+  justify-content: center;
+  align-items: center;
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: -7px;
+  right: -7px;
+  border: 3px solid white;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.kidIcon.badge.complete:after {
+  content: "완료";
+  border-color: gray;
+}
+
+.kidIcon > div {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: gray;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.korean.subjectLabel .kidIcon > div, .kidIcon.kid01 > div {
+  background-image: url("../img/kidIcons/kidIcon01.png");
+  background-size: 78.5px 50px;
+}
+
+.math.subjectLabel .kidIcon > div, .kidIcon.kid02 > div {
+  background-image: url("../img/kidIcons/kidIcon02.png");
+  background-size: 51px 44.5px;
+}
+
+.society.subjectLabel .kidIcon > div, .kidIcon.kid03 > div {
+  background-image: url("../img/kidIcons/kidIcon03.png");
+  background-size: 79px 71.5px;
+  background-position: center -12px;
+}
+
+.science.subjectLabel .kidIcon > div, .kidIcon.kid04 > div {
+  background-image: url("../img/kidIcons/kidIcon04.png");
+  background-size: 66px 64.5px;
+  background-position: center -5px;
+}
+
+.english.subjectLabel .kidIcon > div, .kidIcon.kid05 > div {
+  background-image: url("../img/kidIcons/character02.png");
+  background-size: 60px 97px;
+  background-position: center -5px;
+}
+
+.total.subjectLabel .kidIcon > div, .kidIcon.kid06 > div {
+  background-image: url("../img/kidIcons/character01.png");
+  background-size: 52.5px 83.5px;
+  background-position: center 1px;
+}
+
+.korean.subjectLabel .kidIcon > div {
+  background-color: #f6c43d;
+}
+
+.math.subjectLabel .kidIcon > div {
+  background-color: #ff8786;
+}
+
+.society.subjectLabel .kidIcon > div {
+  background-color: #9bdd55;
+}
+
+.science.subjectLabel .kidIcon > div {
+  background-color: #48bee2;
+}
+
+.english.subjectLabel .kidIcon > div {
+  background-color: #8d9ae8;
+}
+
+.total.subjectLabel .kidIcon > div {
+  background-color: #ef99dd;
+}
+
+.korean.subjectLabel .kidIcon.badge:after {
+  border-color: #f6c43d;
+}
+
+.math.subjectLabel .kidIcon.badge:after {
+  border-color: #ff8786;
+}
+
+.society.subjectLabel .kidIcon.badge:after {
+  border-color: #9bdd55;
+}
+
+.science.subjectLabel .kidIcon.badge:after {
+  border-color: #48bee2;
+}
+
+.english.subjectLabel .kidIcon.badge:after {
+  border-color: #8d9ae8;
+}
+
+.total.subjectLabel .kidIcon.badge:after {
+  border-color: #ef99dd;
+}
+
+.element .kidIcon {
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+.newBadge:after {
+  content: "";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("../img/common/icon_new_copy.png") no-repeat center;
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+}
+
+.element.newBadge:after {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+}
+
+nav.dateNav {
+  padding: 7px 28px 7px 35px;
+  font-weight: 700;
+  width: 640px;
+  font-size: 20px;
+  display: flex;
+  align-items: stretch;
+  margin: 0px auto;
+  border: 2px solid #39b9d4;
+  border-radius: 25px;
+  background-color: white;
+  height: 50px;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+nav.dateNav a {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+nav.dateNav a.on {
+  width: auto;
+  padding: 0 20px;
+  flex-basis: auto;
+  background-color: #00b3d8;
+  border-radius: 20px;
+  color: white;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+nav.dateNav a span {
+  margin-left: 10px;
+  font-size: 17px;
+  vertical-align: middle;
+}
+
+nav.dateNav a.calendar {
+  flex-basis: auto;
+  flex-grow: 0;
+  width: 36px;
+  height: 32px;
+  background: url("../img/common/navCalendar.png") no-repeat center;
+  background-size: 36px 32px;
+}
+
+nav.dateNav a.goPrev,
+nav.dateNav a.goNext {
+  background-size: contain;
+  width: 18px;
+  height: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-grow: 0;
+  flex-basis: auto;
+}
+
+nav.dateNav a.goPrev {
+  background-image: url("../img/common/nav_leftArrow.png");
+}
+
+nav.dateNav a.goNext {
+  background-image: url("../img/common/nav_rightArrow.png");
+}
+
+aside {
+  width: 265px;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+aside section {
+  padding: 16.5px 8.5px;
+  position: relative;
+  margin-top: 9px;
+  background-color: white;
+  border: 1.5px solid #d7d7d7;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+aside section.profileSection {
+  padding: 18px 8.5px 10px;
+  margin-top: 0;
+  height: 400px;
+}
+
+aside.type2 {
+  margin-top: 0;
+}
+
+aside.type2 section.profileSection {
+  padding: 22px 18.5px 19px;
+}
+
+aside.type2 .profileSection {
+  padding: 22px 18px;
+  margin-top: 0;
+  height: 495px;
+}
+
+aside.type2 .profileIcon {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 110px;
+  height: 110px;
+}
+
+aside.type2 .profileIcon figure {
+  position: static;
+  width: 100%;
+  height: 100%;
+}
+
+aside.type2 section:first-child .personalInfoList {
+  margin-left: 20px;
+}
+
+aside.type2 .personalInfoList > li:first-child {
+  font-weight: 800;
+  font-size: 24.2px;
+  letter-spacing: auto;
+}
+
+aside.type2 .personalInfoList > li:nth-child(2) {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+aside.type2 .bannerSection {
+  margin-top: 20px;
+}
+
+aside section:first-child .personalInfoList {
+  margin-left: 94px;
+}
+
+aside .buttonList .icon {
+  margin-bottom: 3px;
+}
+
+.personalInfoList > li:first-child {
+  font-size: 19.8px;
+  font-weight: 700;
+  letter-spacing: -1.48px;
+}
+
+.personalInfoList > li:nth-child(2) {
+  margin-top: 11.5px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -1.33px;
+}
+
+.personalInfoList > li:nth-child(3) {
+  margin-top: 9.5px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.profileIcon {
+  position: absolute;
+  top: -26px;
+  left: -25px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.profileIcon figure {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #3ac8f5;
+}
+
+.profileIcon figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.profileIcon .editGear {
+  border-radius: 50%;
+  background: url("../img/common/icon_config.png") center;
+  background-size: 43.5px 44px;
+  position: absolute;
+  bottom: -9px;
+  right: 5px;
+  width: 45px;
+  height: 45px;
+}
+
+.scrollBox {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.scrollBox .element + .element {
+  margin-top: 7.5px;
+}
+
+/* mCustomScrollBar */
+.mCSB_scrollTools .mCSB_draggerContainer {
+  width: 10px;
+  left: auto;
+}
+
+.mCS-dark.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar {
+  width: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+  width: 10px;
+}
+
+.mCSB_container .element {
+  margin-right: 5px;
+}
+
+.mCSB_container .element:last-child {
+  margin-bottom: 8px;
+}
+
+.mCSB_inside > .mCSB_container {
+  margin-right: 15px;
+}
+
+.horizonScrollBox {
+  border: 0;
+  padding: 13px 31px;
+  flex-shrink: 0;
+}
+
+.horizonScrollBox .arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -9px;
+  width: 11px;
+  height: 18px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px 18px;
+}
+
+.horizonScrollBox .arrow.left {
+  background-image: url("../img/common/leftArrow.png");
+  left: 12px;
+}
+
+.horizonScrollBox .arrow.right {
+  background-image: url("../img/common/rightArrow.png");
+  right: 12px;
+}
+
+.horizonScrollBox ul {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+  width: 330px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: inline-flex;
+}
+
+.horizonScrollBox ul::-webkit-scrollbar {
+  display: none;
+}
+
+.horizonScrollBox li {
+  /* scroll-snap-stop: always; */
+  scroll-snap-align: start;
+  flex: 0 0 auto;
+  margin: 0 0 0 22px;
+}
+
+.horizonScrollBox li,
+.studyMenuIcon {
+  background-repeat: no-repeat;
+  width: 95px;
+  height: 95px;
+  border-radius: 20px;
+  border: 2px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 65px;
+  font-family: JUA;
+}
+
+.horizonScrollBox li:first-child {
+  margin-left: 0px;
+}
+
+.studyMenuIcon.homeLearnBookCafe {
+  background-image: url("../img/common/icon_homeLearnBookCafe.png");
+  background-position: center 7px;
+  background-color: #ec94d4;
+  border-color: #de78c2;
+  background-size: 60px 60px;
+}
+
+.studyMenuIcon.homeLearnCalc {
+  background-image: url("../img/common/icon_homeLearnCalc.png");
+  background-position: center 5px;
+  background-color: #8dbef6;
+  border-color: #78b0ee;
+  background-size: 60px 60px;
+}
+
+.studyMenuIcon.englishLibrary {
+  background-image: url("../img/common/icon_englishLibrary.png");
+  background-position: center 5px;
+  background-color: #6bdd7e;
+  border-color: #56ce6a;
+  background-size: 60px 60px;
+}
+
+.specialStudyList {
+  padding: 5px 15px;
+  display: block;
+  border: 0;
+}
+
+.specialStudyList > li {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: content-box;
+  padding: 11px 0px;
+  border-bottom: 1px solid #cccccc;
+  position: relative;
+}
+
+.specialStudyList > li figure {
+  flex: 0 0 auto;
+  margin: 0;
+  overflow: hidden;
+  width: 73px;
+  height: 73px;
+  border-radius: 14px;
+}
+
+.specialStudyList > li figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.specialStudyList > li ul {
+  margin-left: 8px;
+}
+
+.specialStudyList > li ul li:first-child {
+  font-size: 17px;
+  color: #ff822e;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+}
+
+.specialStudyList > li ul li:nth-child(2) {
+  margin-top: 5px;
+  font-weight: 700;
+  font-size: 23px;
+  color: black;
+  letter-spacing: -0.4px;
+}
+
+.noScrollBar {
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.noScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+.buttonList {
+  font-size: 17px;
+  font-family: JUA;
+  letter-spacing: -0.8px;
+  padding-bottom: 8px;
+}
+
+.personalInfoList + .buttonList {
+  margin-top: 15px;
+}
+
+.buttonList > li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 12px 8px 5px;
+}
+
+.buttonList > li:last-child {
+  padding-bottom: 0px;
+}
+
+.skyBg {
+  background-color: #deeef8;
+}
+
+.buttonList > li.skyBg {
+  border-radius: 10px;
+  padding-top: 11px;
+  height: 100px;
+}
+
+.icon {
+  font-size: 20px;
+  letter-spacing: -0.8px;
+  font-family: JUA;
+  position: relative;
+  background-position: center;
+  width: 60px;
+  height: 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.icon.wrongAnswerNote {
+  background-image: url("../img/common/icon_wrongAnswerNote.png");
+}
+
+.icon.naigongBox {
+  background-image: url("../img/common/icon_naigongBox.png");
+}
+
+.icon.aILifeNote {
+  background-image: url("../img/common/icon_AILifeNote.png");
+}
+
+.icon.attendCheck {
+  background-image: url("../img/common/icon_watch.png");
+}
+
+.icon.eventBox {
+  background-image: url("../img/common/icon_eventBox.png");
+}
+
+.icon.coneyWorld {
+  background-image: url("../img/common/icon_friendShop.png");
+}
+
+.icon.homeLearnTalk {
+  background-image: url("../img/common/icon_homeLearnTalk.png");
+}
+
+.icon.homeLearnMagazine {
+  background-image: url("../img/common/icon_homeLearnMagazine.png");
+}
+
+.icon.askMyQuestion {
+  background-image: url("../img/common/icon_askMyQuestion.png");
+}
+
+.icon.myAppDrawer {
+  background-image: url("../img/common/icon_myAppDrawer.png");
+}
+
+.icon.homeLearnMarket {
+  background-image: url("../img/common/icon_homeLearnMarket.png");
+}
+
+.icon.homeLearnLibrary {
+  background-image: url("../img/common/icon_HomeLernLibrary.png");
+}
+
+.icon.homeLearnCalc {
+  background-image: url("../img/common/icon_homeLearnCalc.png");
+}
+
+.icon.homeLearnPanix {
+  background-image: url("../img/common/icon_homeLearnPanix.png");
+}
+
+.icon.threeDExperience {
+  background-image: url("../img/common/icon_3dExperience.png");
+}
+
+.icon.homeLearnBookCafe {
+  background-image: url("../img/common/icon_homeLearnBookCafe.png");
+}
+
+.icon.textBookDic {
+  background-image: url("../img/common/icon_textBookDic.png");
+}
+
+.icon.studyEncy {
+  background-image: url("../img/common/icon_studyEncy.png");
+}
+
+.icon.pointDic {
+  background-image: url("../img/common/icon_pointDic.png");
+}
+
+.alert {
+  border: 0;
+  margin: 0;
+  background-color: #ff4040;
+  color: white;
+  font-family: JUA;
+  font-size: 14px;
+  padding: 3px 8px;
+  border-radius: 20px;
+}
+
+.icon .alert {
+  position: absolute;
+  left: -6px;
+  bottom: 1px;
+}
+
+.buttonList .icon {
+  width: 45px;
+  height: 40px;
+  background-size: 60px 60px;
+}
+
+.buttonList > li > div {
+  line-height: 1em;
+  flex: 0 1 33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.horizonIcons {
+  display: flex;
+  font-family: JUA;
+  font-size: 17px;
+  line-height: 1em;
+}
+
+.horizonIcons div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horizonIcons div:first-child {
+  margin-right: 4px;
+}
+
+.horizonIcons div:nth-child(2) {
+  padding-right: 28px;
+  margin-right: 10px;
+}
+
+.horizonIcons div:nth-child(3) {
+  margin-right: 3px;
+}
+
+.horizonIcons .icon {
+  height: 40px;
+}
+
+.verticaBorder {
+  border-right: 2px solid #e5e5e5;
+}
+
+.bannerSection {
+  position: relative;
+  padding: 12px 9px 13px;
+  margin-top: 9px;
+  height: 128px;
+}
+
+.bannerSection > div {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.bannerSection > div::-webkit-scrollbar {
+  display: none;
+}
+
+.bannerSection > div img {
+  scroll-snap-align: start;
+  width: 244px;
+  height: 100px;
+  flex-basis: auto;
+  flex-shrink: 0;
+}
+
+/* .bannerSection > ul > li ul {  }
+.bannerSection > ul > li ul li:first-child { color: #e47426; font-size: 13px; font-weight: 700; letter-spacing: -0.8px; ; }
+.bannerSection > ul > li ul li:nth-child(2) { margin-top: 8px; font-size: 19px; line-height: 24px; letter-spacing: -0.8px; } */
+.bannerIndicator {
+  display: flex;
+}
+
+.bannerIndicator li {
+  transition: width 0.3s, background-color 0.5s;
+  margin-left: 7px;
+  flex: 0 0 auto;
+  background-color: #e5e5e5;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+}
+
+.bannerIndicator li:first-child {
+  margin-left: 0;
+}
+
+.bannerIndicator li.on {
+  background-color: #b2b2b2;
+  width: 25px;
+}
+
+.bannerSection .bannerIndicator {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+}
+
+nav.bottomNav {
+  position: relative;
+  align-items: center;
+  padding: 7px 0;
+  margin-top: 15px;
+  height: 58px;
+  border-radius: 20px;
+  border: 2px solid #dfd9cf;
+  display: flex;
+  font-size: 22px;
+  font-family: JUA;
+  height: 59.5px;
+}
+
+nav.bottomNav.big {
+  font-size: 26px;
+  height: 128px;
+  padding: 22px 19px;
+  margin-top: 20px;
+}
+
+nav.bottomNav .icon {
+  width: 47px;
+  height: 47px;
+  background-size: 47px 47px;
+}
+
+nav.bottomNav .icon + div {
+  margin-left: 7px;
+}
+
+nav.bottomNav.big .icon {
+  width: 80px;
+  height: 80px;
+  background-size: 80px 80px;
+}
+
+nav.bottomNav > div {
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav.bottomNav.big > div {
+  justify-content: flex-start;
+  border-left: none;
+  height: 80px;
+}
+
+nav.bottomNav > div:first-child {
+  border-left: 0;
+}
+
+nav.bottomNav .homeLearnLibrary {
+  background-size: 70px;
+  margin-right: 10px;
+}
+
+nav.bottomNav .homeLearnCalc {
+  margin-right: 11px;
+}
+
+nav.bottomNav .homeLearnPanix {
+  margin-right: 9px;
+  background-size: 59px;
+}
+
+nav.bottomNav .icon.threeDExperience {
+  margin-right: 9px;
+  background-size: 59px;
+}
+
+nav.recommend {
+  font-size: 24px;
+  line-height: 24px;
+  margin-top: 20px;
+  display: block;
+  height: 128px;
+  background-color: white;
+  padding: 16px 21px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.08);
+  border-color: #d7d7d7;
+}
+
+nav.recommend .flex {
+  margin-top: 9px;
+  height: 60px;
+  justify-content: space-between;
+}
+
+nav.recommend .flex > div {
+  display: flex;
+  align-items: center;
+}
+
+nav.recommend .flex > div > div {
+  white-space: nowrap;
+}
+
+nav.recommend img {
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
+}
+
+nav.recommend .verticalLine {
+  margin: 0 22px 0 15px;
+}
+
+nav.recommend .more {
+  position: absolute;
+  top: 18px;
+  right: 27px;
+  font-family: NanumSquare;
+  color: #a4a4a4;
+  font-size: 18px;
+  background: url("../img/common/main_btn_more.png") no-repeat right center;
+  background-size: 15px;
+  padding-right: 15px;
+}
+
+nav .navTitle {
+  color: #fa8923;
+}
+
+.verticalLine {
+  width: 1px;
+  background-color: #ddd7ce;
+  flex: 0 0 auto !important;
+}
+
+nav.bottomNav .verticalLine {
+  height: 100%;
+}
+
+nav.bottomNav.big .verticalLine {
+  width: 2px;
+  flex: 0 0 auto !important;
+  height: 58px;
+  margin: 0 19px 0 14px;
+}
+
+.scrollXMandatory {
+  scroll-snap-type: x mandatory;
+}
+
+.scrollXMandatory > * {
+  scroll-snap-align: start;
+}
+
+#overlay {
+  position: absolute;
+  top: -50px;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("../img/common/580.png") no-repeat;
+  background-size: 1280px;
+  opacity: 0.5;
+  display: none;
+  pointer-events: none;
+}
+
+.grayBox {
+  color: #050505;
+  line-height: 32px;
+  text-align: center;
+  background-color: #eeeeee;
+  border-radius: 16px;
+  font-size: 17.8px;
+  font-weight: 700;
+  letter-spacing: -1.33px;
+}
+
+.profileSection .grayBox {
+  margin-top: 21px;
+}
+
+.iconList li {
+  height: 64px;
+}
+
+.iconList .icon {
+  background-size: 67px;
+  width: auto;
+  background-position: -5.5px center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 64px;
+}
+
+.profileSection .iconList {
+  border-top: 1px solid #d7d7d7;
+  margin-top: 15px;
+  padding-top: 15px;
+}
+
+.slideWrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+
+.slideWrap::-webkit-scrollbar {
+  display: none;
+}
+
+.slideWrap .element + .element {
+  margin-top: 0;
+  margin-left: 20px;
+}
+
+.slideWrap .element:first-child {
+  margin-left: 0px;
+}
+
+.slideWrap .element {
+  flex: 0 0 auto;
+  margin-top: 0;
+}
+
+.arrowLeft, .arrowRight {
+  position: absolute;
+  top: 50%;
+  margin-top: -22.5px;
+  width: 45px;
+  height: 45px;
+}
+
+.arrowLeft {
+  background: url("../img/common/icon_leftArrow.png") no-repeat center;
+  background-size: contain;
+  left: -22px;
+}
+
+.arrowRight {
+  background: url("../img/common/icon_rightArrow.png") no-repeat center;
+  background-size: contain;
+  right: -22px;
+}
+
+.blueBox.bg01 {
+  background: url("../img/bg/boxBg01.png") no-repeat 48px bottom #63d5ed;
+  background-size: 136.5px 88.5px;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.blueBox .titleBox {
+  margin-top: 0px;
+}
+
+.blueBox .titleBox + .slideWrap {
+  margin-top: 21px;
+}
+
+.box .titleBox + .element {
+  margin-top: 7.5px;
+}
+
+.contentDesc {
+  margin-top: 41px;
+}
+
+.contentDesc li:first-child {
+  font-family: JUA;
+  font-size: 40px;
+  line-height: 44px;
+  letter-spacing: -0.4px;
+  color: white;
+}
+
+.contentDesc li:nth-child(2) {
+  margin-top: 17px;
+}
+
+.contentDesc li:nth-child(2) span {
+  color: white;
+  font-family: JUA;
+  font-size: 18px;
+  background-color: #1994e2;
+  border-radius: 15px;
+  padding: 7px 15px;
+  margin-top: 17px;
+}
+
+.contentDesc li:nth-child(3) {
+  color: #1676b9;
+  font-size: 18.2px;
+  line-height: 23px;
+  letter-spacing: -1.37px;
+  margin-top: 14px;
+}
+
+.contentElement {
+  padding: 8px 10px;
+}
+
+.contentElement img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.oneLineBox {
+  display: flex;
+}
+
+.oneLineBox > .element {
+  margin-top: 0;
+}
+
+.oneLineBox > .element + .element {
+  margin-top: 0;
+  margin-left: 5px;
+}
+
+#layers {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layer {
+  padding: 25px 15px;
+  border-radius: 20px;
+  background-color: white;
+  min-height: 200px;
+  min-width: 475px;
+  position: relative;
+}
+
+.closeBox {
+  width: 35px;
+  height: 35px;
+  background: url("../img/common/icon_Cross.png") no-repeat center;
+  background-size: 35px;
+}
+
+.layer .closeBox {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.layer .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 165px;
+}
+
+.layer .title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #00a1be;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.layer .subTitle {
+  letter-spacing: normal;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.layer .alertText {
+  min-height: 165px;
+  height: 165px;
+  min-width: 425px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  line-height: 36px;
+  color: #3f3f3f;
+  font-weight: 700;
+  text-align: center;
+}
+
+.layer .contentGray {
+  min-width: 556px;
+  line-height: 30px;
+  padding: 72.5px 60px;
+  background-color: #ebebeb;
+  border-radius: 25px;
+  font-size: 20px;
+  letter-spacing: -1.5px;
+}
+
+.buttonBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layer .buttonBox {
+  margin-top: 20px;
+}
+
+.buttonBox button + button {
+  margin-left: 20px;
+}
+
+.b2b_btn {
+  min-width: 135px;
+  border-radius: 22.5px;
+  height: 45px;
+  background-color: #13aeca;
+  border: none;
+  font-size: 25px;
+  text-align: center;
+  font-family: JUA;
+  color: white;
+  padding: 0 22px;
+}
+
+.b2b_btn.no {
+  background-color: #aeaeae;
+}
+
+.b2b_btn.goMarket {
+  background-image: url("../img/common/img_go_market.png");
+  background-repeat: no-repeat;
+  background-position: 22px center;
+  background-size: 20px;
+  padding-left: 52px;
+}
+
+.loginWrap {
+  width: 1280px;
+  position: relative;
+  height: 752px;
+  display: flex;
+}
+
+.loginWrap .bgArea {
+  background: url("../img/common/b2b_login_bg.png") no-repeat center;
+  background-size: 350px;
+}
+
+.loginWrap .loginArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginWrap > * {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 63px;
+  width: 490px;
+  height: 620px;
+  border-radius: 30px;
+  border: 2px solid #dddddd;
+  background-color: #eeeeee;
+}
+
+.loginBox .title {
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: JUA;
+  color: #424242;
+  color: #424242;
+  font-size: 50px;
+  line-height: 54px;
+}
+
+.loginBox .title + input {
+  margin-top: 16px;
+}
+
+.loginBox input[type='text'],
+.loginBox input[type='password'] {
+  padding: 0 13.5px;
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  line-height: 30px;
+  letter-spacing: -0.45px;
+  border: 3px solid #d6d6d6;
+  border-radius: 6px;
+}
+
+.loginBox input[type='password'] {
+  font-family: sans-serif;
+}
+
+.loginBox input[type='text']:focus,
+.loginBox input[type='password']:focus {
+  border-color: #13aeca;
+}
+
+.loginWrap .btn_login_set {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-size: 41.4px;
+}
+
+.btn_login_set {
+  background: url("../img/common/btn_login_set.png") no-repeat center;
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+}
+
+.findIdPw {
+  font-size: 16px;
+  color: black;
+  text-align: center;
+}
+
+.loginBox .findIdPw {
+  margin-top: 26px;
+}
+
+.loginBox .horLineBox {
+  margin-bottom: 22.5px;
+}
+
+.loginBox .buttonBox {
+  align-self: stretch;
+}
+
+.floating {
+  position: absolute;
+  top: 64px;
+  right: 16px;
+}
+
+.balloon {
+  padding: 7px 0;
+  font-size: 17.8px;
+  letter-spacing: -1px;
+  font-weight: 700;
+  line-height: 50px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid #b6b6b6;
+  box-shadow: 1.7px 1.7px 3px rgba(0, 0, 0, 0.15);
+}
+
+.balloon li {
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 17px 0 55px;
+  background-repeat: no-repeat;
+  background-position: 15px center;
+  background-size: 33px;
+}
+
+.balloon li:last-child {
+  border-bottom: 0;
+}
+
+.balloonTip {
+  position: absolute;
+  top: -11px;
+  right: 15px;
+  background: url("../img/common/balloonTip.png") no-repeat;
+  width: 11.5px;
+  height: 12px;
+  background-size: cover;
+}
+
+.bluelight_icon {
+  background-image: url("../img/common/login_dropdown_bluelight_icon.png");
+}
+
+.brightness_icon {
+  background-image: url("../img/common/login_dropdown_brightness_icon.png");
+}
+
+.camera_icon {
+  background-image: url("../img/common/login_dropdown_camera_icon.png");
+}
+
+.certify_icon {
+  background-image: url("../img/common/login_dropdown_certify_icon.png");
+}
+
+.gallery_icon {
+  background-image: url("../img/common/login_dropdown_gallery_icon.png");
+}
+
+.internet_icon {
+  background-image: url("../img/common/login_dropdown_internet_icon.png");
+}
+
+.logout_icon {
+  background-image: url("../img/common/login_dropdown_logout_icon.png");
+}
+
+.middle_icon {
+  background-image: url("../img/common/login_dropdown_middle_icon.png");
+}
+
+.remote_icon {
+  background-image: url("../img/common/login_dropdown_remote_icon.png");
+}
+
+.horLineBox {
+  padding-top: 23px;
+  margin-top: 25.5px;
+  align-self: stretch;
+  border-top: 1px solid #d7d6d6;
+  display: flex;
+  justify-content: center;
+}
+
+.horLineBox button {
+  width: 175px;
+  background-color: #9fb8c4;
+  border: none;
+  height: 35px;
+  border-radius: 17.5px;
+  color: white;
+  font-family: JUA;
+  font-size: 17.5px;
+  text-align: left;
+}
+
+.horLineBox button + button {
+  margin-left: 10px;
+}
+
+.horLineBox button:first-child {
+  background: url("../img/common/login_btnicon_internet.png") no-repeat 15px center #9fb8c4;
+  background-size: 26px;
+  padding: 0 17px 0 51px;
+  white-space: nowrap;
+}
+
+.horLineBox button:nth-child(2) {
+  background: url("../img/common/login_btnicon_remote.png") no-repeat 15px center #9fb8c4;
+  background-size: 26px;
+  padding: 0 15px 0 52.5px;
+  white-space: nowrap;
+}
+
+.bottomText {
+  color: #040404;
+  font-size: 15px;
+  letter-spacing: -1.12px;
+}
+
+.bottomTexts span:nth-child(2) {
+  color: #979797;
+  letter-spacing: -0.75px;
+  margin-left: 11.5px;
+}
+
+.bottomTexts span:nth-child(3) {
+  margin-left: 22px;
+}
+
+.bigMenu {
+  flex-grow: 1;
+  padding: 0px 12px 12px;
+  font-size: 20px;
+  line-height: 37.5px;
+  color: black;
+  font-family: JUA;
+  border-radius: 20px;
+  background-color: #0aaebc;
+  border: 2px solid #028f9b;
+  box-shadow: 1.7px 1.7px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bigMenu .bigMenuTitle {
+  color: white;
+  font-size: 27.5px;
+  padding-left: 15px;
+  line-height: 54px;
+}
+
+.studyMenu {
+  padding-bottom: 20px;
+  letter-spacing: -1px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.studyMenu:nth-child(1) {
+  width: 212px;
+}
+
+.studyMenu:nth-child(2) {
+  width: 272px;
+}
+
+.studyMenu:nth-child(3) {
+  width: 272px;
+}
+
+.studyMenu:nth-child(4) {
+  width: 402px;
+}
+
+.flex-grow_3 {
+  flex-grow: 3;
+}
+
+.studyMenu.flex-grow_3 li {
+  width: 33%;
+}
+
+.studyMenu ul {
+  margin-top: 20px;
+  padding-right: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 36px;
+}
+
+.studyMenu ul li {
+  white-space: nowrap;
+  position: relative;
+  width: 50%;
+  padding-left: 27px;
+}
+
+.studyMenu ul li:before,
+.rowMenu ul li:before {
+  content: "";
+  position: absolute;
+  margin-top: -2px;
+  top: 50%;
+  left: 17px;
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: #5f5f5f;
+  border-radius: 50%;
+}
+
+.bigMenu .studyMenu + .studyMenu {
+  margin-left: 8px;
+}
+
+.studyMenu .studyMenuTitle {
+  padding-left: 15px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #ececec;
+  color: #067b94;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.rowMenu {
+  margin-top: 10px;
+  font-family: JUA;
+  display: flex;
+  border-radius: 20px;
+  border-width: 2px;
+  padding: 6px 9px 6px 27px;
+}
+
+.rowMenu ul {
+  width: 100%;
+  padding: 4px 0;
+  line-height: 2;
+  flex-wrap: wrap;
+  font-size: 20px;
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  flex-grow: 1;
+}
+
+.rowMenu ul li {
+  margin-right: 20px;
+  min-width: 120px;
+  padding-left: 27px;
+  position: relative;
+}
+
+.rowMenu .rowMenuTitle {
+  flex-shrink: 0;
+  width: 130px;
+  white-space: nowrap;
+  color: white;
+  font-size: 27.5px;
+  margin-top: 12px;
+}
+
+.rowMenu.blue {
+  background-color: #4b91e0;
+  border-color: #2373cd;
+}
+
+.rowMenu.violet {
+  background-color: #8b79d8;
+  border-color: #725fc6;
+}
+
+.rowMenu.purple {
+  background-color: #cd67b2;
+  border-color: #c04ea2;
+}
+
+.rowMenu.orange {
+  background-color: #f88f43;
+  border-color: #e8843b;
+}
+
+header.semesterSelect {
+  color: white;
+  background-color: #0dafbd;
+}
+
+header.semesterSelect .flex {
+  align-items: center;
+}
+
+header.semesterSelect strong {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+
+.ic_sub_noti {
+  background: url("../img/common/ic_sub_noti.png") no-repeat center;
+  background-size: 28px;
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+}
+
+header.semesterSelect .ic_sub_noti {
+  margin-left: 24px;
+}
+
+.icon_new {
+  background: url("../img/common/icon_New.png") no-repeat center;
+  width: 20px;
+  height: 20px;
+  background-size: 20px;
+}
+
+header.semesterSelect .icon_new {
+  margin-left: 8px;
+}
+
+header strong {
+  margin-left: 10.5px;
+}
+
+.headerWrap {
+  width: 1280px;
+  position: relative;
+  display: flex;
+  padding: 8px 35px 9px 65px;
+  align-items: center;
+  height: 62px;
+  justify-content: space-between;
+}
+
+.studyGuide {
+  background: url("../img/common/btnicon_info.png") no-repeat 8px center #0a8c97;
+  background-size: 22px;
+  padding: 9px 19px 8.5px 36.5px;
+  border-radius: 17.5px;
+  font-size: 20px;
+  font-family: JUA;
+  color: white;
+}
+
+.customSelect {
+  background: url("../img/common/dropdown_icon_down.png") no-repeat 90% center;
+  background-size: 12px;
+  position: relative;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 22.5px;
+  color: black;
+  height: 45px;
+  line-height: 45px;
+  padding: 0 56px 0 22px;
+  font-weight: 700;
+}
+
+.customSelect.disabled {
+  background-image: url("../img/common/dropdown_icon_down_dim.png");
+  border-color: #cccccc;
+  color: #999999;
+}
+
+.customSelect.disabled ul {
+  border-color: #cccccc;
+  color: #999999;
+}
+
+.customSelect.down {
+  background-image: url("../img/common/dropdown_icon_up.png");
+}
+
+.customSelect ul {
+  display: none;
+  z-index: 1;
+  min-width: 150px;
+  padding: 11px 10px 11px 20px;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 22.5px;
+  color: black;
+  width: 100%;
+}
+
+.customSelect.down ul {
+  display: block;
+}
+
+.subjectPanel {
+  line-height: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* height: 550px; */
+  box-shadow: 1.7px 1.7px 8px rgba(0, 0, 0, 0.3);
+  width: 296px;
+  font-size: 15px;
+  letter-spacing: -0.38px;
+  color: white;
+  text-align: center;
+  padding: 0 13px 13px;
+  background-color: #0aaebc;
+  border: 2px solid #0396a3;
+  border-radius: 25px;
+}
+
+.subjectPanel .boxTitle {
+  position: absolute;
+  top: -16px;
+  width: 100%;
+  background-position: center;
+  padding: 0;
+}
+
+.subjectPanel p {
+  margin: 38px 0 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 19px;
+  letter-spacing: -0.4px;
+}
+
+.subjectPanelList {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  box-shadow: 1.7px 1.7px 3px rgba(0, 0, 0, 0.3);
+  font-family: JUA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 4px solid white;
+  border-radius: 15px;
+  width: 265px;
+}
+
+.subjectPanelList.korean {
+  background-color: #fff0aa;
+}
+
+.subjectPanelList.math {
+  background-color: #fddbdb;
+}
+
+.subjectPanelList.english {
+  background-color: #c6cdf4;
+}
+
+.subjectPanelList.society {
+  background-color: #cdeeaa;
+}
+
+.subjectPanelList.science {
+  background-color: #a4dff1;
+}
+
+.subjectPanelList.total {
+  background-color: #f7ccee;
+}
+
+.subjectPanelList .subjectIcon {
+  background-size: 95px;
+  margin-top: 56px;
+  width: 120px;
+  height: 120px;
+}
+
+.subjectPanelList em {
+  font-style: normal;
+  color: black;
+  margin-top: 30px;
+  line-height: 46px;
+  font-size: 56px;
+  letter-spacing: -1.4px;
+}
+
+.subjectPanelList button {
+  width: 210px;
+  border-radius: 35px;
+  border: 0;
+  margin-top: 69px;
+  font-size: 24px;
+  height: 70px;
+  line-height: 60px;
+}
+
+.subjectPanel.short {
+  height: 414px;
+}
+
+.subjectPanel.short p {
+  margin: 28px 0 12px;
+  font-size: 15px;
+  letter-spacing: -0.38px;
+}
+
+.subjectPanel.short .subjectIcon {
+  width: 90px;
+  height: 90px;
+  margin-top: 46px;
+}
+
+.subjectPanel.short em {
+  margin-top: 20px;
+  letter-spacing: -1.4px;
+}
+
+.subjectPanel.short button {
+  margin: 52px 0 16px;
+  height: 60px;
+  border-radius: 30px;
+}
+
+.schoolStudyWrap .bannerSection {
+  height: 120px;
+  width: 295px;
+  border: 1px solid #3d99c8;
+  background-color: #54a9d5;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.schoolStudyWrap .bannerSection img {
+  width: 275px;
+  height: 94px;
+}
+
+.schoolStudyWrap .bannerIndicator li.on {
+  background-color: #3b7695;
+}
+
+.schoolStudyWrap .bannerIndicator li {
+  background-color: #4b98bf;
+}
+
+.subjectPanelList.korean button {
+  background-color: #f6c43d;
+}
+
+.subjectPanelList.math button {
+  background-color: #ff8786;
+}
+
+.subjectPanelList.english button {
+  background-color: #8d9ae8;
+}
+
+.subjectPanelList.science button {
+  background-color: #48bee2;
+}
+
+.subjectPanelList.society button {
+  background-color: #9bdd55;
+}
+
+.subjectPanelList.total button {
+  background-color: #ef99dd;
+}
+
+.studyList {
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  padding: 8px 13px;
+  width: 286px;
+  border-radius: 25px;
+  background-color: white;
+  border: 2px solid #d7d7d7;
+  box-shadow: 1.7px 1.7px 8px rgba(0, 0, 0, 0.15);
+}
+
+.studyList li {
+  max-height: 113px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  border-bottom: 1px solid #dfdfdf;
+  padding-left: 15px;
+  font-family: JUA;
+  font-size: 25px;
+}
+
+.studyList .boxTitle {
+  margin-bottom: 12px;
+  width: 100%;
+  padding: 0;
+  background-position: center;
+}
+
+.studyList li.noBorder {
+  border: 0;
+}
+
+.studyList .title {
+  flex: 0 0 auto;
+  display: block;
+  padding: 10px;
+  font-family: NanumSquare;
+  height: 80px;
+  background-color: #e5e5e5;
+  border-radius: 15px;
+  font-size: 15px;
+  letter-spacing: -0.75px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.schoolStudyWrap {
+  flex-grow: 1;
+  align-content: flex-start;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  padding: 25px 25px 35px 35px;
+}
+
+header + .schoolStudyWrap {
+  margin-top: 29px;
+}
+
+.viewWrap {
+  display: flex;
+  flex-direction: column;
+  width: 1280px;
+  height: 702px;
+}
+
+.studyList i {
+  margin-right: 15px;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  background-size: contain;
+}
+
+.schoolStudyWrap > *:nth-child(2) i {
+  background-color: #b8d9f9;
+}
+
+.schoolStudyWrap > *:nth-child(3) i {
+  background-color: #b0e1bc;
+}
+
+.schoolStudyWrap > *:nth-child(4) i {
+  background-color: #ebdd84;
+}
+
+.schoolStudyWrap > .flex_column > ul {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.schoolStudyWrap > .flex_column > ul + ul {
+  margin-top: 17px;
+}
+
+i.s01 {
+  background-image: url("../img/menu_btn/school_btn_exam_1.png");
+}
+
+i.s02 {
+  background-image: url("../img/menu_btn/school_btn_exam_2.png");
+}
+
+i.s03 {
+  background-image: url("../img/menu_btn/school_btn_exam_3.png");
+}
+
+i.s04 {
+  background-image: url("../img/menu_btn/school_btn_exam_4.png");
+}
+
+i.s05 {
+  background-image: url("../img/menu_btn/school_btn_exam_5.png");
+}
+
+i.s06 {
+  background-image: url("../img/menu_btn/school_btn_homework_1.png");
+}
+
+i.s07 {
+  background-image: url("../img/menu_btn/school_btn_homework_2.png");
+}
+
+i.s08 {
+  background-image: url("../img/menu_btn/school_btn_homework_3.png");
+}
+
+i.s09 {
+  background-image: url("../img/menu_btn/school_btn_test_1.png");
+}
+
+i.s10 {
+  background-image: url("../img/menu_btn/school_btn_test_2.png");
+}
+
+i.s11 {
+  background-image: url("../img/menu_btn/school_btn_test_3.png");
+}
+
+i.s12 {
+  background-image: url("../img/menu_btn/school_btn_test_4.png");
+}
+
+i.s13 {
+  background-image: url("../img/menu_btn/school_btn_test_5.png");
+}
+
+i.s14 {
+  background-image: url("../img/menu_btn/school_btn_test_6.png");
+}
+
+i.s15 {
+  background-image: url("../img/menu_btn/school_icon_bn_1.png");
+}
+
+i.s16 {
+  background-image: url("../img/menu_btn/school_icon_bn_2.png");
+}
+
+i.s17 {
+  background-image: url("../img/menu_btn/school_icon_bn_3.png");
+}
+
+i.s18 {
+  background-image: url("../img/menu_btn/school_btn_homework_4.png");
+}
+
+i.s19 {
+  background-image: url("../img/menu_btn/school_btn_eng_1.png");
+}
+
+i.s20 {
+  background-image: url("../img/menu_btn/school_btn_eng_2.png");
+}
+
+i.s21 {
+  background-image: url("../img/menu_btn/school_btn_eng_3.png");
+}
+
+i.s22 {
+  background-image: url("../img/menu_btn/school_btn_eng_4.png");
+}
+
+.studyList.entry i {
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+i.a01 {
+  background-image: url("../img/menu_btn/i_a01.png");
+}
+
+i.a02 {
+  background-image: url("../img/menu_btn/i_a02.png");
+}
+
+i.a03 {
+  background-image: url("../img/menu_btn/i_a03.png");
+}
+
+i.a04 {
+  background-image: url("../img/menu_btn/i_a04.png");
+}
+
+i.a05 {
+  background-image: url("../img/menu_btn/i_a05.png");
+}
+
+i.a06 {
+  background-image: url("../img/menu_btn/i_a06.png");
+}
+
+i.a07 {
+  background-image: url("../img/menu_btn/i_a07.png");
+}
+
+i.a08 {
+  background-image: url("../img/menu_btn/i_a08.png");
+}
+
+i.a09 {
+  background-image: url("../img/menu_btn/i_a09.png");
+}
+
+i.a10 {
+  background-image: url("../img/menu_btn/i_a10.png");
+}
+
+i.a11 {
+  background-image: url("../img/menu_btn/i_a11.png");
+}
+
+i.a12 {
+  background-image: url("../img/menu_btn/i_a12.png");
+}
+
+i.a13 {
+  background-image: url("../img/menu_btn/i_a13.png");
+}
+
+i.a14 {
+  background-image: url("../img/menu_btn/i_a14.png");
+}
+
+i.a15 {
+  background-image: url("../img/menu_btn/i_a15.png");
+}
+
+i.a16 {
+  background-image: url("../img/menu_btn/i_a16.png");
+}
+
+i.a17 {
+  background-image: url("../img/menu_btn/i_a17.png");
+}
+
+i.a18 {
+  background-image: url("../img/menu_btn/i_a18.png");
+}
+
+i.a19 {
+  background-image: url("../img/menu_btn/i_a19.png");
+}
+
+i.a20 {
+  background-image: url("../img/menu_btn/i_a20.png");
+}
+
+.calendarBox {
+  padding: 0 15px;
+  position: relative;
+  background-color: white;
+  border-radius: 20px;
+  width: 575px;
+  height: 480px;
+}
+
+.calendarBox .header {
+  font-size: 30px;
+  font-weight: 800;
+  color: #00a1be;
+  height: 85px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendarBox .header .prev, .calendarBox .header .next {
+  display: inline-block;
+  width: 20px;
+  height: 31px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 20px 31px;
+}
+
+.calendarBox table {
+  margin: auto;
+}
+
+.calendarBox table:first-child {
+  margin-bottom: 11px;
+  border-bottom: 1px solid #bdbcbc;
+}
+
+.calendarBox tbody tr:first-child td {
+  padding-top: 11px;
+}
+
+.calendarBox th,
+.calendarBox td {
+  vertical-align: middle;
+  text-align: center;
+  width: 60px;
+  height: 46px;
+  font-size: 25px;
+  font-weight: 700;
+  position: relative;
+}
+
+.calendarBox td.on {
+  color: white;
+}
+
+.calendarBox td.on:before {
+  color: white;
+  content: attr(data-day);
+  text-align: center;
+  line-height: 50px;
+  background-color: #13aeca;
+  position: absolute;
+  border-radius: 50%;
+  display: block;
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+}
+
+.calendarBox th {
+  font-size: 22.5px;
+}
+
+.calendarBox th:first-child, .calendarBox td:first-child {
+  color: #ff6161;
+}
+
+.calendarBox th:nth-child(7), .calendarBox td:nth-child(7) {
+  color: #2176bd;
+}
+
+.calendarBox .grayBox {
+  background-color: #ebebeb;
+  border-radius: 25px;
+  padding: 9px 47px 12px;
+  margin-bottom: 20px;
+}
+
+.calendarBox .header .prev {
+  background-image: url("../img/common/main_calendar_prev.png");
+  margin-right: 42px;
+}
+
+.calendarBox .header .next {
+  background-image: url("../img/common/main_calendar_next.png");
+  margin-left: 44px;
+}
+
+.calendarBox .closeBox {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-size: 30px;
+}
+
+.entryWrap {
+  background-color: #e2eeee;
+  display: flex;
+  flex-direction: column;
+  height: 752px;
+  width: 1280px;
+}
+
+.whiteHeader {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  height: 70px;
+  padding: 11px 20px 12px 30px;
+  box-shadow: 1.7px 1.7px 8px rgba(0, 0, 0, 0.15);
+}
+
+.whiteHeader .closeBox {
+  background-size: 30px;
+}
+
+.contentWrap {
+  display: flex;
+  padding: 39px 42px 43px 38px;
+  height: 682px;
+}
+
+.contentWrap > .flex_column .studyList + .studyList {
+  margin-top: 20px;
+}
+
+.contentWrap .flex_column > .studyList.entry {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+}
+
+.studyList.entry {
+  justify-items: flex-start;
+  padding: 13px;
+  width: 285px;
+}
+
+.contentWrap > .studyList.entry:first-child {
+  margin-left: 0px;
+}
+
+.studyList.entry.fixedRow li {
+  max-height: 70px;
+  min-height: 70px;
+  height: 70px;
+}
+
+.studyList.entry li {
+  max-height: none;
+}
+
+.studyList .subjectTitle {
+  flex-shrink: 0;
+  min-height: 90px;
+  padding-left: 20.5px;
+  font-family: JUA;
+  font-size: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.studyList.entry li.subjectTitle {
+  height: 90px !important;
+  min-height: 90px;
+  max-height: 90px;
+}
+
+.studyList .subjectTitle .subjectIcon {
+  width: 71px;
+  height: 71px;
+  background-size: 68px;
+}
+
+.studyList.korean .subjectTitle {
+  background-color: #f6c43d;
+}
+
+.studyList.math .subjectTitle {
+  background-color: #ff8786;
+}
+
+.studyList.english .subjectTitle {
+  background-color: #8d9ae8;
+}
+
+.studyList.society .subjectTitle {
+  background-color: #9bdd55;
+}
+
+.studyList.science .subjectTitle {
+  background-color: #48bee2;
+}
+
+.studyList.total .subjectTitle {
+  background-color: #ef99dd;
+}
+
+.studyList.korean i {
+  background-color: #fff0aa;
+}
+
+.studyList.math i {
+  background-color: #fddbdb;
+}
+
+.studyList.english i {
+  background-color: #c6cdf4;
+}
+
+.studyList.society i {
+  background-color: #cdeeaa;
+}
+
+.studyList.science i {
+  background-color: #a4dff1;
+}
+
+.studyList.total i {
+  background-color: #f7ccee;
+}
+
+/*# sourceMappingURL=bootstrap 2.css.map */

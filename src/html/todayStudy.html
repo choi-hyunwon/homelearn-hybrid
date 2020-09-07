@@ -30,7 +30,7 @@ aside { margin-left: 20px; }
 							<div class="element grow oneLine newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
 						</div>
 					</div>
-					<div class="scrollBox grow">
+					<div class="scrollBox grow mCustomScroll">
 						<div class="element subject korean subjectLabel">
 							<ul class="subjectInfo">
 								<li>국어</li>
@@ -137,7 +137,7 @@ aside { margin-left: 20px; }
 						<div class="arrow left"></div>
 						<div class="arrow right"></div>
 					</div>
-					<div class="scrollBox grow">
+					<div class="scrollBox grow mCustomScroll">
 						<ul class="element specialStudyList">
 							<li>
 								<figure>
@@ -212,49 +212,8 @@ aside { margin-left: 20px; }
 
 
 	<script type="text/javascript">
-	$(".arrow.left, .arrow.right").on("click", function(e) {
-		var $scrollBox = $(".horizonScrollBox > ul");
-		if ($scrollBox.data("scrolling")) return;
-		// $scrollBox.data("scrolling", true);
-		$scrollBox.removeClass("scrollXMandatory");
-		var scrollLeft = $scrollBox.scrollLeft();
-		var w = $scrollBox.children("li").eq(1).outerWidth(true);
-		if ($(this).hasClass("left")) {
-			scrollLeft += w;
-		} else {
-			scrollLeft -= w;
-		}
 
-		$scrollBox.animate({
-			scrollLeft: scrollLeft
-		});
-	});
-
-	$.fn.scrollEnd = function(callback, timeout) {     
-		timeout = timeout || 200;     
-		$(this).scroll(function(){
-			var $this = $(this);
-			if ($this.data('scrollTimeout')) {
-				clearTimeout($this.data('scrollTimeout'));
-			}
-			$this.data('scrollTimeout', setTimeout(function(){
-				callback($this);
-			}, timeout));
-		});
-	};
-
-	$(".horizonScrollBox > ul").scrollEnd(function($this){
-		$this.addClass("scrollXMandatory");
-		$this.data("scrolling", false);
-	}, 200);
-
-	$(".bannerSection > div").scrollEnd(function($this){
-		var $dots = $this.siblings(".bannerIndicator");
-		var scrollLeft = $this[0].scrollLeft;
-		var itemWidth = $this.children().eq(0).width();
-		var index = Math.round(scrollLeft / itemWidth);
-		$dots.children().eq(index).addClass("on").siblings().removeClass("on");
-	});
+	$(".horizonScrollBox > ul").scrollBox(".arrow.left", ".arrow.right");
 
 	</script>
 </body>

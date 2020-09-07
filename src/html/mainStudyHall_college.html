@@ -30,6 +30,7 @@
 					</div>
 
 					<div class="slideWrap scrollXMandatory">
+						
 						<div class="element korean subjectLabel vertical">
 							<div>
 								<ul class="subjectInfo">
@@ -86,6 +87,7 @@
 								</div>
 							</div>
 						</div>
+						
 						<div class="element korean subjectLabel vertical">
 							<div>
 								<ul class="subjectInfo">
@@ -123,10 +125,104 @@
 								</div>
 							</div>
 						</div>
-
 						
+						<div class="element society subjectLabel vertical">
+							<div>
+								<ul class="subjectInfo">
+									<li>국어</li>
+									<li class="typeLabel">4-22 학교공부 에복습</li>
+								</ul>
+								<div class="subjectIcon"></div>
+							</div>
+							<div class="relative">
+								<ul>
+									<li>9단원 &gt; 24장</li>
+									<li>이야기 읽고 다른<br />사람에게 들려주기</li>
+								</ul>
+								<div class="kidIcon complete badge">
+									<div></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="element science subjectLabel vertical">
+							<div>
+								<ul class="subjectInfo">
+									<li>수학</li>
+									<li class="typeLabel">4-22 학교공부 에복습</li>
+								</ul>
+								<div class="subjectIcon"></div>
+							</div>
+							<div class="relative">
+								<ul>
+									<li>6단원 &gt; 30장</li>
+									<li>변의 길이와 각의 크기가 같은 다격형을 알아보기</li>
+								</ul>
+								<div class="kidIcon">
+									<div></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="element english subjectLabel vertical">
+							<div>
+								<ul class="subjectInfo">
+									<li>영어</li>
+									<li class="typeLabel">4-22 학교공부 에복습</li>
+								</ul>
+								<div class="subjectIcon"></div>
+							</div>
+							<div class="relative">
+								<ul>
+									<li>8단원 &gt; 2장</li>
+									<li>이야기를 읽고 이야기 해 보기</li>
+								</ul>
+								<div class="kidIcon complete badge">
+									<div></div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="element total subjectLabel vertical">
+							<div>
+								<ul class="subjectInfo">
+									<li>국어</li>
+									<li class="typeLabel">4-22 학교공부 에복습</li>
+								</ul>
+								<div class="subjectIcon"></div>
+							</div>
+							<div class="relative">
+								<ul>
+									<li>9단원 &gt; 24장</li>
+									<li>이야기 읽고 다른<br />사람에게 들려주기</li>
+								</ul>
+								<div class="kidIcon complete badge">
+									<div></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="element math subjectLabel vertical">
+							<div>
+								<ul class="subjectInfo">
+									<li>수학</li>
+									<li class="typeLabel">4-22 학교공부 에복습</li>
+								</ul>
+								<div class="subjectIcon"></div>
+							</div>
+							<div class="relative">
+								<ul>
+									<li>6단원 &gt; 30장</li>
+									<li>변의 길이와 각의 크기가 같은 다격형을 알아보기</li>
+								</ul>
+								<div class="kidIcon">
+									<div></div>
+								</div>
+							</div>
+						</div>
+
 					</div>
-					<div class="arrowLeft"></div>
+					<div class="arrowLeft dim"></div>
 					<div class="arrowRight"></div>
 				
 
@@ -150,83 +246,9 @@
 
 
 	<script type="text/javascript">
-		$(".arrow.left, .arrow.right").on("click", function (e) {
-			var $scrollBox = $(".horizonScrollBox > ul");
-			if ($scrollBox.data("scrolling")) return;
-			// $scrollBox.data("scrolling", true);
-			$scrollBox.removeClass("scrollXMandatory");
-			var scrollLeft = $scrollBox.scrollLeft();
-			var w = $scrollBox.children("li").eq(1).outerWidth(true);
-			if ($(this).hasClass("left")) {
-				scrollLeft += w;
-			} else {
-				scrollLeft -= w;
-			}
+	
+	$(".blueBox .slideWrap").scrollBox(".blueBox .arrowLeft", ".blueBox .arrowRight");
 
-			$scrollBox.animate({
-				scrollLeft: scrollLeft
-			});
-		});
-
-		$.fn.scrollEnd = function (callback, timeout) {
-			timeout = timeout || 200;
-			$(this).scroll(function () {
-				var $this = $(this);
-				if ($this.data('scrollTimeout')) {
-					clearTimeout($this.data('scrollTimeout'));
-				}
-				$this.data('scrollTimeout', setTimeout(function () {
-					callback($this);
-				}, timeout));
-			});
-		};
-
-		$(".horizonScrollBox > ul").scrollEnd(function ($this) {
-			$this.addClass("scrollXMandatory");
-			$this.data("scrolling", false);
-		}, 200);
-
-		$(".bannerSection > div").scrollEnd(function ($this) {
-			var $dots = $this.siblings(".bannerIndicator");
-			var scrollLeft = $this[0].scrollLeft;
-			var itemWidth = $this.children().eq(0).width();
-			var index = Math.round(scrollLeft / itemWidth);
-			$dots.children().eq(index).addClass("on").siblings().removeClass("on");
-		});
-
-		$(".blueBox .arrowRight, .blueBox .arrowLeft").click(function(e){
-			var $scrollBox = $(".blueBox .slideWrap");
-			$scrollBox.removeClass("scrollXMandatory");
-			var scrollLeft = $scrollBox.scrollLeft();
-			var w = $scrollBox.children(".element").eq(1).outerWidth(true);
-			if ($(this).hasClass("arrowLeft")) {
-				scrollLeft += w;
-			} else {
-				scrollLeft -= w;
-			}
-
-			$scrollBox.animate({
-				scrollLeft: scrollLeft
-			});
-		});
-
-		$(".blueBox .slideWrap").scrollEnd(function($this){
-			$this.addClass("scrollXMandatory");
-			$this.data("scrolling", false);
-		}, 200);
-
-		$.fn.scrollEnd = function(callback, timeout) {     
-		timeout = timeout || 200;     
-		$(this).scroll(function(){
-			var $this = $(this);
-			if ($this.data('scrollTimeout')) {
-				clearTimeout($this.data('scrollTimeout'));
-			}
-			$this.data('scrollTimeout', setTimeout(function(){
-				callback($this);
-			}, timeout));
-		});
-	};
 	</script>
 </body>
 

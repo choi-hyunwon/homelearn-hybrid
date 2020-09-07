@@ -129,6 +129,35 @@ data.common = {
 			'category': '메인',
 			'page': '02_학교공부_중합입문'
 		},
+	
+		{
+			'stateClass': 'complete',
+			'url': 'login_pop_parent_auth',
+			'category': '메인',
+			'page': '03_로그인_팝업_학부모단말기사용인증'
+		},
+		
+		{
+			'stateClass': 'complete',
+			'url': 'login_pop_parent_findId',
+			'category': '메인',
+			'page': '04_비밀번호찾기_01_회원정보입력'
+		},
+	
+		{
+			'stateClass': 'complete',
+			'url': 'login_pop_admin_findId',
+			'category': '메인',
+			'page': '04_비밀번호찾기_01_B2B_회원정보입력'
+		},
+	
+
+		{
+			'stateClass': 'complete',
+			'url': 'login_pop_parent_find_pass_more_than_one',
+			'category': '메인',
+			'page': '04_비밀번호찾기_02_자녀가1명이상'
+		},
 		
 		
 		

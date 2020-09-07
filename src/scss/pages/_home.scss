@@ -93,8 +93,17 @@ span.iceCream { display: inline-block; vertical-align: middle; margin-right: 4px
 
 .margin-top_0 { margin-top: 0; }
 .margin-top_10 { margin-top: 10px; }
+.margin-top_15 { margin-top: 15px; }
 .margin-top_20 { margin-top: 20px; }
 .margin-top_30 { margin-top: 30px; }
+.margin-top_40 { margin-top: 40px; }
+.margin-top_50 { margin-top: 50px; }
+
+.margin-bottom_0 { margin-bottom: 0; }
+.margin-bottom_10 { margin-bottom: 10px; }
+.margin-bottom_15 { margin-bottom: 15px; }
+.margin-bottom_20 { margin-bottom: 20px; }
+.margin-bottom_30 { margin-bottom: 30px; }
 
 .margin-left_5 { margin-left: 5px; }
 .margin-left_10 { margin-left: 10px; }
@@ -456,7 +465,7 @@ nav.bottomNav.big .verticalLine { width: 2px; flex: 0 0 auto !important; height:
 #overlay { position: absolute; top: -50px; left:0; width: 100vw; height: 100vh; background: url("../img/common/580.png") no-repeat; background-size: 1280px; opacity: 0.5; display: none; pointer-events: none;}
 
 
-
+.normalWrap { width: 1280px; height: 725px; }
 
 
 .grayBox { color: #050505; line-height: 32px; text-align: center; background-color: #eeeeee; border-radius: 16px; font-size: 17.8px; font-weight: 700; letter-spacing: -1.33px; }
@@ -476,6 +485,9 @@ nav.bottomNav.big .verticalLine { width: 2px; flex: 0 0 auto !important; height:
 .arrowLeft, .arrowRight { position: absolute; top: 50%; margin-top: -22.5px; width: 45px; height: 45px; }
 .arrowLeft { background: url("../img/common/icon_leftArrow.png") no-repeat center; background-size: contain; left: -22px;}
 .arrowRight { background: url("../img/common/icon_rightArrow.png") no-repeat center; background-size: contain; right: -22px;}
+.arrowLeft.dim { background-image: url("../img/common/icon_leftArrow_dim.png");}
+.arrowRight.dim { background-image: url("../img/common/icon_rightArrow_dim.png");}
+
 
 .blueBox.bg01 { background: url("../img/bg/boxBg01.png") no-repeat 48px bottom #63d5ed; background-size: 136.5px 88.5px; }
 
@@ -511,7 +523,7 @@ nav.bottomNav.big .verticalLine { width: 2px; flex: 0 0 auto !important; height:
 .buttonBox { display: flex; align-items: center; justify-content: center; }
 .layer .buttonBox { margin-top: 20px; }
 .buttonBox button + button { margin-left: 20px; }
-.b2b_btn { min-width: 135px; border-radius: 22.5px; height: 45px; background-color: #13aeca; border: none; font-size: 25px; text-align: center; font-family: JUA; color: white; padding: 0 22px; }
+.b2b_btn { min-width: 135px; border-radius: 22.5px; height: 45px; background-color: #13aeca; border: none; font-size: 25px; text-align: center; font-family: JUA; color: white; padding: 0 22px; line-height: 45px; }
 .b2b_btn.no { background-color: #aeaeae; }
 .b2b_btn.goMarket { background-image: url("../img/common/img_go_market.png"); background-repeat: no-repeat; background-position: 22px center; background-size: 20px; padding-left: 52px; }
 
@@ -520,13 +532,24 @@ nav.bottomNav.big .verticalLine { width: 2px; flex: 0 0 auto !important; height:
 .loginWrap .loginArea { display: flex; align-items: center; justify-content: center; }
 .loginWrap > * { flex-grow: 1; flex-shrink: 1; flex-basis: 0; }
 .loginBox { display: flex; flex-direction: column; align-items: center; padding: 80px 63px; width: 490px; height: 620px; border-radius: 30px; border: 2px solid #dddddd; background-color: #eeeeee;  }
-.loginBox .title { height: 170px; display: flex; align-items: center; justify-content: flex-start; font-family: JUA; color: #424242; color: #424242; font-size: 50px; line-height:54px; }
-.loginBox .title + input { margin-top: 16px; }
+.loginBox > * { flex-shrink: 0; }
+.loginBox .title,
+.alertBox .title { height: 170px; display: flex; align-items: center; justify-content: flex-start; font-family: JUA; color: #424242; color: #424242; font-size: 50px; line-height:54px; }
+.loginBox .title + input,
+.alertBox .title + input { margin-top: 16px; }
 .loginBox input[type='text'],
-.loginBox input[type='password'] { padding: 0 13.5px; width: 100%; height: 50px; font-size: 18px; line-height: 30px; letter-spacing: -0.45px; border: 3px solid #d6d6d6; border-radius: 6px; }
-.loginBox input[type='password'] { font-family: sans-serif; }
+.loginBox input[type='password'],
+.alertBox input[type='text'],
+.alertBox input[type='password'] { padding: 0 13.5px; width: 100%; height: 50px; font-size: 18px; line-height: 30px; letter-spacing: -0.45px; border: 2px solid #d6d6d6; border-radius: 6px; }
+.loginBox input[type='password'],
+.alertBox input[type='password'] { font-family: sans-serif; }
 .loginBox input[type='text']:focus,
-.loginBox input[type='password']:focus { border-color: #13aeca; }
+.loginBox input[type='password']:focus,
+.alertBox input[type='text']:focus,
+.alertBox input[type='password']:focus { border-color: #13aeca; }
+
+.alertBox input[type='text'],
+.alertBox input[type='password'] { height: 45px; }
 
 .loginWrap .btn_login_set { position: absolute; top: 10px; right: 10px; background-size: 41.4px; }
 .btn_login_set { background: url("../img/common/btn_login_set.png") no-repeat center; background-size: cover; width: 50px; height: 50px; }
@@ -699,23 +722,36 @@ i.a18 { background-image: url("../img/menu_btn/i_a18.png"); }
 i.a19 { background-image: url("../img/menu_btn/i_a19.png"); }
 i.a20 { background-image: url("../img/menu_btn/i_a20.png"); }
 
-.calendarBox { padding: 0 15px; position: relative; background-color: white; border-radius: 20px; width: 575px; height: 480px;  }
-.calendarBox .header { font-size: 30px; font-weight: 800; color: #00a1be;  height: 85px; display: flex; justify-content: center; align-items: center; }
-.calendarBox .header .prev, .calendarBox .header .next { display: inline-block; width: 20px; height: 31px; background-repeat: no-repeat; background-position: center; background-size: 20px 31px; }
-.calendarBox table { margin: auto; }
-.calendarBox table:first-child { margin-bottom: 11px; border-bottom: 1px solid #bdbcbc; }
-.calendarBox tbody tr:first-child td { padding-top: 11px; } 
-.calendarBox th,
-.calendarBox td { vertical-align: middle; text-align:center; width: 60px; height: 46px; font-size: 25px; font-weight: 700; position: relative; }
-.calendarBox td.on { color: white; }
-.calendarBox td.on:before { color: white; content: attr(data-day); text-align: center; line-height: 50px; background-color: #13aeca; position: absolute; border-radius: 50%; display: block; width: 50px; height: 50px; top: 50%; left: 50%; margin: -25px 0 0 -25px; }
-.calendarBox th { font-size: 22.5px; }
-.calendarBox th:first-child, .calendarBox td:first-child { color: #ff6161; }
-.calendarBox th:nth-child(7), .calendarBox td:nth-child(7) { color: #2176bd; }
-.calendarBox .grayBox { background-color: #ebebeb; border-radius: 25px; padding: 9px 47px 12px; margin-bottom: 20px;  }
-.calendarBox .header .prev { background-image: url("../img/common/main_calendar_prev.png"); margin-right: 42px;}
-.calendarBox .header .next { background-image: url("../img/common/main_calendar_next.png"); margin-left: 44px; }
-.calendarBox .closeBox { position: absolute; top: 15px; right: 15px; background-size: 30px; }
+.alertBox { padding: 0 15px 20px; position: relative; background-color: white; border-radius: 20px; width: 575px;  }
+.alertBox .header { font-size: 30px; font-weight: 800; color: #00a1be;  height: 85px; display: flex; justify-content: center; align-items: center; }
+/* .alertBox.calendar{ height: 480px; } */
+.alertBox.calendar .header .prev, .alertBox .header .next { display: inline-block; width: 20px; height: 31px; background-repeat: no-repeat; background-position: center; background-size: 20px 31px; }
+.alertBox.calendar table { margin: auto; }
+.alertBox.calendar table:first-child { margin-bottom: 11px; border-bottom: 1px solid #bdbcbc; }
+.alertBox.calendar tbody tr:first-child td { padding-top: 11px; } 
+.alertBox.calendar th,
+.alertBox.calendar td { vertical-align: middle; text-align:center; width: 60px; height: 46px; font-size: 25px; font-weight: 700; position: relative; }
+.alertBox.calendar td.on { color: white; }
+.alertBox.calendar td.on:before { color: white; content: attr(data-day); text-align: center; line-height: 50px; background-color: #13aeca; position: absolute; border-radius: 50%; display: block; width: 50px; height: 50px; top: 50%; left: 50%; margin: -25px 0 0 -25px; }
+.alertBox.calendar th { font-size: 22.5px; }
+.alertBox.calendar th:first-child, .alertBox td:first-child { color: #ff6161; }
+.alertBox.calendar th:nth-child(7), .alertBox td:nth-child(7) { color: #2176bd; }
+.alertBox.calendar.calendar .grayBox { background-color: #ebebeb; border-radius: 25px; padding: 9px 47px 12px; margin-bottom: 20px; min-height: 100px; }
+.alertBox.calendar .header .prev { background-image: url("../img/common/main_calendar_prev.png"); margin-right: 42px;}
+.alertBox.calendar .header .next { background-image: url("../img/common/main_calendar_next.png"); margin-left: 44px; }
+.alertBox .closeBox { position: absolute; top: 15px; right: 15px; background-size: 30px; }
+
+.alertBox .grayBox { padding: 40px 35px 39.5px; align-items: center; }
+.alertBox input[type='text'],
+.alertBox input[type='password'] { width: 360px; }
+.alertBox p { font-size: 15px; line-height: 19.8px; letter-spacing: -0.75px; text-align: center; font-weight: 400; }
+.alertBox .subTitle { font-size: 19.8px; line-height: 30px; letter-spacing: -0.99px; text-align: center; font-weight: 400; }
+.alertBox .studentList_find { height: 185px; width: 460px; align-items: center; }
+.alertBox .studentList_find li { width: 360px; }
+.studentList_find li { padding-left: 14px; text-align: left; font-size: 18px; letter-spacing: -0.9px; line-height: 45px; height: 45px; border-radius: 5px; margin-top: 15px; border: 1.5px solid #d6d6d6; font-weight: 400; color: black; background-color: white; } 
+.studentList_find li.on { background: url("../img/common/img_login_check.png") no-repeat white; background-position: right 14px center;background-size: 21px; border-width: 2.5px; border-color: #13aeca; } 
+.studentList_find li:first-child { margin-top: 0; } 
+.studentList_find .mCSB_container { display: flex; flex-direction: column; align-items: center; } 
 
 .entryWrap { background-color: #e2eeee; display: flex; flex-direction: column; height: 752px; width: 1280px; }
 .whiteHeader { align-items: center; display: flex; justify-content: space-between; background-color: white; height: 70px; padding: 11px 20px 12px 30px; box-shadow: 1.7px 1.7px 8px rgba(0, 0, 0, 0.15); }

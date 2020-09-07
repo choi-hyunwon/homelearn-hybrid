@@ -126,7 +126,7 @@
 
 						
 					</div>
-					<div class="arrowLeft"></div>
+					<div class="arrowLeft dim"></div>
 					<div class="arrowRight"></div>
 				
 
@@ -150,51 +150,8 @@
 
 
 	<script type="text/javascript">
-		$(".arrow.left, .arrow.right").on("click", function (e) {
-			var $scrollBox = $(".horizonScrollBox > ul");
-			if ($scrollBox.data("scrolling")) return;
-			// $scrollBox.data("scrolling", true);
-			$scrollBox.removeClass("scrollXMandatory");
-			var scrollLeft = $scrollBox.scrollLeft();
-			var w = $scrollBox.children("li").eq(1).outerWidth(true);
-			if ($(this).hasClass("left")) {
-				scrollLeft += w;
-			} else {
-				scrollLeft -= w;
-			}
 
-			$scrollBox.animate({
-				scrollLeft: scrollLeft
-			});
-		});
-
-
-		$(".horizonScrollBox > ul").scrollEnd(function ($this) {
-			$this.addClass("scrollXMandatory");
-			$this.data("scrolling", false);
-		}, 200);
-
-		$(".blueBox .arrowRight, .blueBox .arrowLeft").click(function(e){
-			var $scrollBox = $(".blueBox .slideWrap");
-			$scrollBox.removeClass("scrollXMandatory");
-			var scrollLeft = $scrollBox.scrollLeft();
-			var w = $scrollBox.children(".element").eq(1).outerWidth(true);
-			if ($(this).hasClass("arrowLeft")) {
-				scrollLeft += w;
-			} else {
-				scrollLeft -= w;
-			}
-
-			$scrollBox.animate({
-				scrollLeft: scrollLeft
-			});
-		});
-
-		$(".blueBox .slideWrap").scrollEnd(function($this){
-			$this.addClass("scrollXMandatory");
-			$this.data("scrolling", false);
-		}, 200);
-
+		$(".blueBox .slideWrap").scrollBox(".blueBox .arrowLeft", ".blueBox .arrowRight");
 		
 	</script>
 </body>
