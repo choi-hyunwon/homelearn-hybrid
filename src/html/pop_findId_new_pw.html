@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include("include/head.html", { title : "Home Learn Hybrid" })
+
+<body>
+	<div class="normalWrap">
+		<div id="layers">
+			<div class="alertBox">
+				<div class="header">아이디/비밀번호 찾기</div>
+				<div class="grayBox flex column">
+					<div class="subTitle">새로 사용할 비밀번호를 입력해 주세요.</div>
+					<div class="customSelect2 w360 margin-top_40">박연우(dsdawf)
+						<ul>
+							<li data-value="1">박이나(parkina)</li>
+							<li data-value="2">박삼나(kkokbye)</li>
+							<li data-value="3">박사나(park4na</li>
+						</ul>
+					</div>
+					<input class="margin-top_15" type="password" placeholder="새 비밀번호" />
+					<input class="margin-top_15" type="password" placeholder="새 비밀번호 확인" />
+					<p class="w360 align-self_start margin-top_15">※ 6~12자리의 영문, 숫자를 입력해 주세요.</p>
+				</div>
+				<div class="buttonBox margin-top_20">
+					<button type="button" class="b2b_btn">확인</button>
+				</div>
+				<div class="closeBox"></div>
+			</div>
+		</div>
+
+		
+	</div>
+	</div>
+	<script type="text/javascript">
+	$(".customSelect2").click(function(){
+		$(this).toggleClass("down");
+	});
+
+	$(".customSelect2 li").click(function(){
+		var value = $(this).attr("data-value");
+		console.log(value);
+	});
+	</script>
+</body>
+
+</html>

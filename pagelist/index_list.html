@@ -54,8 +54,8 @@
                     <span class="tooltip">{{url}}.html</span>
                 </a>
                 <a class="fas fa-external-link-alt"
-                   href="../dist/html/{{url}}.html" target="_blank"
-                   title="새창으로 보기">
+					href="../dist/html/{{url}}.html" target="_blank"
+					title="새창으로 보기">
                 </a>
             </li>
             {{else}}
@@ -84,7 +84,10 @@
 		var source = $('#list-template').html(); //jQuery
 		var template = Handlebars.compile(source); //컴파일
 		$('.wrap_scroll')
-			.append(template(data.common))
+			.append(template(data.main))
+			.append(template(data.bySubject))
+			.append(template(data.login))
+			.append(template(data.findId))
     // .append(template(data.login))
     // .append(template(data.main))
     // .append(template(data.detail))

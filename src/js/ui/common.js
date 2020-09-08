@@ -1,6 +1,19 @@
 $(function(){
+	$(".studentList_find_by_teacher.mCustomScroll").mCustomScrollbar({
+		theme: "dark",
+		scrollbarPosition: "outside"
+	});
+	
 	$(".mCustomScroll").mCustomScrollbar({
 		theme: "dark"
+	});
+	
+	$(".closeBox").click(function(){
+		if ($(this).parents("#layers").length) {
+			$("#layers").fadeOut(function(){
+				$(this).remove();
+			});
+		}
 	});
 
 	$(".bannerSection > div").scrollEnd(function ($this) {
@@ -60,12 +73,12 @@ $.fn.scrollBox = function (prev, next) {
 			var scrollLeftNow = $(this).scrollLeft();
 			$(this).addClass("scrollXMandatory");	
 			$(this).scrollLeft(scrollLeftNow);
-			// checkArrows();		
+			checkArrows();		
 		});
 	});
 
 	$scrollBox.scrollEnd(function(){
-		// checkArrows();		
+		checkArrows();		
 	});
 
 	var checkArrows = function(){

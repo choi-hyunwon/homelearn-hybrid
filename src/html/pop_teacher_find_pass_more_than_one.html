@@ -8,8 +8,8 @@
 			<div class="alertBox">
 				<div class="header">아이디/비밀번호 찾기</div>
 				<div class="grayBox flex column">
-					<div class="subTitle">자녀의 학생 아이디를 선택하신 후<br />"로그인" 또는 "비밀번호 재설정"을 선택해 주세요.</div>
-					<ul class="studentList_find margin-top_40 mCustomScroll">
+					<div class="subTitle">학생을 선택하신 후 [비밀번호 재설정] 버튼을 눌러 비밀번호를 재설정할 수 있습니다.</div>
+					<ul class="studentList_find_by_teacher margin-top_30 mCustomScroll">
 						<li data-value="1" class="on">박연우(dsdawf)</li>
 						<li data-value="2">박지우(pinkpink)</li>
 						<li data-value="3">박선우(prettyywljk)</li>
@@ -21,7 +21,17 @@
 						<li data-value="9">박연우(dsdawf)</li>
 						<li data-value="10">박지우(pinkpink)</li>
 						<li data-value="11">박선우(prettyywljk)</li>
-						<li data-value="12">박선아(okCoral)</li data-value="">
+						<li data-value="12">박선아(okCoral)</li>
+						<li data-value="13">박지우(pinkpink)</li>
+						<li data-value="14">박선우(prettyywljk)</li>
+						<li data-value="15">박선아(okCoral)</li>
+						<li data-value="16">박연우(dsdawf)</li>
+						<li data-value="17">박지우(pinkpink)</li>
+						<li data-value="18">박선우(prettyywljk)</li>
+						<li data-value="19">박선아(okCoral)</li>
+						<li data-value="20">박연우(dsdawf)</li>
+						<li data-value="21">박지우(pinkpink)</li>
+						<li data-value="22">박선우(prettyywljk)</li>
 					</ul class="studentList_find">
 				</div>
 				<div class="buttonBox margin-top_20">
@@ -36,9 +46,9 @@
 	</div>
 	</div>
 	<script type="text/javascript">
-	$(".studentList_find li").click(function(){
+	$(".studentList_find_by_teacher li").click(function(){
 		$(this).addClass("on").siblings().removeClass("on");
-		var value = $(this).attr("data-value");
+		var value = $(this).data("value");
 		console.log(value);
 	});
 	</script>

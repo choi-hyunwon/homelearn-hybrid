@@ -42,6 +42,8 @@
 	font-family: 'NanumSquare', sans-serif !important;
 }
 
+.thisBlue { color: #00a1be; }
+
 html { height: 100%;}
 body { height: 100%; color: black; background-color: white; font-family: NanumSquare;}
 body.bg {background-image: linear-gradient(to right, #f8f2e7, #f8f2e7 1190px, #3ac8f5 1190px); }
@@ -78,6 +80,9 @@ input::placeholder { color: #999999; }
 .justify-content_stretch { justify-content: stretch; }
 .align-items_center { align-items: center; }
 .align-items_start { align-items: flex-start; }
+.align-self_start { align-self: flex-start; }
+.align-self_end { align-self: flex-end; }
+.align-self_center { align-self: center; }
 .flex_row { display: flex; flex-direction: row; }
 .flex_column { display: flex; flex-direction: column; }
 
@@ -194,18 +199,19 @@ main { flex-basis: 925px; flex-grow: 1; }
 
 .subjectLabel.korean.postStyle { background-image: none; background-color: #fff0aa; }
 .subjectLabel.math.postStyle { background-image: none; background-color: #fddbdb; }
-.subjectLabel.society.postStyle { background-image: none; }
-.subjectLabel.science.postStyle { background-image: none; }
-.subjectLabel.english.postStyle { background-image: none; }
-.subjectLabel.total.postStyle { background-image: none; }
+.subjectLabel.society.postStyle { background-image: none; background-image: #cdeeaa; }
+.subjectLabel.science.postStyle { background-image: none; background-image: #a4dff1; }
+.subjectLabel.english.postStyle { background-image: none; background-image: #c6cdf4; }
+.subjectLabel.total.postStyle { background-image: none; background-image: #f7ccee; }
+
 
 .subjectLabel.postStyle button { border: none; position: absolute; bottom: 0; left: 0; width: 100%; height: 80px; text-align: center; line-height: 80px; font-family: JUA; font-size: 30px; }
 .subjectLabel.korean.postStyle button { background-color: #f6c43d; }
 .subjectLabel.math.postStyle button { background-color: #ff8786; }
-.subjectLabel.society.postStyle button { }
-.subjectLabel.science.postStyle button { }
-.subjectLabel.english.postStyle button { }
-.subjectLabel.total.postStyle button { }
+.subjectLabel.society.postStyle button { background-color: #9bdd55; }
+.subjectLabel.science.postStyle button { background-color: #48bee2; }
+.subjectLabel.english.postStyle button { background-color: #8d9ae8; }
+.subjectLabel.total.postStyle button { background-color: #ef99dd; }
 
 .element.subjectLabel.postStyle .subjectInfo { margin: 38px 0 0 27px; width: auto; position: static; display: block; }
 .subjectLabel.postStyle .subjectInfo li:first-child { font-size: 57px; font-family: JUA; }
@@ -482,7 +488,7 @@ nav.bottomNav.big .verticalLine { width: 2px; flex: 0 0 auto !important; height:
 .slideWrap .element:first-child { margin-left: 0px; }
 .slideWrap .element { flex: 0 0 auto; margin-top: 0; }
 
-.arrowLeft, .arrowRight { position: absolute; top: 50%; margin-top: -22.5px; width: 45px; height: 45px; }
+.arrowLeft, .arrowRight { position: absolute; top: 50%; margin-top: -22.5px; width: 45px; height: 45px; transition: background-image 0.4s; }
 .arrowLeft { background: url("../img/common/icon_leftArrow.png") no-repeat center; background-size: contain; left: -22px;}
 .arrowRight { background: url("../img/common/icon_rightArrow.png") no-repeat center; background-size: contain; right: -22px;}
 .arrowLeft.dim { background-image: url("../img/common/icon_leftArrow_dim.png");}
@@ -540,7 +546,12 @@ nav.bottomNav.big .verticalLine { width: 2px; flex: 0 0 auto !important; height:
 .loginBox input[type='text'],
 .loginBox input[type='password'],
 .alertBox input[type='text'],
-.alertBox input[type='password'] { padding: 0 13.5px; width: 100%; height: 50px; font-size: 18px; line-height: 30px; letter-spacing: -0.45px; border: 2px solid #d6d6d6; border-radius: 6px; }
+.alertBox input[type='password'],
+.customSelect2 { background-color: white; padding: 0 13.5px; width: 100%; height: 50px; font-size: 18px; line-height: 30px; letter-spacing: -0.45px; border: 2px solid #d6d6d6; border-radius: 6px; }
+.customSelect2 { font-weight: 400; text-align: left; background: url("../img/common/dropdown_icon_down.png") no-repeat white; background-position: 90% center; background-position: right 18px center; background-size: 12px; position: relative;  line-height: 45px; }
+.customSelect2.down { background-image: url("../img/common/dropdown_icon_up.png"); border-bottom: 0; border-bottom-left-radius: 0; border-bottom-right-radius: 0;}
+.customSelect2 ul { user-select: none; z-index: 1; padding: 0px 14px; background-color: white; display: none; position: absolute; top: 46px; left: -2px; width: 360px; border: 2px solid #d6d6d6; border-radius: 5px; border-top-width: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+.customSelect2.down ul { display: block; }
 .loginBox input[type='password'],
 .alertBox input[type='password'] { font-family: sans-serif; }
 .loginBox input[type='text']:focus,
@@ -550,6 +561,7 @@ nav.bottomNav.big .verticalLine { width: 2px; flex: 0 0 auto !important; height:
 
 .alertBox input[type='text'],
 .alertBox input[type='password'] { height: 45px; }
+
 
 .loginWrap .btn_login_set { position: absolute; top: 10px; right: 10px; background-size: 41.4px; }
 .btn_login_set { background: url("../img/common/btn_login_set.png") no-repeat center; background-size: cover; width: 50px; height: 50px; }
@@ -621,11 +633,11 @@ header strong { margin-left: 10.5px;  }
 .headerWrap { width: 1280px; position: relative; display: flex; padding: 8px 35px 9px 65px; align-items: center; height: 62px; justify-content: space-between; }
 .studyGuide { background: url("../img/common/btnicon_info.png") no-repeat 8px center #0a8c97; background-size: 22px; padding: 9px 19px 8.5px 36.5px; border-radius: 17.5px; font-size: 20px; font-family: JUA; color: white; }
 
-.customSelect { background: url("../img/common/dropdown_icon_down.png") no-repeat 90% center; background-size: 12px; position: relative; background-color: white; border: 2px solid black; border-radius: 22.5px; color: black; height: 45px;  line-height: 45px; padding: 0 56px 0 22px; font-weight: 700; }
+.customSelect { background: url("../img/common/dropdown_icon_down.png") no-repeat 90% center; background-position: 90% center; background-position: right 17px center; background-size: 12px; position: relative; background-color: white; border: 2px solid black; border-radius: 22.5px; color: black; height: 45px;  line-height: 45px; padding: 0 56px 0 22px; font-weight: 700; }
 .customSelect.disabled { background-image: url("../img/common/dropdown_icon_down_dim.png"); border-color: #cccccc; color: #999999;  }
 .customSelect.disabled ul { border-color: #cccccc; color: #999999;  }
 .customSelect.down { background-image: url("../img/common/dropdown_icon_up.png"); }
-.customSelect ul { display: none; z-index: 1; min-width: 150px; padding: 11px 10px 11px 20px; position: absolute; top: 50px; left: 0px; background-color: white; border: 2px solid black; border-radius: 22.5px; color: black; width: 100%; }
+.customSelect ul { user-select: none; z-index: 1; min-width: 150px; padding: 11px 10px 11px 20px; position: absolute; top: 50px; left: 0px; background-color: white; border: 2px solid black; border-radius: 22.5px; color: black; width: 100%; }
 .customSelect.down ul { display: block; }
 
 .subjectPanel { line-height: 1; position: relative; display: flex; flex-direction: column; /* height: 550px; */ box-shadow: 1.7px 1.7px 8px rgba(0, 0, 0, .3); width: 296px; font-size: 15px; letter-spacing: -0.38px; color: white; text-align: center; padding: 0 13px 13px; background-color: #0aaebc; border: 2px solid #0396a3; border-radius: 25px;  }
@@ -722,7 +734,7 @@ i.a18 { background-image: url("../img/menu_btn/i_a18.png"); }
 i.a19 { background-image: url("../img/menu_btn/i_a19.png"); }
 i.a20 { background-image: url("../img/menu_btn/i_a20.png"); }
 
-.alertBox { padding: 0 15px 20px; position: relative; background-color: white; border-radius: 20px; width: 575px;  }
+.alertBox { padding: 0 15px 20px; position: relative; background-color: white; border-radius: 20px; min-width: 575px;  }
 .alertBox .header { font-size: 30px; font-weight: 800; color: #00a1be;  height: 85px; display: flex; justify-content: center; align-items: center; }
 /* .alertBox.calendar{ height: 480px; } */
 .alertBox.calendar .header .prev, .alertBox .header .next { display: inline-block; width: 20px; height: 31px; background-repeat: no-repeat; background-position: center; background-size: 20px 31px; }
@@ -744,12 +756,13 @@ i.a20 { background-image: url("../img/menu_btn/i_a20.png"); }
 .alertBox .grayBox { padding: 40px 35px 39.5px; align-items: center; }
 .alertBox input[type='text'],
 .alertBox input[type='password'] { width: 360px; }
+.alertBox .w360 { width: 360px; }
 .alertBox p { font-size: 15px; line-height: 19.8px; letter-spacing: -0.75px; text-align: center; font-weight: 400; }
 .alertBox .subTitle { font-size: 19.8px; line-height: 30px; letter-spacing: -0.99px; text-align: center; font-weight: 400; }
 .alertBox .studentList_find { height: 185px; width: 460px; align-items: center; }
 .alertBox .studentList_find li { width: 360px; }
-.studentList_find li { padding-left: 14px; text-align: left; font-size: 18px; letter-spacing: -0.9px; line-height: 45px; height: 45px; border-radius: 5px; margin-top: 15px; border: 1.5px solid #d6d6d6; font-weight: 400; color: black; background-color: white; } 
-.studentList_find li.on { background: url("../img/common/img_login_check.png") no-repeat white; background-position: right 14px center;background-size: 21px; border-width: 2.5px; border-color: #13aeca; } 
+.studentList_find li { display: flex; align-items: center; justify-content: flex-start; padding-left: 14px; text-align: left; font-size: 18px; letter-spacing: -0.9px; height: 45px; border-radius: 5px; margin-top: 15px; border: 1.5px solid #d6d6d6; font-weight: 400; color: black; background-color: white; } 
+.studentList_find li.on { padding-left: 13px; background: url("../img/common/img_login_check.png") no-repeat white; background-position: right 14px center;background-size: 21px; border-width: 2.5px; border-color: #13aeca; } 
 .studentList_find li:first-child { margin-top: 0; } 
 .studentList_find .mCSB_container { display: flex; flex-direction: column; align-items: center; } 
 
@@ -781,3 +794,14 @@ i.a20 { background-image: url("../img/menu_btn/i_a20.png"); }
 .studyList.society i { background-color: #cdeeaa; }
 .studyList.science i { background-color: #a4dff1; }
 .studyList.total i { background-color: #f7ccee; }
+
+
+.studentList_find_by_teacher { padding: 17px 0; width: 849px; background-color: white; border-radius: 5px; border: 2px solid #d6d6d6; height: 235px; }
+.studentList_find_by_teacher .mCSB_container { display: flex; flex-wrap: wrap; }
+.studentList_find_by_teacher li { padding-left: 22px; display: flex; align-items: center; width: 281px; height: 58px; border-right: 2px solid #d6d6d6; font-size: 18px; letter-spacing: -0.9px; color: #222222; font-weight: 400; }
+.studentList_find_by_teacher li:nth-child(3n) { border-right: 0; }
+.studentList_find_by_teacher li.on { padding-left: 19px; background: url("../img/common/img_login_check.png") no-repeat; background-position: right 15px center; background-size: 21px; border: 3px solid #13aeca;   }
+.studentList_find_by_teacher .mCSB_outside + .mCSB_scrollTools { right: -24px; }
+
+.sadMagnify { height: 310px; background-image: url("../img/common/login_img_noinfo.png"); background-repeat: no-repeat; background-position: center 126px; background-size: 148px; }
+
