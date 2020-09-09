@@ -60,7 +60,7 @@ data.main = {
 			'page': '01_메인_B2B_오늘의 학습_학습이없는경우'
 		},
 		{
-			'stateClass': 'working',
+			'stateClass': 'complete',
 			'url': 'main_little_homelearn',
 			'category': '01_메인',
 			'page': '01_메인_리틀홈런'

@@ -24,8 +24,142 @@
 						<div class="main_little_week_logo"></div>
 					</nav>
 
-					<div class="main_little_img_characterbg"></div>
+					<div class="leftPane">
+						<div class="paneTitle main_little_today_title_study"><span class="redBall">2</span></div>
+						<div class="paneSlide scrollYMandatory">
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0001.png" />
+									<div class="ti">받아쓰기연습</div>
+									<div class="lb"><span>1단계 1장</span></div>
+									<div class="bt">4-2실력평가</div>
+								</div>
+								<div class="prettyStar"></div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0002.png" />
+									<div class="ti">한글</div>
+									<div class="lb"><span>1단계 1장</span></div>
+									<div class="bt">4-2실력평가</div>
+								</div>
+								<div class="prettyStar"></div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0003.png" />
+									<div class="ti">국어생활</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+								<div class="studying"></div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0004.png" />
+									<div class="ti">재미수학</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0005.png" />
+									<div class="ti">자연관찰</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+								<div class="prettyStar"></div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0006.png" />
+									<div class="ti">안녕!학교</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0007.png" />
+									<div class="ti">처음한자</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0008.png" />
+									<div class="ti">인물한국사</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+							</div>
+						</div>
+
+						<div class="arrow_u"></div>
+						<div class="arrow_d"></div>
+					</div>
+					
+					<div class="rightPane">
+						<div class="paneTitle main_little_today_title_special"><span class="redBall">10</span></div>
+						<div class="paneSlide scrollYMandatory">
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0005.png" />
+									<div class="ti">자연관찰</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+								<div class="prettyStar"></div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0006.png" />
+									<div class="ti">안녕!학교</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+								<div class="prettyStar"></div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0007.png" />
+									<div class="ti">처음한자</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0008.png" />
+									<div class="ti">인물한국사</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+								<div class="studying"></div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0002.png" />
+									<div class="ti">한글</div>
+									<div class="lb"><span>1단계 1장</span></div>
+									<div class="bt">4-2실력평가</div>
+								</div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0003.png" />
+									<div class="ti">국어생활</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+							</div>
+							<div class="lhItem">
+								<div class="rounder">
+									<img src="../img/upload/bb_0004.png" />
+									<div class="ti">재미수학</div>
+									<div class="lb"><span>1단계 1장</span></div>
+								</div>
+							</div>
+							
+						</div>
+
+						<div class="arrow_u"></div>
+						<div class="arrow_d"></div>
+					</div>
+
 				</div>
+				<div class="main_little_img_characterbg"></div>
 			</main>
 
 			<aside>
@@ -98,5 +232,30 @@
 			</aside>
 		</div>
 	</div>
+	<script type="text/javascript">
+	$(".arrow_u, .arrow_d").click(function(){
+		if ($(this).hasClass("dim")) return;
+		var snap = false;
+		var $scrollBox = $(this).siblings(".paneSlide");
+		var h = $scrollBox.children().last().outerHeight(true);
+		var scrollTop = $scrollBox.scrollTop();
+
+		if ($(this).attr("class").indexOf("_d") > -1) {
+			scrollTop += h;
+		} else {
+			scrollTop -= h;
+		}
+
+		if ($scrollBox.hasClass("scrollYMandatory")) {
+			$scrollBox.removeClass("scrollYMandatory");
+			snap = true;
+		}
+		$scrollBox.animate({
+			scrollTop : scrollTop
+		}, function(){
+			if (snap) $scrollBox.addClass("scrollYMandatory");
+		});
+	});
+	</script>
 </body>
 </html>
