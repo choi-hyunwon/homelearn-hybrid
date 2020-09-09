@@ -1,43 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 @@include("include/head.html", { title : "Home Learn Hybrid" })
-<style type="text/css">
-.titleBox { margin-bottom: 7.5px; }
-.box { padding: 26px 11px 14px 13px; width: 425px; height: 488px; }
-.box.blueBox { flex: 0 0 auto; width: 490px; }
-.box.blueBox .scrollBox { height: 394px; }
-.box.yellowBox { flex: 0 0 auto; width: 425px; }
-.box.yellowBox .scrollBox { height: 313px; }
-.yellowBox .horizonScrollBox { width: 395px; }
-.element + .scrollBox { margin-top: 8px; }
-aside { margin-left: 20px; }
-</style>
+
 <body class="bg">
 	<div class="wrap">
 		<main>
-			
+
 			<!-- dateNav-->
 			@@include("include/dateNav.html")
 			<!-- end of dateNav -->
 
 			<section class="main margin-top_30">
 
-				<div class="box blueBox flex column withOffsetTitle">
+				<div class="box type2 blueBox flex column">
 					<div class="boxTitle offset todaySchoolStudy"><span class="pool">4</span></div>
 					<div class="titleBox">
 						<div class="oneLineBox">
-							<div class="element grow headLabel oneLine"><label class="color_white">오답노트</label>최근 등록된 오답노트 <span class="wrongCount">2</span>개</div>
-							<div class="element grow oneLine newBadge"><span class="memoIcon"></span><span class="teacherUnderline">선생님 채점 결과</span></div>
+							<div class="element grow headLabel oneLine"><label class="color_white">오답노트</label>최근
+								등록된 오답노트 <span class="wrongCount">2</span>개</div>
+							<div class="element grow oneLine newBadge"><span class="memoIcon"></span><span
+									class="teacherUnderline">선생님 채점 결과</span></div>
 						</div>
 					</div>
 					<div class="scrollBox grow mCustomScroll">
-						<div class="element subject korean subjectLabel">
+						<div class="element subject korean subjectLabel" data-href="mainStudyHall_college.html">
 							<ul class="subjectInfo">
 								<li>국어</li>
 								<li class="subjectIcon"></li>
 							</ul>
 							<ul>
-								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li><label class="typeLabel black">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>이야기 읽고 다른 사람에게 들려주기</li>
 							</ul>
 							<div class="kidIcon complete badge">
@@ -51,7 +43,7 @@ aside { margin-left: 20px; }
 								<li class="subjectIcon"></li>
 							</ul>
 							<ul>
-								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li><label class="typeLabel black">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>변의 길이와 각의 크기가 같은 다각형을 알아볼까요</li>
 							</ul>
 							<div class="kidIcon complete badge">
@@ -65,49 +57,49 @@ aside { margin-left: 20px; }
 								<li class="subjectIcon"></li>
 							</ul>
 							<ul>
-								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li><label class="typeLabel black">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>이야기 읽고 다른 사람에게 들려주기</li>
 							</ul>
 							<div class="kidIcon complete badge">
 								<div></div>
 							</div>
 						</div>
-						
+
 						<div class="element subject science subjectLabel">
 							<ul class="subjectInfo">
 								<li>과학</li>
 								<li class="subjectIcon"></li>
 							</ul>
 							<ul>
-								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li><label class="typeLabel black">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>지구는 과연 둥근가?</li>
 							</ul>
 							<div class="kidIcon complete badge">
 								<div></div>
 							</div>
 						</div>
-						
+
 						<div class="element subject english subjectLabel">
 							<ul class="subjectInfo">
 								<li>영어</li>
 								<li class="subjectIcon"></li>
 							</ul>
 							<ul>
-								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li><label class="typeLabel black">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>Hello, World !!</li>
 							</ul>
 							<div class="kidIcon complete badge">
 								<div></div>
 							</div>
 						</div>
-						
+
 						<div class="element subject total subjectLabel">
 							<ul class="subjectInfo">
 								<li>통합</li>
 								<li class="subjectIcon"></li>
 							</ul>
 							<ul>
-								<li><label class="typeLabel">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
+								<li><label class="typeLabel black">4-2 학교공부 예복습</label>9단원 &gt; 24장</li>
 								<li>Hello, World !!</li>
 							</ul>
 							<div class="kidIcon">
@@ -117,7 +109,7 @@ aside { margin-left: 20px; }
 
 					</div>
 				</div>
-				<div class="box yellowBox flex column withOffsetTitle">
+				<div class="box type2 yellowBox flex column">
 					<div class="boxTitle offset todaySpecialStudy"><span class="pool">10</span></div>
 					<div class="element margin-top-0 horizonScrollBox">
 						<ul class="scrollXMandatory">
@@ -201,20 +193,20 @@ aside { margin-left: 20px; }
 			<!-- footNav -->
 			@@include("include/footNav.html")
 			<!-- end of footNav -->
-	
-			</main>
-			
-			<!-- aside -->
-			@@include("include/aside.html")
-			<!-- end of aside -->
-		
-	</div>
 
+		</main>
+
+		<!-- aside -->
+		@@include("include/aside.html", { class : "margin-left_20" })
+		<!-- end of aside -->
+
+	</div>
 
 	<script type="text/javascript">
 
-	$(".horizonScrollBox > ul").scrollBox(".arrow.left", ".arrow.right");
+		$(".horizonScrollBox > ul").scrollBox(".arrow.left", ".arrow.right");
 
 	</script>
 </body>
+
 </html>

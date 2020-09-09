@@ -16,15 +16,83 @@ $(function(){
 		}
 	});
 
-	$(".bannerSection > div").scrollEnd(function ($this) {
-		var $dots = $this.siblings(".bannerIndicator");
-		var scrollLeft = $this[0].scrollLeft;
-		var itemWidth = $this.children().eq(0).width();
-		var index = Math.round(scrollLeft / itemWidth);
-		$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+	
+	if ($(".bannerSection").length) {
+		$(".bannerSection > div").scrollEnd(function ($this) {
+			var $dots = $this.siblings(".bannerIndicator");
+			var scrollLeft = $this[0].scrollLeft;
+			var itemWidth = $this.children().eq(0).width();
+			var index = Math.round(scrollLeft / itemWidth);
+			$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+		});
+
+		setInterval(function(){
+			$(".bannerSection div").nextSlide();
+		}, 3000);
+	}
+
+	$("body").on("click", "[data-href]", function(){
+		var href = $(this).attr("data-href");
+		if (!href) return;
+		href = href.split(",").map(function(item){ return item.trim();});
+		if (href.length > 1) {
+			window.open(href[0], href[1]);
+		} else {
+			location.href = href[0];
+		}
+	});
+
+	$(".customSelect").click(function(){
+		if ($(this).hasClass("disabled")) return;
+		$(this).toggleClass("down");
+	});
+
+	$(".customSelect li").click(function(){
+		var $input = $(this).parent("ul").siblings("input[type='hidden']");
+		var value = $(this).attr("data-value");
+		$input.val(value);
+		$(this).parent("ul").removeClass("down");
+		var text = $(this).text();
+		$(this).parent("ul").prev("span").text(text);
+		console.log(value);
 	});
 });
 
+$.fn.prevSlide = function(){
+	var w = $(this).children().first().outerWidth(true);
+	var $scrollBox = $(this);
+	var scrollLeft = $(this).scrollLeft() - w;
+	var scrollSnap = false;
+	if ($(this).hasClass("scrollXMandatory")) {
+		$(this).removeClass("scrollXMandatory");
+		scrollSnap = true;
+	}
+	$(this).animate({
+		scrollLeft : scrollLeft
+	}, function(){
+		if (scrollSnap) $scrollBox.addClass("scrollXMandatory");
+	});
+};
+
+$.fn.nextSlide = function(){
+	var w = $(this).children().first().outerWidth(true);
+	var $scrollBox = $(this);
+	var scrollLeft = $(this).scrollLeft() + w;
+	var scrollSnap = false;
+	if ($scrollBox[0].scrollWidth <= scrollLeft) scrollLeft = 0;
+	if ($(this).hasClass("scrollXMandatory")) {
+		$(this).removeClass("scrollXMandatory");
+		scrollSnap = true;
+	}
+	// console.log($scrollBox[0].scrollWidth, scrollLeft);
+	$(this).animate({
+		scrollLeft : scrollLeft
+	}, function(){
+		if (scrollSnap) $scrollBox.addClass("scrollXMandatory");
+	});
+};
+
+// scroll end 이벤트 바인딩
 $.fn.scrollEnd = function (callback, timeout) {
 	timeout = timeout || 200;
 	$(this).scroll(function () {

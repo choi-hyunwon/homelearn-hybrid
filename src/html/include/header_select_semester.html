@@ -1,14 +1,20 @@
 <header class="semesterSelect">
 	<div class="headerWrap">
 		<div class="flex">
-			<div class="customSelect">4학년 1학기
+			<div class="customSelect"><span>4학년 1학기</span>
 				<ul>
-					<li data-value="1">1학년</li data-value="">
-					<li data-value="2">2학년</li>
-					<li data-value="4">3학년</li>
-					<li data-value="4">4학년</li>
-					<li data-value="5">5학년</li>
-					<li data-value="6">6학년</li>
+					<li data-value="1">1학년 1학기</li data-value="">
+					<li data-value="2">1학년 2학기</li>
+					<li data-value="4">2학년 1학기</li>
+					<li data-value="4">2학년 2학기</li>
+					<li data-value="5">3학년 1학기</li>
+					<li data-value="6">3학년 2학기</li>
+					<li data-value="7">4학년 1학기</li>
+					<li data-value="8">4학년 2학기</li>
+					<li data-value="9">5학년 1학기</li>
+					<li data-value="10">5학년 2학기</li>
+					<li data-value="11">6학년 1학기</li>
+					<li data-value="12">6학년 2학기</li>
 				</ul>
 				<input type="hidden" name="customSelect" />
 			</div>
@@ -21,17 +27,4 @@
 			학습안내
 		</div>
 	</div>
-	<script type="text/javascript">
-	$(".customSelect").click(function(){
-		if ($(this).hasClass("disabled")) return;
-		$(this).toggleClass("down");
-	});
-
-	$(".customSelect li").click(function(){
-		var $input = $(this).parent("ul").siblings("input[type='hidden']");
-		var value = $(this).attr("data-value");
-		$input.val(value);
-		$(this).parent("ul").removeClass("down");
-	});
-	</script>
 </header>

@@ -1,4 +1,4 @@
-<aside>
+<aside class="@@class">
 	<section class="profileSection">
 		<div class="profileIcon">
 			<figure>
@@ -58,16 +58,9 @@
 			<div>홈런<br />마켓</div>
 		</div>
 	</section>
-	<section class="bannerSection">
-		<div>
-			<img src="../img/samples/sampleBanner01.jpg" /> <!-- 488 * 196 -->
-			<img src="../img/samples/sampleBanner01.jpg" />
-			<img src="../img/samples/sampleBanner01.jpg" />
-		</div>
-		<ul class="bannerIndicator">
-			<li class="on"></li>
-			<li></li>
-			<li></li>
-		</ul>
-	</section>
+	
+@@include("bannerSection.html", {
+	url : "../img/samples/sampleBanner01.jpg"
+})
+
 </aside>
