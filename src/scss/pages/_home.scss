@@ -775,6 +775,8 @@ i { background-repeat: no-repeat; background-position: center; vertical-align: m
 i.book { width: 44px; height: 32px; background-image: url("../img/common/allmenu_icon_title.png"); background-size: 44px 32px; }
 
 .alertBox { padding: 0 15px 20px; position: relative; background-color: white; border-radius: 20px; min-width: 575px;  }
+.alertBox.simple { padding: 25px; min-width: auto; }
+.alertBox.simple .buttonBox { margin-top: 17px; }
 .alertBox .header { font-size: 30px; font-weight: 800; color: #00a1be;  height: 85px; display: flex; justify-content: center; align-items: center; }
 /* .alertBox.calendar{ height: 480px; } */
 .alertBox.calendar .header .prev, .alertBox .header .next { display: inline-block; width: 20px; height: 31px; background-repeat: no-repeat; background-position: center; background-size: 20px 31px; }
@@ -798,6 +800,7 @@ i.book { width: 44px; height: 32px; background-image: url("../img/common/allmenu
 .alertBox input[type='password'] { width: 360px; }
 .alertBox .w360 { width: 360px; }
 .alertBox p { font-size: 15px; line-height: 19.8px; letter-spacing: -0.75px; text-align: center; font-weight: 400; }
+.alertBox p.content { font-size: 25.8px; line-height: 36px; letter-spacing: -1.29px; text-align: center; font-weight: 700; padding: 52px 95px; }
 .alertBox .subTitle { font-size: 19.8px; line-height: 30px; letter-spacing: -0.99px; text-align: center; font-weight: 400; }
 .alertBox .studentList_find { height: 185px; width: 460px; align-items: center; }
 .alertBox .studentList_find li { width: 360px; }
@@ -1015,3 +1018,40 @@ i.book { width: 44px; height: 32px; background-image: url("../img/common/allmenu
 
 .prettyStar { width: 52px; height: 51px; background: url("../img/common/prettyStar.png") no-repeat; background-size: cover; }
 .studying { width: 52px; height: 52px; background: url("../img/common/studying.png") no-repeat; background-size: cover; }
+
+.entireWrap.video { background-color: black; }
+.videoWrap { width: 1160px; height: 752px; margin: auto; background-color: #564a35; padding: 2px; }
+.videoHeader { align-items: center; background-color: #564a35; padding: 17px 17px 17px 18px; width: 1156px; height: 56px; color: white; font-size: 22px; letter-spacing: -0.66px; display: flex; justify-content: space-between; }
+.whiteClose { background: url("../img/common/icon_Cross_white.png") no-repeat; background-size: 35px; width: 35px; height: 35px; }
+.videoHeader span { color: #edc375;  }
+.videoFrame { width: 1156px; height: 650px; background-color: rgba(0, 0, 0, 0.3); }
+.videoFrame img { width: 100%; height: 100%; }
+.videoController { background-color: black; display: flex; width: 1156px; height: 42px; align-items: center; padding: 0 7px 0 5px; }
+.play_btn { background: url("../img/common/btn_video_play.png") no-repeat center #414141; background-size: 25px 28px;  width: 60px; height: 32px;  border-radius: 5px;  }
+.play_btn.pause { background-image: url("../img/common/btnb_video_stop.png") }
+.videoController .play_btn + .scrabble_area { margin-left: 7px; }
+.videoController .scrabble_area { display: flex; align-items: center; background-color: #414141; height: 32px;  border-radius: 5px; flex-grow: 1; padding: 0 15px; }
+.videoController .scrabble_area .progressBar { flex-grow: 1; flex-shrink: 1; flex-basis: auto; margin-right:15px; background-color: black; border-radius: 4px; height: 8px; }
+.videoController .scrabble_area .progressBar div { background-color: #ffb600; border-radius: inherit; height: 100%; }
+.videoController .scrabble_area .videoInfo { display: flex; align-items: center; font-size: 15px; letter-spacing: -0.45px; color: white; flex-grow: 0; flex-shrink: 0; flex-basis: auto; }
+.videoController .scrabble_area .videoInfo .time_remain { color: rgba(255, 255, 255, 0.5); border-left: 1px solid #8f8f8f; margin-left: 10px; padding-left: 10px; }
+.volume_btn { width: 25px; height: 25px; background: url("../img/common/img_sound_on.png") no-repeat; background-size: cover;  }
+.volume_btn.mute { background-image: url("../img/common/img_sound_off.png");  }
+.videoController .volume_btn { margin-left: 12px; }
+.videoController .volume_controller { margin-left: 8px; }
+.volume_controller { height: 20px; width: 100px; position: relative; display: flex; align-items: center;  }
+.volume_controller .dot { box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.34); width: 12px; height: 12px; background-color: #ffb600; top: 4px; left: 88px; border-radius: 50%; position: absolute; }
+.volume_controller .bar {  border-radius: 1.5px; height: 3px; background-color: black; width: 100%; }
+.volume_controller .bar div { border-radius: inherit;; height: 100%; background-color: #ffb600; }
+.video_full_btn { width: 24px; height: 24px; background: url("../img/common/btn_video_full.png") no-repeat; background-size: cover;  }
+.fullScreen .video_full_btn,
+.video_full_btn.minimize { background-image: url("../img/common/btn_video_minimize.png"); }
+.videoController .video_full_btn { margin-left: 11px;  }
+
+.videoWrap.fullScreen { width: 1280px; position: relative; padding: 0; }
+.videoWrap.fullScreen header { display: none; }
+.videoWrap.fullScreen .videoFrame { width: 100%; height: 752px; }
+.videoWrap.fullScreen .videoController { position: absolute; bottom: 0; width: 100%; }
+.btn_video_close_full { background: url("../img/common/btn_video_close_full.png") no-repeat; width: 45px; height: 45px; background-size: cover; }
+.videoWrap.fullScreen .btn_video_close_full { display: block; position: absolute; top: 7px; right: 15px; }
+.videoWrap .btn_video_close_full { display: none; }

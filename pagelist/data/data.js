@@ -239,3 +239,27 @@ data.attend = {
 	]
 }
 
+data.video = {
+	'title': "06_동영상 뷰어",
+	'list': [
+		{
+			'stateClass': 'complete',
+			'url': 'video_player',
+			'category': '06_동영상 뷰어',
+			'page': '06_01_동영상'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'video_player_full',
+			'category': '06_동영상 뷰어',
+			'page': '06_02_풀화면'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'video_player_pop',
+			'category': '06_동영상 팝업',
+			'page': '06_03_동영상_팝업'
+		},
+	]
+}
+
