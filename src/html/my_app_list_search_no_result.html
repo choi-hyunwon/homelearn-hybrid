@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+@@include("include/head.html", { title : "Home Learn Hybrid" })
+<body class="my_app_drawer search">
+	<div class="entireWrap">
+		<header class="whiteHeader">
+			<div class="flex align-items_center">
+				<div class="boxTitle boxTitle_myapp_title"></div>
+				<div class="embossInfo">34개</div>
+			</div>
+			<div class="flex align-items_center">
+				<input class="roundInput" type="text" placeholder="검색어 입력" value="과학" />
+				<div class="closeBox"></div>
+			</div>
+		</header>
+		<section>
+@@include("include/app_drawer_aside.html")
+			<main>
+				<div class="app_list_wrap">
+					<div class="search_word"><i class="btn_app_search_back margin-right_15"></i>'과학'<span>검색결과 <span>0</span>개</span></div>	
+					<div class="scrollWrap noResult">
+					
+					<div class="app_list iconType">
+						'<span>과학</span>'에 대한 검색결과가 없습니다.
+					</div>
+
+					</div>
+				</div>
+			</main>
+		</section>
+	</div>
+
+</body>
+</html>

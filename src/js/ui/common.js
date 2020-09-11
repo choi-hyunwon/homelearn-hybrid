@@ -42,12 +42,12 @@ $(function(){
 		}
 	});
 
-	$(".customSelect").click(function(){
+	$("body").on("click", ".customSelect", function(){
 		if ($(this).hasClass("disabled")) return;
 		$(this).toggleClass("down");
 	});
 
-	$(".customSelect li").click(function(){
+	$("body").on("click", ".customSelect li", function(){
 		var $input = $(this).parent("ul").siblings("input[type='hidden']");
 		var value = $(this).attr("data-value");
 		$input.val(value);
@@ -55,6 +55,10 @@ $(function(){
 		var text = $(this).text();
 		$(this).parent("ul").prev("span").text(text);
 		console.log(value);
+	});
+
+	$("body").on("click", ".view_type_select > div", function(){
+		$(this).addClass("on").siblings().removeClass("on");
 	});
 });
 

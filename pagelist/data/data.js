@@ -263,3 +263,36 @@ data.video = {
 	]
 }
 
+data.myDrawer = {
+	'title': "07_내앱서랍",
+	'list': [
+		{
+			'stateClass': 'complete',
+			'url': 'my_app_list',
+			'category': '07_내앱서랍',
+			'page': '초등_내앱서랍_리스트'
+		},
+	
+		{
+			'stateClass': 'complete',
+			'url': 'my_app_list_icon',
+			'category': '07_내앱서랍',
+			'page': '초등_내앱서랍_아이콘'
+		},
+		
+		{
+			'stateClass': 'complete',
+			'url': 'my_app_list_search',
+			'category': '07_내앱서랍',
+			'page': '초등_내앱서랍_검색결과'
+		},
+		
+		{
+			'stateClass': 'complete',
+			'url': 'my_app_list_search_no_result',
+			'category': '07_내앱서랍',
+			'page': '초등_내앱서랍_검색결과_no'
+		},
+	]
+}
+
