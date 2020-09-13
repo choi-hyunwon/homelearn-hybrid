@@ -1,4 +1,5 @@
 $(function(){
+
 	$(".studentList_find_by_teacher.mCustomScroll").mCustomScrollbar({
 		theme: "dark",
 		scrollbarPosition: "outside"
@@ -28,6 +29,20 @@ $(function(){
 
 		setInterval(function(){
 			$(".bannerSection div").nextSlide();
+		}, 3000);
+	}
+	
+	if ($(".banner_section").length) {
+		$(".banner_section > div").scrollEnd(function ($this) {
+			var $dots = $this.siblings(".banner_dots");
+			var scrollLeft = $this[0].scrollLeft;
+			var itemWidth = $this.children().eq(0).width();
+			var index = Math.round(scrollLeft / itemWidth);
+			$dots.children().eq(index).addClass("on").siblings().removeClass("on");
+		});
+
+		setInterval(function(){
+			$(".banner_section > div").nextSlide();
 		}, 3000);
 	}
 
@@ -60,7 +75,112 @@ $(function(){
 	$("body").on("click", ".view_type_select > div", function(){
 		$(this).addClass("on").siblings().removeClass("on");
 	});
+
+	$(".customRange").customSlider();
 });
+
+
+// 커스텀 레인지 슬라이더
+$.fn.customSlider = function() {
+	$(this).each(function(){
+		var $slider = $(this);	
+		var rand_id = "sd_" + String(Math.random()).substr(2, 8);
+		var value = $(this).data("value");
+		var min = $(this).data("min");
+		var max = $(this).data("max");
+		var w = $(this).width();
+
+		$(this).attr("data-slider-id", rand_id);
+
+		var custom_sliders = window.custom_sliders;
+		if (!custom_sliders) custom_sliders = window.custom_sliders = {
+			sliders: [],
+			active_slider_id: null
+		};
+
+		custom_sliders.sliders.push({
+			id: rand_id
+		});
+
+		$(this).prepend("<div><div></div></div><div class=\"handle\" />");
+
+		if (value < min) value = min;
+		if (value > max) value = max;
+		left = (w / (max - min)) * (value - min);
+
+		var $handle = $(this).children(".handle");
+		var $bar = $(this).children("div").first().children("div");
+
+		$handle.css("left", left);
+		$bar.width(left);
+
+		$(this).on("mousedown", function(e){
+			if ($(e.target).hasClass("handle")) {
+				$(this).removeClass("transit");
+			} else {
+				$(this).addClass("transit");
+			}
+			window.custom_sliders.active_slider_id = $(this).attr("data-slider-id");
+			bodyMouseMove(e);
+		});
+
+		$handle.on("transitionend", function(){
+			$slider.removeClass("transit");
+		});
+	});
+
+	var bodyMouseMove = function(e){
+		var active_id = window.custom_sliders.active_slider_id;
+		if (!active_id) return;
+		var $slider = $("[data-slider-id='" + window.custom_sliders.active_slider_id + "']");
+		// if (e.originalEvent.movementX && e.originalEvent.movementX > 0) $slider.removeClass("transit");
+		var $bar = $slider.children("div").first().children().first();
+		var $handle = $slider.children(".handle");
+		var max_length = parseFloat($slider.width());
+		var pageX, min, max;
+		if (e.pageX) {
+			pageX = e.pageX;
+		} else {
+			pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+		}
+		var offsetLeft = window.custom_sliders.offsetLeft;
+		if (!window.custom_sliders.offsetLeft) offsetLeft = window.custom_sliders.offsetLeft = $slider.offset().left;
+		
+		var left = pageX - offsetLeft;
+		var bar_width = left;
+		if (bar_width >= max_length) bar_width = max_length;
+		if (bar_width < 0) bar_width = 0;
+
+		var handle_pos = bar_width;
+		if (handle_pos < 0) handle_pos = 0;
+		if (handle_pos >= max_length) handle_pos = max_length;
+		$handle.css("left", handle_pos);
+		$bar.width(bar_width);
+
+		if (left > max_length) left = max_length;
+		if (left < 0) left = 0;
+		min = parseFloat($slider.attr("data-min"));
+		max = parseFloat($slider.attr("data-max"));
+		var value = Math.round(left * (max - min) / max_length + min);
+		console.log(value);
+		$slider.children("input").val(value);
+	};
+	
+	var bodyMouseUp = function(e){
+		if (window.custom_sliders.active_slider_id) {
+			var $slider = $("[data-slider-id='" + window.custom_sliders.active_slider_id + "']");
+			$slider.addClass("transit");
+			if (!$slider.lenth) {
+				window.custom_sliders.active_slider_id = null;
+				window.custom_sliders.offsetLeft = null;
+				return;
+			}
+		}
+	};
+
+	$("body").off("mousemove", bodyMouseMove).on("mousemove", bodyMouseMove);
+	$("body").off("mouseup", bodyMouseUp).on("mouseup", bodyMouseUp);
+}
 
 $.fn.prevSlide = function(){
 	var w = $(this).children().first().outerWidth(true);

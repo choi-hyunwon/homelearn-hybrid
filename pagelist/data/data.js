@@ -296,3 +296,57 @@ data.myDrawer = {
 	]
 }
 
+data.mid_main = {
+	'title': "01_내앱서랍_중등",
+	'list': [
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_b2c_all_in_one',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_B2C 올인원'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_study_college',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_학습관단과'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_no_study_today',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_오늘의학습없는경우'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_b2b_study_today',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_B2B_오늘의학습'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_b2b_my_class_room',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_B2B_나의강의실'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_b2b_study_today_no_study',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_B2B_오늘의학습_학습이없는경우'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_b2b_my_class_room_no_item',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_B2B_나의강의실_수강항목이 없는 경우'
+		},
+		{
+			'stateClass': 'working',
+			'url': 'ms-main_b2c_pop_config',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_B2C-학습관_popup_설정'
+		}
+	]
+}
+

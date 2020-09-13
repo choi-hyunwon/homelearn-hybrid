@@ -75,7 +75,7 @@ function jsLib() {
 function jsCommon() {
 	let sourceUi = ['src/js/ui/*.js'];
 	return gulp.src(sourceUi)
-		.pipe(concat('common.js'))
+		// .pipe(concat('common.js'))
 		.pipe(gulp.dest('dist/js'))
 }
 

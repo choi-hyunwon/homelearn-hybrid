@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+@@include("include/head.html", { title : "Home Learn Hybrid - Middle School" })
+
+<body id="ms">
+	<div class="entireWrap">
+
+<!-- header -->
+@@include("include/ms-header.html")
+<!-- header 끝 -->
+		
+		<section class="wrapper">
+			<main class="hsi">
+
+				<div class="navyBox">
+					<h2 class="">나의 강의실<span class="ball">5</span></h2>
+					<div class="turquoiseBox">
+						<div class="flex">
+							<div class="rectangle korean">
+								<span class="subject_label large">국어</span>
+								<ul>
+									<li>2학년</li>
+									<li>내신집중</li>
+								</ul>
+								<button type="button">학습하기</button>
+								<div class="subject_stamp"></div>
+							</div>
+							<div class="rectangle math">
+								<span class="subject_label large">수학</span>
+								<ul>
+									<li>2학년</li>
+									<li>내신집중</li>
+								</ul>
+								<button type="button">학습하기</button>
+								<div class="subject_stamp"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+@@include("include/ms-foot_nav.html", { class : "taller" })
+
+			</main>
+
+<!-- aside -->
+@@include("include/ms-aside02.html")
+<!-- end of aside -->
+
+		</section>
+	</div>
+
+	<script type="text/javascript">
+
+	$(".scroll_area_horizontal").scrollBox(".ms-arrow_l_nor", ".ms-arrow_r_nor");
+
+	</script>
+</body>
+
+</html>
