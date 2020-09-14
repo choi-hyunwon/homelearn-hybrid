@@ -342,11 +342,29 @@ data.mid_main = {
 			'page': '01_메인_B2B_나의강의실_수강항목이 없는 경우'
 		},
 		{
-			'stateClass': 'working',
+			'stateClass': 'complete',
 			'url': 'ms-main_b2c_pop_config',
 			'category': '01_내앱서랍_중등',
 			'page': '01_메인_B2C-학습관_popup_설정'
-		}
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_b2c_pop_study_room_parent_before',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_B2C-학습관_popup_학부모인증_입력전'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_b2c_pop_study_room_parent_after',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_B2C-학습관_popup_학부모인증_입력후'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_common_pop_expired_period',
+			'category': '01_내앱서랍_중등',
+			'page': '01_메인_공통_이용기간만료팝업'
+		},
 	]
 }
 

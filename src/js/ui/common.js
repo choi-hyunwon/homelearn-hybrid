@@ -75,13 +75,11 @@ $(function(){
 	$("body").on("click", ".view_type_select > div", function(){
 		$(this).addClass("on").siblings().removeClass("on");
 	});
-
-	$(".customRange").customSlider();
 });
 
 
 // 커스텀 레인지 슬라이더
-$.fn.customSlider = function() {
+$.fn.customSlider = function(callback) {
 	$(this).each(function(){
 		var $slider = $(this);	
 		var rand_id = "sd_" + String(Math.random()).substr(2, 8);
@@ -99,7 +97,8 @@ $.fn.customSlider = function() {
 		};
 
 		custom_sliders.sliders.push({
-			id: rand_id
+			id: rand_id,
+			callback: callback
 		});
 
 		$(this).prepend("<div><div></div></div><div class=\"handle\" />");
@@ -130,7 +129,18 @@ $.fn.customSlider = function() {
 	});
 
 	var bodyMouseMove = function(e){
+		if (!window.custom_sliders) return;
 		var active_id = window.custom_sliders.active_slider_id;
+		var callback = (function(){
+			var sliders = window.custom_sliders.sliders;
+			for(var i = 0; i < sliders.length; i++) {
+				if (sliders[i].id == active_id) {
+					return sliders[i].callback;
+				}
+				return null;
+			}
+		})();
+		
 		if (!active_id) return;
 		var $slider = $("[data-slider-id='" + window.custom_sliders.active_slider_id + "']");
 		// if (e.originalEvent.movementX && e.originalEvent.movementX > 0) $slider.removeClass("transit");
@@ -162,12 +172,13 @@ $.fn.customSlider = function() {
 		min = parseFloat($slider.attr("data-min"));
 		max = parseFloat($slider.attr("data-max"));
 		var value = Math.round(left * (max - min) / max_length + min);
-		console.log(value);
+		// console.log(value);
 		$slider.children("input").val(value);
+		if (callback) callback(value);
 	};
 	
 	var bodyMouseUp = function(e){
-		if (window.custom_sliders.active_slider_id) {
+		if (window.custom_sliders && window.custom_sliders.active_slider_id) {
 			var $slider = $("[data-slider-id='" + window.custom_sliders.active_slider_id + "']");
 			$slider.addClass("transit");
 			if (!$slider.lenth) {

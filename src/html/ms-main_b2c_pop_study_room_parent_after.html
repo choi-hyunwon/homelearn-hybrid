@@ -322,51 +322,19 @@
 	</div>
 
 	<div id="layers">
-		<div class="layer config_layer">
+		<div class="layer id_layer">
 			<section class="header">
-				설정
+				학부모 단말기 사용 인증
 			</section>
 			<section class="content">
-				<!-- <input type="range" min="0" max="100" /> -->
-				<div class="flex margin-bottom_25 align-items_center">
-					<i class="ms-brightness"></i>
-					<label>화면밝기</label>
-					<span class="customRange" data-min="0" data-max="100" data-value="50">
-						<input type="hidden" />
-					</span>
-				</div>
-				<div class="align-self_end margin-bottom_25"><label><input type="checkbox" />자동밝기</label></div>
-				<div class="config_items">
-					<div>
-						<i class="ms-i-config-wifi"></i>
-						<span>Wi-Fi 설정</span>
-					</div>
-					<div>
-						<i class="ms-i-config-remote"></i>
-						<span>원격제어</span>
-					</div>
-					<div>
-						<i class="ms-i-config-config"></i>
-						<span>블루라이트 필터</span>
-					</div>
-					<div>
-						<i class="ms-i-config-camera"></i>
-						<span>카메라</span>
-					</div>
-					<div>
-						<i class="ms-i-config-gallery"></i>
-						<span>갤러리</span>
-					</div>
-					<div>
-						<i class="ms-i-config-shield"></i>
-						<span>학부모 인증</span>
-					</div>					
-					<div class="wide_one">
-						<i class="ms-i-scream"></i>
-						<span>초등 홈런 바로가기</span>
-					</div>
-				</div>
-				<div class="button_box margin-top_30">
+				<p class="main_content">학부모님의 회원정보를 입력해주세요.</p>
+				<ul class="layer_inner">
+					<li><input class="done" type="text" placeholder="학부모 아이디" value="gkdmsrud" /></li>
+					<li class="margin-top_40"><input class="done" type="password" placeholder="비밀번호" value="123456" /></li>
+					<li class="sub_content margin-top_20">학부모님의 회원정보는 홈페이지에서 확인하시거나 고객센터로 문의 바랍니다.<br />
+						www.home-learn.co.kr   1544-0910</li>
+					</ul>
+				<div class="button_box margin-top_50">
 					<button type="button" class="ms-btn">취소</button>
 					<button type="button" class="ok ms-btn">확인</button>
 				</div>
@@ -375,11 +343,6 @@
 	</div>
 
 	<script type="text/javascript">
-	var callback = function(value){
-		console.log(value);
-	}
-	// $(".customRange").customSlider(callback); // callback 함수 호출 시
-	$(".customRange").customSlider();
 
 	</script>
 </body>
