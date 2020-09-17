@@ -31,19 +31,6 @@
 		
 	</div>
 	</div>
-	<script type="text/javascript">
-	$(".customSelect2").click(function(){
-		if ($(this).hasClass("disabled")) return;
-		$(this).toggleClass("down");
-	});
-
-	$(".customSelect2 li").click(function(){
-		var value = $(this).attr("data-value");
-		var text = $(this).text();
-		$(this).parent("ul").prev("span").text(text);
-		console.log(value);
-	});
-	</script>
 </body>
 
 </html>

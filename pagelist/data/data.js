@@ -297,73 +297,91 @@ data.myDrawer = {
 }
 
 data.mid_main = {
-	'title': "01_내앱서랍_중등",
+	'title': "01_메인",
 	'list': [
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_b2c_all_in_one',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_B2C 올인원'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_study_college',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_학습관단과'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_no_study_today',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_오늘의학습없는경우'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_b2b_study_today',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_B2B_오늘의학습'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_b2b_my_class_room',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_B2B_나의강의실'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_b2b_study_today_no_study',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_B2B_오늘의학습_학습이없는경우'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_b2b_my_class_room_no_item',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_B2B_나의강의실_수강항목이 없는 경우'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_b2c_pop_config',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_B2C-학습관_popup_설정'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_b2c_pop_study_room_parent_before',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_B2C-학습관_popup_학부모인증_입력전'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_b2c_pop_study_room_parent_after',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_B2C-학습관_popup_학부모인증_입력후'
 		},
 		{
 			'stateClass': 'complete',
 			'url': 'ms-main_common_pop_expired_period',
-			'category': '01_내앱서랍_중등',
+			'category': '01_메인',
 			'page': '01_메인_공통_이용기간만료팝업'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_all_menu',
+			'category': '01_메인',
+			'page': '01_전체메뉴'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_all_menu_down',
+			'category': '01_메인',
+			'page': '01_전체메뉴_B2B'
+		},
+		{
+			'stateClass': 'complete',
+			'url': 'ms-main_all_menu_one',
+			'category': '01_메인',
+			'page': '01_전체메뉴_한과목'
 		},
 	]
 }

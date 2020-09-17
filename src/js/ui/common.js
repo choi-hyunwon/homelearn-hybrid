@@ -1,15 +1,34 @@
 $(function(){
-
-	$(".studentList_find_by_teacher.mCustomScroll").mCustomScrollbar({
+	
+	// 링크용 함수
+	// ex)   <div data-href="http://google.com">
+	// ex)   <div data-href="todayStudy.htm">
+	// ex)   <div data-href="todayStudy.htm, window_name"> // 새창
+	// ex)   <div data-href="todayStudy.htm, _blank"> // 새창
+	$("body").on("click", "[data-href]", function(){
+		var href = $(this).attr("data-href");
+		if (!href) return;
+		href = href.split(",").map(function(item){ return item.trim();});
+		if (href.length > 1) {
+			window.open(href[0], href[1]);
+		} else {
+			location.href = href[0];
+		}
+	});
+	
+	//커스텀 스크롤 outside 에 적용
+	$(".mCustomScroll.outside").mCustomScrollbar({
 		theme: "dark",
 		scrollbarPosition: "outside"
 	});
 	
+	//커스텀 스크롤 적용
 	$(".mCustomScroll").mCustomScrollbar({
 		theme: "dark"
 	});
 	
-	$(".closeBox").click(function(){
+	// 레이어 닫기 버튼
+	$("body").on("click", ".closeBox", function(){
 		if ($(this).parents("#layers").length) {
 			$("#layers").fadeOut(function(){
 				$(this).remove();
@@ -17,7 +36,7 @@ $(function(){
 		}
 	});
 
-	
+	// .bannerSection 있을 경우에만 배너 롤링
 	if ($(".bannerSection").length) {
 		$(".bannerSection > div").scrollEnd(function ($this) {
 			var $dots = $this.siblings(".bannerIndicator");
@@ -32,6 +51,7 @@ $(function(){
 		}, 3000);
 	}
 	
+	// .banner_section 있을 경우에만 배너 롤링(중등)
 	if ($(".banner_section").length) {
 		$(".banner_section > div").scrollEnd(function ($this) {
 			var $dots = $this.siblings(".banner_dots");
@@ -46,23 +66,14 @@ $(function(){
 		}, 3000);
 	}
 
-	$("body").on("click", "[data-href]", function(){
-		var href = $(this).attr("data-href");
-		if (!href) return;
-		href = href.split(",").map(function(item){ return item.trim();});
-		if (href.length > 1) {
-			window.open(href[0], href[1]);
-		} else {
-			location.href = href[0];
-		}
-	});
-
-	$("body").on("click", ".customSelect", function(){
+	// 커스텀 셀렉트용 바인딩 customSelect, customSelect2, custom_select(중등)
+	$("body").on("click", ".customSelect, .customSelect2, .custom_select", function(e){
 		if ($(this).hasClass("disabled")) return;
+		e.stopPropagation();
 		$(this).toggleClass("down");
 	});
-
-	$("body").on("click", ".customSelect li", function(){
+	
+	$("body").on("click", ".customSelect li, .customSelect2 li, .custom_select li", function(e){
 		var $input = $(this).parent("ul").siblings("input[type='hidden']");
 		var value = $(this).attr("data-value");
 		$input.val(value);
@@ -74,6 +85,10 @@ $(function(){
 
 	$("body").on("click", ".view_type_select > div", function(){
 		$(this).addClass("on").siblings().removeClass("on");
+	});
+
+	$("body").on("click", function(){
+		$(".customSelect, .customSelect2, .custom_select").removeClass("down");
 	});
 });
 
@@ -143,7 +158,6 @@ $.fn.customSlider = function(callback) {
 		
 		if (!active_id) return;
 		var $slider = $("[data-slider-id='" + window.custom_sliders.active_slider_id + "']");
-		// if (e.originalEvent.movementX && e.originalEvent.movementX > 0) $slider.removeClass("transit");
 		var $bar = $slider.children("div").first().children().first();
 		var $handle = $slider.children(".handle");
 		var max_length = parseFloat($slider.width());
@@ -193,6 +207,7 @@ $.fn.customSlider = function(callback) {
 	$("body").off("mouseup", bodyMouseUp).on("mouseup", bodyMouseUp);
 }
 
+// 배너 이전 슬라이드
 $.fn.prevSlide = function(){
 	var w = $(this).children().first().outerWidth(true);
 	var $scrollBox = $(this);
@@ -209,6 +224,7 @@ $.fn.prevSlide = function(){
 	});
 };
 
+// 배너 다음 슬라이드
 $.fn.nextSlide = function(){
 	var w = $(this).children().first().outerWidth(true);
 	var $scrollBox = $(this);
@@ -254,6 +270,7 @@ for(var i = 0; i < imgArray.length; i++) {
 	img.src = imgArray[i];
 }
 
+// 배너 외 좌우 스크롤 박스 들
 $.fn.scrollBox = function (prev, next) {
 	var $scrollBox = $(this);
 	var $prev = $(prev);
