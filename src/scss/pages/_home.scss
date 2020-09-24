@@ -35,11 +35,11 @@
 	--totalLightColor  : #f7ccee;
 
 	--specialColor     : #f3975a;
-} 
+}
 
 @font-face {
 	font-family: 'Jalnan';
-	src: 
+	src:
 	url("../fonts/yg-jalnan.otf") format("embedded-opentype"),
 	url('../fonts/yg-jalnan.woff2') format('woff2'),
 	url('../fonts/yg-jalnan.woff') format('woff'),
@@ -63,7 +63,7 @@ ul { list-style-type: none; margin:0; padding: 0; }
 figure, label { margin: 0; }
 a { font-size: inherit; color: inherit; }
 
-.wrap { width: 1280px; display: flex;  padding: 25px 25px 35px 35px; position: relative; }
+.wrap { width: 1280px; display: flex;  padding: 25px 25px 35px 35px; position: relative; margin: 0 auto;}
 .wrap.type02 { padding: 19px 10px 19px 30px; }
 
 button:focus, input:focus { outline: none; }
@@ -186,8 +186,8 @@ main { flex-basis: 925px; flex-grow: 1; }
 .teacherUnderline { border-bottom: 1px solid #b2b2b2; line-height: 1.7; }
 .memoIcon { display: inline-block; width: 11.5px; height: 15px; background: url("../img/common/icon_memo.png") no-repeat; background-size: 11.5px 15px; }
 .memoIcon + .teacherUnderline { margin-left: 7.5px; }
-.element > label:first-child { margin-right: 11.5px; font-family: JUA; width: 85px; text-align: center; margin-bottom: 0; font-weight: normal; } 
-.element > label.blue { background-color: #1f70a4; } 
+.element > label:first-child { margin-right: 11.5px; font-family: JUA; width: 85px; text-align: center; margin-bottom: 0; font-weight: normal; }
+.element > label.blue { background-color: #1f70a4; }
 .element.headLabel { padding-left: 0; justify-content: flex-start;  font-size: 17.5px; font-weight: bold; background-image: linear-gradient(to right, #1f70a4 85px, white 85px) }
 .element.headLabel.darkOrange { background-image: linear-gradient(to right, #ce6143 85px, white 85px); }
 
@@ -577,7 +577,7 @@ nav.bottomNav.big .verticalLine { width: 2px; flex: 0 0 auto !important; height:
 .b2b_btn.no { background-color: #aeaeae; }
 .b2b_btn.goMarket { background-image: url("../img/common/img_go_market.png"); background-repeat: no-repeat; background-position: 22px center; background-size: 20px; padding-left: 52px; }
 
-.loginWrap { width: 1280px; position: relative; height: 752px; display: flex; }
+.loginWrap { width: 1280px; position: relative; height: 752px; display: flex; margin: 0 auto;}
 .loginWrap .bgArea { background: url("../img/common/b2b_login_bg.png") no-repeat center; background-size: 350px; }
 .loginWrap .loginArea { display: flex; align-items: center; justify-content: center; }
 .loginWrap > * { flex-grow: 1; flex-shrink: 1; flex-basis: 0; }
@@ -796,7 +796,7 @@ i.book { width: 44px; height: 32px; background-image: url("../img/common/allmenu
 .alertBox.calendar .header .prev, .alertBox .header .next { display: inline-block; width: 20px; height: 31px; background-repeat: no-repeat; background-position: center; background-size: 20px 31px; }
 .alertBox.calendar table { margin: auto; }
 .alertBox.calendar table:first-child { margin-bottom: 11px; border-bottom: 1px solid #bdbcbc; }
-.alertBox.calendar tbody tr:first-child td { padding-top: 11px; } 
+.alertBox.calendar tbody tr:first-child td { padding-top: 11px; }
 .alertBox.calendar th,
 .alertBox.calendar td { vertical-align: middle; text-align:center; width: 60px; height: 46px; font-size: 25px; font-weight: 700; position: relative; }
 .alertBox.calendar td.on { color: white; }
@@ -818,12 +818,12 @@ i.book { width: 44px; height: 32px; background-image: url("../img/common/allmenu
 .alertBox .subTitle { font-size: 19.8px; line-height: 30px; letter-spacing: -0.99px; text-align: center; font-weight: 400; }
 .alertBox .studentList_find { height: 185px; width: 460px; align-items: center; }
 .alertBox .studentList_find li { width: 360px; }
-.studentList_find li { display: flex; align-items: center; justify-content: flex-start; padding-left: 14px; text-align: left; font-size: 18px; letter-spacing: -0.9px; height: 45px; border-radius: 5px; margin-top: 15px; border: 1.5px solid #d6d6d6; font-weight: 400; color: black; background-color: white; } 
-.studentList_find li.on { padding-left: 13px; background: url("../img/common/img_login_check.png") no-repeat white; background-position: 95% center; background-position: right 14px center; background-size: 21px; border-width: 2.5px; border-color: #13aeca; } 
-.studentList_find li:first-child { margin-top: 0; } 
-.studentList_find .mCSB_container { display: flex; flex-direction: column; align-items: center; } 
+.studentList_find li { display: flex; align-items: center; justify-content: flex-start; padding-left: 14px; text-align: left; font-size: 18px; letter-spacing: -0.9px; height: 45px; border-radius: 5px; margin-top: 15px; border: 1.5px solid #d6d6d6; font-weight: 400; color: black; background-color: white; }
+.studentList_find li.on { padding-left: 13px; background: url("../img/common/img_login_check.png") no-repeat white; background-position: 95% center; background-position: right 14px center; background-size: 21px; border-width: 2.5px; border-color: #13aeca; }
+.studentList_find li:first-child { margin-top: 0; }
+.studentList_find .mCSB_container { display: flex; flex-direction: column; align-items: center; }
 
-.entireWrap { display: flex; flex-direction: column; height: 752px; width: 1280px; overflow: hidden; position: relative; }
+.entireWrap { display: flex; flex-direction: column; height: 752px; width: 1280px; overflow: hidden; position: relative; margin: 0 auto;}
 .entireWrap.withoutMenubar { height: 702px; }
 .entireWrap.grayBg { background-color: #eeeeee; }
 .entireWrap.lightBlueBg { background-color: #e2eeee; }
@@ -876,7 +876,7 @@ i.book { width: 44px; height: 32px; background-image: url("../img/common/allmenu
 .calendartWrap { padding: 21px 35px; height: 682px; }
 .calendarBlueBox { width: 1212px; padding: 0 21px 20px; height: 640px; }
 .calendarHeader { align-items: center;  height: 66px; display: flex; justify-content: space-between; padding: 0 29px; }
-.calendarHeader .prev, .calendarHeader .next { background-repeat: no-repeat; background-position: center; background-size: 45px; width: 45px; height: 45px; } 
+.calendarHeader .prev, .calendarHeader .next { background-repeat: no-repeat; background-position: center; background-size: 45px; width: 45px; height: 45px; }
 .calendarHeader .prev { background-image: url("../img/common/btn_calendar_back_nor.png"); }
 .calendarHeader .next { background-image: url("../img/common/btn_calendar_next_nor.png"); }
 .calendarHeader .prev.dim { background-image: url("../img/common/btn_calendar_back_dim.png"); }
@@ -992,11 +992,11 @@ i.book { width: 44px; height: 32px; background-image: url("../img/common/allmenu
 .i-10 { background-image: url("../img/common/main_icon_my_app.png"); }
 .i-11 { background-image: url("../img/common/main_icon_my_market.png"); }
 
-.blueRoundNavBar { font-size: 21px; color: white; letter-spacing: -1.89px; position: absolute; top: -27px;  width: 742px; margin: auto; right: 52px; }   
-.blueRoundNavBar .surface { padding: 0 42.5px 0 87.5px; justify-content: space-between;  position: relative; display: flex; align-items: center; width: 100%; height: 58px; border-radius: 28px; border: 1px solid rgb(33, 194, 247); background-image: linear-gradient( rgb(58,208,255), rgb(3,169,240)); }  
-.blueRoundNavBar .surface .on { box-shadow: 1.805px 2.396px 5px 0px rgba(0, 0, 0, 0.19); display: flex; align-items: center; justify-content: center; color: #414141; font-weight: 700; font-size: 19px; height: 36.5px; background-color: white; border-radius: 18.2px; padding: 0 18.5px 0 16.5px;  }  
-.blueRoundNavBar .surface .on span { margin-left: 10px; font-size: 19px; }  
-.blueRoundNavBar .thick { box-shadow: 1.805px 2.396px 4px 0px rgba(90, 90, 90, 0.25); position: absolute; top: 5px; left: 0; background-color: #0395f6; width: 100%; height: 57px; border-radius: 28px; border: 1px solid #007fd4; }  
+.blueRoundNavBar { font-size: 21px; color: white; letter-spacing: -1.89px; position: absolute; top: -27px;  width: 742px; margin: auto; right: 52px; }
+.blueRoundNavBar .surface { padding: 0 42.5px 0 87.5px; justify-content: space-between;  position: relative; display: flex; align-items: center; width: 100%; height: 58px; border-radius: 28px; border: 1px solid rgb(33, 194, 247); background-image: linear-gradient( rgb(58,208,255), rgb(3,169,240)); }
+.blueRoundNavBar .surface .on { box-shadow: 1.805px 2.396px 5px 0px rgba(0, 0, 0, 0.19); display: flex; align-items: center; justify-content: center; color: #414141; font-weight: 700; font-size: 19px; height: 36.5px; background-color: white; border-radius: 18.2px; padding: 0 18.5px 0 16.5px;  }
+.blueRoundNavBar .surface .on span { margin-left: 10px; font-size: 19px; }
+.blueRoundNavBar .thick { box-shadow: 1.805px 2.396px 4px 0px rgba(90, 90, 90, 0.25); position: absolute; top: 5px; left: 0; background-color: #0395f6; width: 100%; height: 57px; border-radius: 28px; border: 1px solid #007fd4; }
 .blueRoundNavBar .main_little_week_logo { position: absolute; top: -13px; left: -80px; background: url("../img/common/main_little_week_logo.png") no-repeat center; background-size:contain; width: 154px; height: 81px;  }
 .blueRoundNavBar .calendarIcon { background: url("../img/common/main_little_btn_calendar.png") no-repeat center; width: 42px; height: 42px; background-size: 45.5px 48px;  }
 .blueRoundNavBar .prevBtn { background: url("../img/common/main_little_page_arrow_r.png") no-repeat center; width: 22px; height: 42px; background-size: 42px 42px;  }
@@ -1219,22 +1219,22 @@ i.ms-gt:active { background-color: rgba(0, 0, 0, 0.3); border-radius: 5px; }
 :root {
 	--ms-koreanColor : #2cb8f9;
 	--ms-koreanLightColor : #d7f0ff;
-	
+
 	--ms-englishColor : #a164f7;
 	--ms-englishLightColor : #e2cbfa;
-	
+
 	--ms-mathColor : #fb766c;
 	--ms-mathLightColor : #ffd2c9;
-	
+
 	--ms-societyColor : ##5bc261;
 	--ms-societyLightColor : #a7f5c1;
-	
+
 	--ms-scienceColor : #ffb848;
 	--ms-scienceLightColor : #ffe49a;
-	
+
 	--ms-historyColor : #c98862;
 	--ms-historyLightColor : #f8d1b1;
-	
+
 	--ms-specialColor : #5997bf;
 	--ms-specialLightColor : #c4dff0;
 }
